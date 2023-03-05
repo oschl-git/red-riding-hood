@@ -1,0 +1,74 @@
+[gd_scene load_steps=14 format=3 uid="uid://c0j1ysoiyxw8d"]
+
+[ext_resource type="PackedScene" uid="uid://bf2m1pftf5jxj" path="res://Entities/player.tscn" id="1_gep06"]
+[ext_resource type="Texture2D" uid="uid://bneupdsg5xw2b" path="res://Textures/sky.png" id="1_i7k0u"]
+[ext_resource type="Texture2D" uid="uid://dub581gropl07" path="res://Textures/ground.png" id="2_1q6yo"]
+[ext_resource type="Texture2D" uid="uid://chnhxy1u6fh5n" path="res://Textures/ground_normal_map.png" id="3_0pnbo"]
+[ext_resource type="MeshLibrary" uid="uid://c8jrkk4vwye81" path="res://Objects/tree_mesh.tres" id="4_ubfj2"]
+[ext_resource type="MeshLibrary" uid="uid://daeug42mptpsb" path="res://Objects/foliage_mesh.tres" id="5_8kchm"]
+[ext_resource type="PackedScene" uid="uid://cjqokns8aphdi" path="res://Objects/campfire.tscn" id="6_kttwf"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_o7m8q"]
+panorama = ExtResource("1_i7k0u")
+
+[sub_resource type="Sky" id="Sky_0k00l"]
+sky_material = SubResource("PanoramaSkyMaterial_o7m8q")
+
+[sub_resource type="Environment" id="Environment_8fem0"]
+background_mode = 2
+sky = SubResource("Sky_0k00l")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.121569, 0.133333, 0.156863, 1)
+fog_density = 0.04
+fog_sky_affect = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6jq4"]
+albedo_texture = ExtResource("2_1q6yo")
+metallic_specular = 0.0
+normal_enabled = true
+normal_texture = ExtResource("3_0pnbo")
+uv1_scale = Vector3(50, 50, 50)
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5ugu1"]
+material = SubResource("StandardMaterial3D_k6jq4")
+size = Vector2(250, 250)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5isb8"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
+[node name="GameWorld" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8fem0")
+
+[node name="Player" parent="." instance=ExtResource("1_gep06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_5ugu1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_5isb8")
+
+[node name="Trees" type="GridMap" parent="."]
+mesh_library = ExtResource("4_ubfj2")
+cell_size = Vector3(1, 2, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65529, 65530, 0, 4, 65528, 0, 9, 0, 0, 65530, 3, 0, 5, 8, 0, 65529, 17, 0, 65513, 7, 0, 65521, 0, 0, 65515, 65528, 0, 65527, 65520, 0, 6, 65520, 0, 15, 65529, 0, 19, 7, 0, 8, 18, 0, 26, 65528, 0, 17, 65518, 0, 8, 65511, 0, 65534, 65513, 0, 65515, 65511, 0, 65505, 65519, 0, 65499, 65533, 0, 65501, 12, 0, 65510, 24, 0, 65521, 30, 0, 8, 33, 0, 22, 25, 0, 33, 12, 0, 36, 1, 0, 37, 65525, 0, 31, 65514, 0, 24, 65506, 0, 11, 65502, 0, 65533, 65501, 0, 65522, 65504, 0, 65493, 65513, 0, 65500, 65502, 0, 65512, 65496, 0, 65525, 65490, 0, 65526, 65490, 0, 65535, 65490, 0, 15, 65491, 0, 22, 65494, 0, 32, 65500, 0, 39, 65508, 0, 49, 65519, 0, 48, 65535, 0, 45, 14, 0, 40, 26, 0, 28, 36, 0, 16, 42, 0, 65534, 45, 0, 65520, 44, 0, 65506, 37, 0, 65496, 29, 0, 65496, 28, 0, 65490, 15, 0, 65490, 3, 0, 65491, 65525, 0, 65506, 65508, 0, 65516, 65518, 0, 6, 65496, 0, 16, 65510, 0, 19, 16, 0, 34, 20, 0, 65531, 35, 0, 65518, 17, 0)
+}
+
+[node name="Folliage" type="GridMap" parent="."]
+mesh_library = ExtResource("5_8kchm")
+cell_size = Vector3(0.5, 2, 0.5)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(32, 65534, 0, 65532, 13, 0, 65532, 5, 0, 65524, 65533, 0, 65531, 65526, 0, 14, 65529, 0, 24, 7, 0, 17, 23, 0, 65530, 27, 0, 65507, 21, 0, 65499, 65532, 0, 65514, 65518, 0, 65531, 65506, 0, 4, 65499, 0, 59, 65504, 0, 72, 65530, 0, 58, 18, 0, 57, 50, 0, 35, 64, 0, 15, 53, 0, 65513, 56, 0, 65513, 74, 0, 65494, 71, 0, 65478, 59, 0, 65485, 34, 0, 65456, 37, 0, 65453, 16, 0, 65474, 3, 0, 65477, 65521, 0, 65461, 65511, 0, 65467, 65493, 0, 65468, 65493, 0, 65482, 65467, 0, 65507, 65460, 0, 65516, 65481, 0, 13, 65473, 0, 57, 65462, 0, 80, 65456, 0, 91, 65488, 0, 62, 65500, 0, 93, 2, 0, 84, 33, 0, 70, 86, 0, 30, 54, 0, 18, 20, 0, 65523, 16, 0, 65517, 9, 0)
+}
+
+[node name="Campfire" parent="." instance=ExtResource("6_kttwf")]
