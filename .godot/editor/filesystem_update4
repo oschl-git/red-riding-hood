@@ -1,10 +1,5 @@
-res://Objects/bush.tscn
-res://Entities/Player/Player.gd
-res://Objects/pine_tree.tscn
-res://Objects/pine_tree_mesh.tres
-res://Objects/bush_mesh.tres
 res://Scenes/game_world.tscn
+res://Entities/Player/Player.gd
 res://Objects/tree_mesh.tres
 res://Objects/foliage_mesh.tres
-res://Objects/campfire.tscn
-res://Singletons/BackgroundTasks.gd
+res://Entities/player.tscn
