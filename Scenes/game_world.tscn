@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0j1ysoiyxw8d"]
+[gd_scene load_steps=15 format=3 uid="uid://d2m6hdex6sjbf"]
 
-[ext_resource type="PackedScene" uid="uid://bf2m1pftf5jxj" path="res://Entities/player.tscn" id="1_gep06"]
+[ext_resource type="PackedScene" uid="uid://bf2m1pftf5jxj" path="res://Entities/Player/player.tscn" id="1_gep06"]
 [ext_resource type="Texture2D" uid="uid://bneupdsg5xw2b" path="res://Textures/sky.png" id="1_i7k0u"]
 [ext_resource type="Texture2D" uid="uid://dub581gropl07" path="res://Textures/ground.png" id="2_1q6yo"]
 [ext_resource type="Texture2D" uid="uid://chnhxy1u6fh5n" path="res://Textures/ground_normal_map.png" id="3_0pnbo"]
 [ext_resource type="MeshLibrary" uid="uid://c8jrkk4vwye81" path="res://Objects/tree_mesh.tres" id="4_ubfj2"]
 [ext_resource type="MeshLibrary" uid="uid://daeug42mptpsb" path="res://Objects/foliage_mesh.tres" id="5_8kchm"]
 [ext_resource type="PackedScene" uid="uid://cjqokns8aphdi" path="res://Objects/campfire.tscn" id="6_kttwf"]
+[ext_resource type="PackedScene" uid="uid://27wh1q0ple00" path="res://Entities/Wolf/wolf.tscn" id="8_xgy68"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_o7m8q"]
 panorama = ExtResource("1_i7k0u")
@@ -18,12 +19,13 @@ sky_material = SubResource("PanoramaSkyMaterial_o7m8q")
 background_mode = 2
 sky = SubResource("Sky_0k00l")
 tonemap_mode = 2
+ssao_enabled = true
 glow_enabled = true
-fog_light_color = Color(0.0784314, 0.0901961, 0.105882, 1)
-fog_density = 0.04
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
 fog_sky_affect = 0.7
 volumetric_fog_enabled = true
-volumetric_fog_emission = Color(0.0588235, 0.0588235, 0.0588235, 1)
+volumetric_fog_sky_affect = 0.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6jq4"]
 albedo_texture = ExtResource("2_1q6yo")
@@ -73,3 +75,6 @@ data = {
 }
 
 [node name="Campfire" parent="." instance=ExtResource("6_kttwf")]
+
+[node name="Wolf" parent="." instance=ExtResource("8_xgy68")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1601, 1.19209e-07, -34.672)
