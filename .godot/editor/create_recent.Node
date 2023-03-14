@@ -1,9 +1,11 @@
+NavigationAgent3D
+MeshInstance3D
+NavigationRegion3D
 SpotLight3D
 OmniLight3D
 GridMap
 CollisionShape3D
 StaticBody3D
-MeshInstance3D
 GPUParticles3D
 DirectionalLight3D
 Camera3D

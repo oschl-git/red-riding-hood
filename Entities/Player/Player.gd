@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 @export var walk_speed : float = 2.5
 @export var run_speed : float = 4
@@ -12,7 +13,23 @@ var gravity : float = ProjectSettings.get_setting('physics/3d/default_gravity')
 var velocity_y : float = 0
 
 
+func _ready() -> void:
+	Global.player = self
+
+
 func _physics_process(delta: float) -> void:
+	player_movement(delta)
+
+
+func _input(event: InputEvent) -> void:
+	camera_movement(event)
+
+	if event.is_action_pressed('toggle_flashlight'):
+		flashlight.visible = not flashlight.visible
+
+
+# Handles physical player movement.
+func player_movement(delta : float):
 	var horizontal_velocity : Vector2 = (
 		Input.get_vector(
 			'move_left', 'move_right', 'move_forward', 'move_backward'
@@ -29,21 +46,16 @@ func _physics_process(delta: float) -> void:
 		horizontal_velocity.y * global_transform.basis.z
 	)
 
-	if is_on_floor():
-		velocity_y = 0
-	else:
-		velocity_y -= gravity * delta
-
+	velocity_y = velocity_y - gravity * delta if not is_on_floor() else float(0)
 	velocity.y = velocity_y
+
 	move_and_slide()
 
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+# Handles camera movement.
+func camera_movement(event : InputEvent):
+	if event is InputEventMouseMotion: 
 		rotate_y(- event.relative.x * look_sensitivity)
 		camera.rotate_x(- event.relative.y * look_sensitivity)
-
-	if event.is_action_pressed('toggle_flashlight'):
-		flashlight.visible = not flashlight.visible
 	
 	camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
