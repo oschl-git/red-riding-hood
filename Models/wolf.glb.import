@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bmuwod7hcagtk"
+uid="uid://bwomnhdbvd42h"
 path="res://.godot/imported/wolf.glb-da6dbf37092bc54a9483986f1fd1268e.scn"
 
 [deps]
@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/wolf.glb-da6dbf37092bc54a9483986f1fd1268e.scn
 nodes/root_type="CharacterBody3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
-nodes/root_scale=3.5
+nodes/root_scale=3.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true

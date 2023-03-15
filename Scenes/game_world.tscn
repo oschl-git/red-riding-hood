@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2m6hdex6sjbf"]
+[gd_scene load_steps=16 format=3 uid="uid://lqv3euoyuewm"]
 
 [ext_resource type="PackedScene" uid="uid://bf2m1pftf5jxj" path="res://Entities/Player/player.tscn" id="1_gep06"]
 [ext_resource type="Texture2D" uid="uid://bneupdsg5xw2b" path="res://Textures/sky.png" id="1_i7k0u"]
@@ -7,7 +7,7 @@
 [ext_resource type="MeshLibrary" uid="uid://c8jrkk4vwye81" path="res://Objects/tree_mesh.tres" id="4_ubfj2"]
 [ext_resource type="MeshLibrary" uid="uid://daeug42mptpsb" path="res://Objects/foliage_mesh.tres" id="5_8kchm"]
 [ext_resource type="PackedScene" uid="uid://cjqokns8aphdi" path="res://Objects/campfire.tscn" id="6_kttwf"]
-[ext_resource type="PackedScene" uid="uid://27wh1q0ple00" path="res://Entities/Wolf/wolf.tscn" id="8_xgy68"]
+[ext_resource type="PackedScene" uid="uid://d4dpe1qoksphl" path="res://Entities/Wolf/wolf.tscn" id="8_hpugj"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_o7m8q"]
 panorama = ExtResource("1_i7k0u")
@@ -73,9 +73,6 @@ data = {
 
 [node name="Campfire" parent="." instance=ExtResource("6_kttwf")]
 
-[node name="Wolf" parent="." instance=ExtResource("8_xgy68")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98304, 0, -14.6745)
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_wwae2")
 
@@ -87,3 +84,6 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_5isb8")
+
+[node name="wolf" parent="." instance=ExtResource("8_hpugj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23619, 0, -1.20697)

@@ -5,11 +5,11 @@ extends CharacterBody3D
 @onready var nav_agent : NavigationAgent3D = $NavigationAgent3D
 
 func _ready() -> void:
-	$AnimationPlayer.play('Wolf_Run_Cycle_')
+	$AnimationPlayer.play('Wolf_Idle_')
 
 
 func _physics_process(_delta: float) -> void:
-	look_at(Global.player.global_position, Vector3.UP)
+	#look_at(Global.player.global_position, Vector3.UP)
 
 	update_target_location(Global.player.global_position)
 
@@ -18,7 +18,7 @@ func _physics_process(_delta: float) -> void:
 	var new_velocity : Vector3 = (next_location - current_location).normalized() * speed
 
 	velocity = new_velocity
-	move_and_slide()
+	#move_and_slide()
 
 
 func update_target_location(target_location : Vector3) -> void:

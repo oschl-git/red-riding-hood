@@ -1,7 +1,7 @@
-res://Scenes/game_world.tscn
+res://Entities/Wolf/Wolf.gd
+res://Entities/Player/player.tscn
 res://Objects/tree_mesh.tres
 res://Objects/foliage_mesh.tres
-res://Entities/Wolf/wolf.tscn
-res://Entities/Player/player.tscn
-res://Entities/Wolf/Wolf.gd
 res://Objects/campfire.tscn
+res://Entities/Wolf/wolf.tscn
+res://Scenes/game_world.tscn
