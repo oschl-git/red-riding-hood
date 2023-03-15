@@ -1,0 +1,286 @@
+[gd_scene load_steps=16 format=3 uid="uid://04160jmxo70r"]
+
+[ext_resource type="Script" path="res://UI/QuickMenu/QuickMenu.gd" id="1_57wx3"]
+[ext_resource type="Texture2D" uid="uid://duhctvng8mnwp" path="res://UI/QuickMenu/Textures/base.png" id="1_yydao"]
+[ext_resource type="Texture2D" uid="uid://dde6t54eqjdba" path="res://UI/QuickMenu/Textures/flashlight_unavailable.png" id="2_8ispb"]
+[ext_resource type="Script" path="res://UI/QuickMenu/QuickMenuItem.gd" id="2_vlad8"]
+[ext_resource type="Texture2D" uid="uid://bptm2aj7oo1ud" path="res://UI/QuickMenu/Textures/torch_unavailable.png" id="3_8ss4w"]
+[ext_resource type="Texture2D" uid="uid://bd2napa6y5gds" path="res://UI/QuickMenu/Textures/flashlight_available.png" id="4_l2dmx"]
+[ext_resource type="Texture2D" uid="uid://ckddxq5pyd1" path="res://UI/QuickMenu/Textures/torch_available.png" id="7_fencq"]
+[ext_resource type="Texture2D" uid="uid://csp4msxyxndbs" path="res://UI/QuickMenu/Textures/key_unavailable.png" id="7_yqg02"]
+[ext_resource type="Texture2D" uid="uid://cddc7386wlm8t" path="res://UI/QuickMenu/Textures/questionmark.png" id="9_5fx1h"]
+[ext_resource type="Texture2D" uid="uid://cundajn5immgp" path="res://UI/QuickMenu/Textures/key_available.png" id="10_oahec"]
+[ext_resource type="FontFile" uid="uid://cw4xt1w8a678k" path="res://UI/pixy-5x8.ttf" id="12_t0ddb"]
+[ext_resource type="FontFile" uid="uid://3r5i3edjcxtf" path="res://UI/quan.ttf" id="13_d3pjn"]
+[ext_resource type="Texture2D" uid="uid://bjnwm4dulaxh1" path="res://UI/QuickMenu/Textures/available_background.png" id="13_epcrc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_06g6g"]
+font = ExtResource("12_t0ddb")
+font_size = 11
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w3ou5"]
+font = ExtResource("13_d3pjn")
+font_size = 8
+font_color = Color(0.470588, 0.470588, 0.470588, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="QuickMenu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_57wx3")
+
+[node name="Base" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yydao")
+
+[node name="Flashlight" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.228125
+anchor_top = 0.388889
+anchor_right = 0.353125
+anchor_bottom = 0.611111
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_vlad8")
+disabled = false
+disabled_texture = ExtResource("2_8ispb")
+enabled_texture = ExtResource("4_l2dmx")
+disabled_item_name = "The Flashlight"
+disabled_item_description = "difficult to see without one."
+item_name = "The Flashlight"
+item_description = "for dark places, when all other lights go out."
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="Flashlight"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Flashlight"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_8ispb")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorBorder" type="TextureRect" parent="Flashlight"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Torch" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.36875
+anchor_top = 0.388889
+anchor_right = 0.49375
+anchor_bottom = 0.611111
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_vlad8")
+disabled = false
+type = 1
+disabled_texture = ExtResource("3_8ss4w")
+enabled_texture = ExtResource("7_fencq")
+disabled_item_name = "The Torch"
+disabled_item_description = "find one to keep danger at bay."
+item_name = "The Torch"
+item_description = "helps fend off those afraid of the light."
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="Torch"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Torch"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_8ss4w")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorBorder" type="TextureRect" parent="Torch"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Key" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.36875
+anchor_top = 0.388889
+anchor_right = 0.49375
+anchor_bottom = 0.611111
+offset_left = 45.0
+offset_right = 45.0001
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_vlad8")
+disabled = false
+type = 2
+disabled_texture = ExtResource("7_yqg02")
+enabled_texture = ExtResource("10_oahec")
+disabled_item_name = "The Key"
+disabled_item_description = "where is it?"
+item_name = "The Key"
+item_description = "what is it for?"
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="Key"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Key"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("7_yqg02")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorBorder" type="TextureRect" parent="Key"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Rifle" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.36875
+anchor_top = 0.388889
+anchor_right = 0.49375
+anchor_bottom = 0.611111
+offset_left = 90.0
+offset_right = 90.0001
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.01287)
+script = ExtResource("2_vlad8")
+type = 3
+disabled_texture = ExtResource("9_5fx1h")
+enabled_texture = ExtResource("13_epcrc")
+disabled_item_name = "The Secret"
+disabled_item_description = "the alluring secret item."
+item_name = "The Rifle"
+item_description = "kill the bastard."
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="Rifle"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture" type="TextureRect" parent="Rifle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("9_5fx1h")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorBorder" type="TextureRect" parent="Rifle"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemNameLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 45.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Item Name"
+label_settings = SubResource("LabelSettings_06g6g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemDescriptionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 109.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.00563)
+text = "item description."
+label_settings = SubResource("LabelSettings_w3ou5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="Flashlight" to="Flashlight" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Flashlight" to="Flashlight" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Flashlight" to="Flashlight" method="_on_mouse_exited"]
+[connection signal="gui_input" from="Torch" to="Torch" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Torch" to="Torch" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Torch" to="Torch" method="_on_mouse_exited"]
+[connection signal="gui_input" from="Key" to="Key" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Key" to="Key" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Key" to="Key" method="_on_mouse_exited"]
+[connection signal="gui_input" from="Rifle" to="Rifle" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Rifle" to="Rifle" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Rifle" to="Rifle" method="_on_mouse_exited"]

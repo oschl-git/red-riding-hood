@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://lqv3euoyuewm"]
+[gd_scene load_steps=17 format=3 uid="uid://lqv3euoyuewm"]
 
+[ext_resource type="PackedScene" uid="uid://04160jmxo70r" path="res://UI/QuickMenu/quick_menu.tscn" id="1_cy5gg"]
 [ext_resource type="PackedScene" uid="uid://bf2m1pftf5jxj" path="res://Entities/Player/player.tscn" id="1_gep06"]
 [ext_resource type="Texture2D" uid="uid://bneupdsg5xw2b" path="res://Textures/sky.png" id="1_i7k0u"]
 [ext_resource type="Texture2D" uid="uid://dub581gropl07" path="res://Textures/ground.png" id="2_1q6yo"]
@@ -48,6 +49,17 @@ size = Vector2(250, 250)
 data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
 
 [node name="GameWorld" type="Node3D"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuickMenu" parent="UI" instance=ExtResource("1_cy5gg")]
+layout_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8fem0")

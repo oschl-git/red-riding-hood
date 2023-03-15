@@ -5,3 +5,13 @@ res://Objects/foliage_mesh.tres
 res://Objects/campfire.tscn
 res://Entities/Wolf/wolf.tscn
 res://Scenes/game_world.tscn
+res://UI/QuickMenu/quick_menu.tscn
+res://UI/QuickMenu/QuickMenuItem.gd
+res://UI/QuickMenu/Flashlight.gd
+res://UI/QuickMenu/Torch.gd
+res://UI/QuickMenu/Key.gd
+res://UI/QuickMenu/Rifle.gd
+res://UI/QuickMenu/QuickMenu.gd
+res://Singletons/BackgroundTasks.gd
+res://Singletons/GlobalVar.gd
+res://Entities/Player/Player.gd

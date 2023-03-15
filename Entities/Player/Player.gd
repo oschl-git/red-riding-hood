@@ -25,11 +25,17 @@ func _input(event: InputEvent) -> void:
 	camera_movement(event)
 
 	if event.is_action_pressed('toggle_flashlight'):
-		flashlight.visible = not flashlight.visible
+		toggle_flashlight()
+
+
+func toggle_flashlight() -> void:
+	flashlight.visible = not flashlight.visible
 
 
 # Handles physical player movement.
 func player_movement(delta : float):
+	if Global.movement_disabled: return
+
 	var horizontal_velocity : Vector2 = (
 		Input.get_vector(
 			'move_left', 'move_right', 'move_forward', 'move_backward'
@@ -54,6 +60,8 @@ func player_movement(delta : float):
 
 # Handles camera movement.
 func camera_movement(event : InputEvent):
+	if Global.movement_disabled: return
+
 	if event is InputEventMouseMotion: 
 		rotate_y(- event.relative.x * look_sensitivity)
 		camera.rotate_x(- event.relative.y * look_sensitivity)
