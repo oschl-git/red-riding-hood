@@ -6,14 +6,19 @@ class_name Player
 
 # References to other nodes:
 @onready var camera : Camera3D = $Camera3D
-@onready var flashlight : SpotLight3D = $Camera3D/Flashlight
+@onready var flashlight_animation_player : AnimationPlayer = (
+	$Camera3D/FlashlightModel/AnimationPlayer)
 
 var look_sensitivity : float = ProjectSettings.get_setting('player/look_sensitivity')
 var gravity : float = ProjectSettings.get_setting('physics/3d/default_gravity')
 var velocity_y : float = 0
 
+var flashlight_active := true
+
 
 func _ready() -> void:
+	toggle_flashlight()
+
 	Global.player = self
 
 
@@ -29,7 +34,12 @@ func _input(event: InputEvent) -> void:
 
 
 func toggle_flashlight() -> void:
-	flashlight.visible = not flashlight.visible
+	if not flashlight_active:
+		flashlight_animation_player.play('activate_flashlight')
+		flashlight_active = true
+	else:
+		flashlight_animation_player.play('deactivate_flashlight')
+		flashlight_active = false
 
 
 # Handles physical player movement.
