@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://du1jdc5v0sqw8"]
+
+[ext_resource type="PackedScene" uid="uid://dhllf4nx48o0w" path="res://Models/torch.glb" id="1_355sh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0357y"]
+load_path = "res://.godot/imported/torch_burned_bark.png-0ba6fae0de9de4d8943802c4386a189e.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0htx"]
+resource_name = "Material.002"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("CompressedTexture2D_0357y")
+texture_filter = 2
+
+[node name="torch" instance=ExtResource("1_355sh")]
+
+[node name="Cylinder001" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_h0htx")

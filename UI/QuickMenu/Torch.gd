@@ -11,18 +11,19 @@ func _ready() -> void:
 	unavailable_item_name = 'The Torch'
 	unavailable_item_description = 'provides protection against those afraid of its light.'
 	item_name = 'The Torch'
-	item_description = 'use to be protected against those afraid of its light.'
+	item_description = 'provides protection with a limited burntime at the expense of a match.'
 
 	super()
 
 
 # Executes item action.
 func execute_item_action() -> void:
-	pass
+	Global.player.torch.toggle_torch()
+	active = Global.player.torch.activated
 
 
 # Returns the correct item tooltip.
 func get_item_tooltip() -> String:
 	if not available: return 'you do not have this item.'
-	elif not active: return 'click to light.'
+	elif not active: return 'click to light. 2 matches remaining.'
 	else: return 'click to extinguish.'

@@ -11,15 +11,15 @@ func _ready() -> void:
 	unavailable_item_name = 'The Flashlight'
 	unavailable_item_description = 'for dark places, when all other lights go out.'
 	item_name = 'The Flashlight'
-	item_description = 'used to see and to be seen.'
+	item_description = 'use to see and to be seen.'
 
 	super()
 
 
 # Executes item action.
 func execute_item_action() -> void:
-	Global.player.toggle_flashlight()
-	active = not active
+	Global.player.flashlight.toggle_flashlight()
+	active = Global.player.flashlight.activated
 
 
 # Returns the correct item tooltip.

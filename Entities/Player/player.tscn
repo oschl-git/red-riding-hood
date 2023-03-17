@@ -1,7 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bf2m1pftf5jxj"]
+[gd_scene load_steps=26 format=3 uid="uid://bf2m1pftf5jxj"]
 
 [ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_6hg71"]
 [ext_resource type="PackedScene" uid="uid://ceml2a1jrcik5" path="res://Objects/flashlight.tscn" id="2_di7o5"]
+[ext_resource type="Script" path="res://Entities/Player/Flashlight.gd" id="3_eemii"]
+[ext_resource type="PackedScene" uid="uid://du1jdc5v0sqw8" path="res://Objects/torch.tscn" id="4_bf0wq"]
+[ext_resource type="Texture2D" uid="uid://rsb6aj0ihw0v" path="res://Textures/fire.png" id="5_3ii6g"]
+[ext_resource type="Script" path="res://Entities/Player/Torch.gd" id="5_45in4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8xu4"]
 albedo_color = Color(0.811765, 0, 0.160784, 1)
@@ -14,6 +18,45 @@ height = 1.4
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yusd2"]
 radius = 0.3
 height = 1.4
+
+[sub_resource type="Animation" id="Animation_iix3g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.363855, -0.195921, -0.259527)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_46nhr"]
 resource_name = "activate_flashlight"
@@ -54,69 +97,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Flashlight:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_iix3g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.363855, -0.195921, -0.259527)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -3.14159, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Flashlight:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_dumtv"]
 resource_name = "deactivate_flashlight"
@@ -152,19 +132,7 @@ tracks/2/path = NodePath(".:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Flashlight:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -175,6 +143,200 @@ _data = {
 "RESET": SubResource("Animation_iix3g"),
 "activate_flashlight": SubResource("Animation_46nhr"),
 "deactivate_flashlight": SubResource("Animation_dumtv")
+}
+
+[sub_resource type="Gradient" id="Gradient_650b8"]
+colors = PackedColorArray(0.862752, 0.443653, 0, 1, 0.854261, 0, 0.230857, 0.65098)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p7seu"]
+gradient = SubResource("Gradient_650b8")
+
+[sub_resource type="Curve" id="Curve_swv53"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_53v38"]
+curve = SubResource("Curve_swv53")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6hyn8"]
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+linear_accel_min = 1.0
+linear_accel_max = 1.0
+angle_max = 360.0
+scale_curve = SubResource("CurveTexture_53v38")
+color_ramp = SubResource("GradientTexture1D_p7seu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hjf1a"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_3ii6g")
+texture_filter = 0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_55lua"]
+material = SubResource("StandardMaterial3D_hjf1a")
+
+[sub_resource type="Animation" id="Animation_q3737"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.38462, 0.214397, -0.377691)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.049429, -0.257623, -0.185373)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bbsrx"]
+resource_name = "activate_torch"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.444387, -0.640083, -0.377691), Vector3(0.38462, 0.214397, -0.377691)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.243304, -0.098769, 1.18057), Vector3(-0.049429, -0.257623, -0.185373)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5kjdf"]
+resource_name = "deactivate_torch"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.38462, 0.214397, -0.377691), Vector3(1.0575, 0.006504, -0.377691)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.049429, -0.257623, -0.185373), Vector3(-0.211871, -0.155671, -0.929662)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5kccd"]
+resource_name = "swing_torch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.733, -0.157, -0.35), Vector3(-0.869, -0.157, -0.35), Vector3(-0.869, -0.157, -0.35), Vector3(0.733, -0.157, -0.35), Vector3(0.733, -0.157, -0.35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0488692, -2.70526, -0.185005), Vector3(-0.0488692, -0.663225, -0.185005), Vector3(-0.0488692, -0.663225, -0.185005), Vector3(-0.0488692, -2.70526, -0.185005), Vector3(-0.0488692, -2.70526, -0.185005)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6rntl"]
+_data = {
+"RESET": SubResource("Animation_q3737"),
+"activate_torch": SubResource("Animation_bbsrx"),
+"deactivate_torch": SubResource("Animation_5kjdf"),
+"swing_torch": SubResource("Animation_5kccd")
 }
 
 [node name="Player" type="CharacterBody3D"]
@@ -192,18 +354,43 @@ shape = SubResource("CapsuleShape3D_yusd2")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98414, 0)
 
-[node name="FlashlightModel" parent="Camera3D" instance=ExtResource("2_di7o5")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.363855, -0.195921, -0.259527)
+[node name="Flashlight" parent="Camera3D" instance=ExtResource("2_di7o5")]
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0.363855, -0.195921, -0.259527)
+script = ExtResource("3_eemii")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/FlashlightModel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/Flashlight"]
 libraries = {
 "": SubResource("AnimationLibrary_j2s3w")
 }
 
-[node name="Flashlight" type="SpotLight3D" parent="Camera3D/FlashlightModel"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D/Flashlight"]
 transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -1, -2.98023e-08, 0, 0.157288)
 light_color = Color(1, 1, 0.733333, 1)
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 spot_range = 18.0
 spot_angle = 40.0
+
+[node name="Torch" parent="Camera3D" instance=ExtResource("4_bf0wq")]
+transform = Transform3D(0.948111, 0.190603, -0.254471, -0.184088, 0.981668, 0.0494089, 0.259224, 5.96047e-08, 0.965817, 0.38462, 0.214397, -0.377691)
+script = ExtResource("5_45in4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D/Torch"]
+transform = Transform3D(1, 1.43514e-07, 2.98023e-08, 5.10474e-08, 1, -2.51532e-08, 0, -2.86553e-08, 1, -0.30147, 0.038, 0.0838614)
+light_color = Color(0.835294, 0.294118, 0, 1)
+light_volumetric_fog_energy = 0.0
+omni_range = 8.0
+
+[node name="Flames" type="GPUParticles3D" parent="Camera3D/Torch/OmniLight3D"]
+transform = Transform3D(0.015, 6.96692e-08, -2.32831e-10, -2.00963e-09, 0.6, -3.50381e-11, 2.32831e-10, 1.92794e-09, 0.015, -5.27501e-05, -0.000230551, -0.000488549)
+amount = 16
+lifetime = 0.46
+preprocess = 2.0
+speed_scale = 0.6
+process_material = SubResource("ParticleProcessMaterial_6hyn8")
+draw_pass_1 = SubResource("QuadMesh_55lua")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/Torch"]
+libraries = {
+"": SubResource("AnimationLibrary_6rntl")
+}
