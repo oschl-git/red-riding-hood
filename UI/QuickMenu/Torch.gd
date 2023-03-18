@@ -18,8 +18,8 @@ func _ready() -> void:
 
 # Executes item action.
 func execute_item_action() -> void:
-	Global.player.torch.toggle_torch()
-	active = Global.player.torch.activated
+	Global.player.usable_items.toggle_item('torch')
+	update_activity()
 
 
 # Returns the correct item tooltip.
@@ -27,3 +27,8 @@ func get_item_tooltip() -> String:
 	if not available: return 'you do not have this item.'
 	elif not active: return 'click to light. 2 matches remaining.'
 	else: return 'click to extinguish.'
+
+
+# Updates activity.
+func update_activity() -> void:
+	active = Global.player.usable_items.get_item('torch').activated

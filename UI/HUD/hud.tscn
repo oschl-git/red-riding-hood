@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://blhe0xx4rupr7"]
+
+[ext_resource type="FontFile" uid="uid://3r5i3edjcxtf" path="res://UI/quan.ttf" id="1_8l04r"]
+[ext_resource type="Script" path="res://UI/HUD/HUD.gd" id="1_lk52p"]
+[ext_resource type="Script" path="res://UI/HUD/ItemActionLabel.gd" id="3_dmmjk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aidin"]
+font = ExtResource("1_8l04r")
+font_size = 8
+font_color = Color(0.470588, 0.470588, 0.470588, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lk52p")
+
+[node name="ItemActionLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 157.0
+offset_right = 320.0
+offset_bottom = 180.0
+text = "item action label"
+label_settings = SubResource("LabelSettings_aidin")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_dmmjk")
+
+[node name="Timer" type="Timer" parent="ItemActionLabel"]
+one_shot = true
+
+[connection signal="timeout" from="ItemActionLabel/Timer" to="ItemActionLabel" method="_on_timer_timeout"]

@@ -76,6 +76,8 @@ func quick_menu_refresh() -> void:
 
 # Reacts to mouse entering.
 func _on_mouse_entered() -> void:
+	update_activity()
+
 	if not available: 
 		show_selection_border(selection_unavailable_border)
 		item_hovered.emit(unavailable_item_name, unavailable_item_description, get_item_tooltip())
@@ -122,3 +124,8 @@ func execute_item_action() -> void:
 # Returns correct item tooltip, should be overriden.
 func get_item_tooltip() -> String:
 	return 'item tooltip.'
+
+
+# Updates activity, should be overriden.
+func update_activity() -> void:
+	pass

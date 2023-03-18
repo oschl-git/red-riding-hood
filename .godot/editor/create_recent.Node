@@ -1,5 +1,7 @@
-AnimationPlayer
+Timer
 Label
+Node3D
+AnimationPlayer
 Control
 TextureRect
 Container

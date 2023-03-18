@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://bf2m1pftf5jxj"]
+[gd_scene load_steps=27 format=3 uid="uid://bf2m1pftf5jxj"]
 
 [ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_6hg71"]
+[ext_resource type="Script" path="res://Entities/Player/UsableItems.gd" id="2_a8sc3"]
 [ext_resource type="PackedScene" uid="uid://ceml2a1jrcik5" path="res://Objects/flashlight.tscn" id="2_di7o5"]
 [ext_resource type="Script" path="res://Entities/Player/Flashlight.gd" id="3_eemii"]
 [ext_resource type="PackedScene" uid="uid://du1jdc5v0sqw8" path="res://Objects/torch.tscn" id="4_bf0wq"]
@@ -59,7 +60,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_46nhr"]
-resource_name = "activate_flashlight"
+resource_name = "activate"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -99,7 +100,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_dumtv"]
-resource_name = "deactivate_flashlight"
+resource_name = "deactivate"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -141,8 +142,8 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j2s3w"]
 _data = {
 "RESET": SubResource("Animation_iix3g"),
-"activate_flashlight": SubResource("Animation_46nhr"),
-"deactivate_flashlight": SubResource("Animation_dumtv")
+"activate": SubResource("Animation_46nhr"),
+"deactivate": SubResource("Animation_dumtv")
 }
 
 [sub_resource type="Gradient" id="Gradient_650b8"]
@@ -223,9 +224,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D/Flames:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_bbsrx"]
-resource_name = "activate_torch"
+resource_name = "activate"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -263,9 +276,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D/Flames:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_5kjdf"]
-resource_name = "deactivate_torch"
+resource_name = "deactivate"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -303,9 +328,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D/Flames:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_5kccd"]
-resource_name = "swing_torch"
+resource_name = "swing"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -334,9 +371,9 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6rntl"]
 _data = {
 "RESET": SubResource("Animation_q3737"),
-"activate_torch": SubResource("Animation_bbsrx"),
-"deactivate_torch": SubResource("Animation_5kjdf"),
-"swing_torch": SubResource("Animation_5kccd")
+"activate": SubResource("Animation_bbsrx"),
+"deactivate": SubResource("Animation_5kjdf"),
+"swing": SubResource("Animation_5kccd")
 }
 
 [node name="Player" type="CharacterBody3D"]
@@ -354,16 +391,19 @@ shape = SubResource("CapsuleShape3D_yusd2")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98414, 0)
 
-[node name="Flashlight" parent="Camera3D" instance=ExtResource("2_di7o5")]
+[node name="UsableItems" type="Node3D" parent="Camera3D"]
+script = ExtResource("2_a8sc3")
+
+[node name="Flashlight" parent="Camera3D/UsableItems" instance=ExtResource("2_di7o5")]
 transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0.363855, -0.195921, -0.259527)
 script = ExtResource("3_eemii")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/Flashlight"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/UsableItems/Flashlight"]
 libraries = {
 "": SubResource("AnimationLibrary_j2s3w")
 }
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D/Flashlight"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D/UsableItems/Flashlight"]
 transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -1, -2.98023e-08, 0, 0.157288)
 light_color = Color(1, 1, 0.733333, 1)
 light_volumetric_fog_energy = 0.0
@@ -371,17 +411,17 @@ shadow_enabled = true
 spot_range = 18.0
 spot_angle = 40.0
 
-[node name="Torch" parent="Camera3D" instance=ExtResource("4_bf0wq")]
-transform = Transform3D(0.948111, 0.190603, -0.254471, -0.184088, 0.981668, 0.0494089, 0.259224, 5.96047e-08, 0.965817, 0.38462, 0.214397, -0.377691)
+[node name="Torch" parent="Camera3D/UsableItems" instance=ExtResource("4_bf0wq")]
+transform = Transform3D(0.948111, 0.190603, -0.254471, -0.184088, 0.981668, 0.0494088, 0.259224, 5.96047e-08, 0.965817, 0.38462, 0.214397, -0.377691)
 script = ExtResource("5_45in4")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D/Torch"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D/UsableItems/Torch"]
 transform = Transform3D(1, 1.43514e-07, 2.98023e-08, 5.10474e-08, 1, -2.51532e-08, 0, -2.86553e-08, 1, -0.30147, 0.038, 0.0838614)
 light_color = Color(0.835294, 0.294118, 0, 1)
 light_volumetric_fog_energy = 0.0
 omni_range = 8.0
 
-[node name="Flames" type="GPUParticles3D" parent="Camera3D/Torch/OmniLight3D"]
+[node name="Flames" type="GPUParticles3D" parent="Camera3D/UsableItems/Torch/OmniLight3D"]
 transform = Transform3D(0.015, 6.96692e-08, -2.32831e-10, -2.00963e-09, 0.6, -3.50381e-11, 2.32831e-10, 1.92794e-09, 0.015, -5.27501e-05, -0.000230551, -0.000488549)
 amount = 16
 lifetime = 0.46
@@ -390,7 +430,7 @@ speed_scale = 0.6
 process_material = SubResource("ParticleProcessMaterial_6hyn8")
 draw_pass_1 = SubResource("QuadMesh_55lua")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/Torch"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/UsableItems/Torch"]
 libraries = {
 "": SubResource("AnimationLibrary_6rntl")
 }

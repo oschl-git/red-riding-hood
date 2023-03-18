@@ -8,8 +8,7 @@ class_name Player
 
 # References to other nodes:
 @onready var camera : Camera3D = $Camera3D
-@onready var flashlight : Flashlight = $Camera3D/Flashlight
-@onready var torch : Torch = $Camera3D/Torch
+@onready var usable_items : UsableItems = $Camera3D/UsableItems
 
 var look_sensitivity : float = ProjectSettings.get_setting('player/look_sensitivity')
 var gravity : float = ProjectSettings.get_setting('physics/3d/default_gravity')
@@ -63,6 +62,3 @@ func camera_movement(event : InputEvent):
 		camera.rotate_x(- event.relative.y * look_sensitivity)
 	
 	camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
-
-	if event.is_action_pressed('left_mouse_click'):
-		torch.swing_torch()

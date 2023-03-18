@@ -1,34 +1,25 @@
 # Handles the torch on player.
 
-extends Node3D
-class_name Torch
+extends UsableItem
 
-# Node references:
-@onready var animation_player : AnimationPlayer = $AnimationPlayer
+# Swings the torch.
+func swing() -> void:
+	if not activated: return
+	if animation_player.is_playing(): return
 
-@export var activated := false
-
-func _ready() -> void:
-	if activated:
-		visible = true
-		change_state_to(true)
-	else:
-		visible = false
-		change_state_to(false)
-
-
-func toggle_torch() -> void:
-	change_state_to(not activated)
-
-
-func swing_torch() -> void:
-	animation_player.play('swing_torch')
+	animation_player.play('swing')
 	await animation_player.animation_finished
-	animation_player.play('activate_torch')
+	animation_player.play('activate')
 
 
-func change_state_to(state : bool) -> void:
-	if state: animation_player.play('activate_torch')
-	else: animation_player.play('deactivate_torch')
-	
-	activated = state
+# Reacts to mouse events.
+func mouse_input(event : InputEvent):
+	if Global.movement_disabled: return
+	if animation_player.is_playing(): return
+
+	if event.is_action_pressed('left_mouse_click'): swing()
+	elif event.is_action_pressed('right_mouse_click'): change_state_to(false)
+
+
+func get_item_label() -> String:
+	return '[LMB] swing / [RMB] hide'

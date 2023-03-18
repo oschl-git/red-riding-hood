@@ -18,8 +18,8 @@ func _ready() -> void:
 
 # Executes item action.
 func execute_item_action() -> void:
-	Global.player.flashlight.toggle_flashlight()
-	active = Global.player.flashlight.activated
+	Global.player.usable_items.toggle_item('flashlight')
+	update_activity()
 
 
 # Returns the correct item tooltip.
@@ -27,3 +27,8 @@ func get_item_tooltip() -> String:
 	if not available: return 'you do not have this item.'
 	elif not active: return 'click to turn on.'
 	else: return 'click to turn off.'
+
+
+# Updates activity.
+func update_activity() -> void:
+	active = Global.player.usable_items.get_item('flashlight').activated
