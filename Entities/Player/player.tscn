@@ -412,7 +412,7 @@ spot_range = 18.0
 spot_angle = 40.0
 
 [node name="Torch" parent="Camera3D/UsableItems" instance=ExtResource("4_bf0wq")]
-transform = Transform3D(0.948111, 0.190603, -0.254471, -0.184088, 0.981668, 0.0494088, 0.259224, 5.96047e-08, 0.965817, 0.38462, 0.214397, -0.377691)
+transform = Transform3D(0.948111, 0.190603, -0.254471, -0.184088, 0.981668, 0.0494089, 0.259224, 5.96047e-08, 0.965817, 0.38462, 0.214397, -0.377691)
 script = ExtResource("5_45in4")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Camera3D/UsableItems/Torch"]
@@ -424,7 +424,7 @@ omni_range = 8.0
 [node name="Flames" type="GPUParticles3D" parent="Camera3D/UsableItems/Torch/OmniLight3D"]
 transform = Transform3D(0.015, 6.96692e-08, -2.32831e-10, -2.00963e-09, 0.6, -3.50381e-11, 2.32831e-10, 1.92794e-09, 0.015, -5.27501e-05, -0.000230551, -0.000488549)
 amount = 16
-lifetime = 0.46
+lifetime = 0.5
 preprocess = 2.0
 speed_scale = 0.6
 process_material = SubResource("ParticleProcessMaterial_6hyn8")
