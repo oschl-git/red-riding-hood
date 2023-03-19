@@ -6,10 +6,10 @@ res://Objects/campfire.tscn
 res://Scenes/game_world.tscn
 res://UI/HUD/hud.tscn
 res://UI/QuickMenu/quick_menu.tscn
-res://UI/HUD/ItemActionLabel.gd
-res://UI/QuickMenu/Flashlight.gd
-res://UI/QuickMenu/Torch.gd
-res://Entities/Player/Player.gd
-res://Entities/Player/UsableItem.gd
+res://UI/QuickMenu/QuickMenu.gd
 res://UI/QuickMenu/QuickMenuItem.gd
+res://UI/QuickMenu/Key.gd
+res://UI/QuickMenu/Flashlight.gd
+res://Entities/Player/Torch.gd
+res://Entities/Player/UsableItem.gd
 res://Entities/Player/UsableItems.gd

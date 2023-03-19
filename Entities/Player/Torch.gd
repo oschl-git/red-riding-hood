@@ -2,14 +2,26 @@
 
 extends UsableItem
 
+signal swing_finished
+
+var swinging := false
+
+# Changes state of the item to the provided one.
+func change_state_to(state : bool) -> void:
+	if swinging: await swing_finished
+	super(state)
+
 # Swings the torch.
 func swing() -> void:
 	if not activated: return
 	if animation_player.is_playing(): return
 
+	swinging = true
 	animation_player.play('swing')
 	await animation_player.animation_finished
 	animation_player.play('activate')
+	swing_finished.emit()
+	swinging = false
 
 
 # Reacts to mouse events.

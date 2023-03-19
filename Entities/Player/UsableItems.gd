@@ -27,7 +27,7 @@ func toggle_item(item : String) -> void:
 	
 	for i in item_values:
 		if i.activated:
-			i.change_state_to(false)
+			await i.change_state_to(false)
 			if i == items[item]: return
 			
 			await i.animation_player.animation_finished
