@@ -434,3 +434,8 @@ draw_pass_1 = SubResource("QuadMesh_55lua")
 libraries = {
 "": SubResource("AnimationLibrary_6rntl")
 }
+
+[node name="RunStaminaTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="RunStaminaTimer" to="." method="_on_run_stamina_timer_timeout"]
