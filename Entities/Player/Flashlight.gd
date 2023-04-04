@@ -1,21 +1,23 @@
-# Handles the flashlight on player.
+# Handles the in-game flashlight.
 
 extends UsableItem
 
-# Node references:
-@onready var spotlight3d : SpotLight3D = $SpotLight3D
 
+# States:
 var lit : bool:
 	get: return spotlight3d.visible
+
+# Node references:
+@onready var spotlight3d : SpotLight3D = $SpotLight3D
 
 
 # Changes state of the item to the provided one.
 func change_state_to(state : bool) -> void:
 	if not activated: spotlight3d.visible = true
-
 	super(state)
 
 
+# Toggles the flashlight.
 func toggle_flashlight() -> void:
 	spotlight3d.visible = not spotlight3d.visible
 	
@@ -23,6 +25,7 @@ func toggle_flashlight() -> void:
 		Global.HUD.item_action_label.display_label('[LMB] turn off / [RMB] hide', false)
 	else:
 		Global.HUD.item_action_label.display_label('[LMB] turn on / [RMB] hide', false)
+
 
 # Reacts to mouse events.
 func mouse_input(event : InputEvent):
@@ -33,5 +36,6 @@ func mouse_input(event : InputEvent):
 	elif event.is_action_pressed('right_mouse_click'): change_state_to(false)
 
 
+# Returns action label for the item.
 func get_item_label() -> String:
 	return '[LMB] turn off / [RMB] hide'

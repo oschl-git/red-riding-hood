@@ -3,18 +3,22 @@
 extends CharacterBody3D
 class_name Player
 
-@export var walk_speed : float = 2.5
-@export var run_speed : float = 4
 
-# References to other nodes:
+# Adjustable attributes:
+const walk_speed : float = 2.5
+const run_speed : float = 4
+var look_sensitivity : float = ProjectSettings.get_setting('player/look_sensitivity')
+var gravity : float = ProjectSettings.get_setting('physics/3d/default_gravity')
+
+# Node references:
 @onready var camera : Camera3D = $Camera3D
 @onready var usable_items : UsableItems = $Camera3D/UsableItems
 
-var look_sensitivity : float = ProjectSettings.get_setting('player/look_sensitivity')
-var gravity : float = ProjectSettings.get_setting('physics/3d/default_gravity')
+# Changing variables:
 var velocity_y : float = 0
 
 
+# Built-in functions:
 func _ready() -> void:
 	Global.player = self
 

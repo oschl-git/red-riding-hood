@@ -1,4 +1,4 @@
-# Handles the flashlight quick menu item.
+# Handles the flashlight quick menu UI item.
 
 extends QuickMenuItem
 
@@ -25,8 +25,8 @@ func execute_item_action() -> void:
 # Returns the correct item tooltip.
 func get_item_tooltip() -> String:
 	if not available: return 'you do not have this item.'
-	elif not active: return 'click to turn on.'
-	else: return 'click to turn off.'
+	elif not active: return 'click to equip.'
+	else: return 'click to hide.'
 
 
 # Updates activity.

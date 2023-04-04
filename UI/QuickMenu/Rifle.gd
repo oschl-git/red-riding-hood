@@ -1,4 +1,4 @@
-# Handles the RIFLE quick menu item.
+# Handles the rifle quick menu UI item.
 
 extends QuickMenuItem
 
@@ -18,6 +18,7 @@ func _ready() -> void:
 
 # Executes item action.
 func execute_item_action() -> void:
+	# TODO: implement rifle functionality.
 	pass
 
 

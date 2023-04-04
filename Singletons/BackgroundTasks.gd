@@ -1,13 +1,16 @@
+# Singleton running in the background, handling various things.
+
 extends Node
 
 
+# Built-in functions:
 func _ready() -> void:
 	initial_setup()
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('ui_cancel'): handle_mouse_visibility()
-	if event.is_action_pressed("fullscreen"): toggle_fullscreen()
+	elif event.is_action_pressed("fullscreen"): toggle_fullscreen()
 
 
 # Sets up stuff at the start of the game.

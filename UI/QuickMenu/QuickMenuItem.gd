@@ -1,9 +1,8 @@
-# A base class for quick menu items.
+# A parent class for all quick menu items.
 
 extends Control
 class_name QuickMenuItem
 
-enum Types {FLASHLIGHT, TORCH, KEY, RIFLE}
 
 # States:
 @export var available := false
@@ -11,6 +10,7 @@ enum Types {FLASHLIGHT, TORCH, KEY, RIFLE}
 
 
 # Item type:
+enum Types {FLASHLIGHT, TORCH, KEY, RIFLE}
 @export var type : Types
 
 
@@ -20,8 +20,8 @@ var enabled_texture : CompressedTexture2D
 
 
 # Item labels:
-var unavailable_item_name := 'Item Name'
-var unavailable_item_description := 'item description.'
+var unavailable_item_name := 'Unavailable Item Name'
+var unavailable_item_description := 'unavailable item description.'
 var item_name := 'Item Name'
 var item_description := 'item description.'
 

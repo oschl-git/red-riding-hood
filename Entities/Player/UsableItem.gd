@@ -1,9 +1,13 @@
+# Parent class for usable items on the player.
+
 extends Node3D
 class_name UsableItem
+
 
 # Node references:
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 
+# States:
 @export var activated := false
 
 

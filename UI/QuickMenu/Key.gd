@@ -18,6 +18,7 @@ func _ready() -> void:
 
 # Executes item action.
 func execute_item_action() -> void:
+	# TODO: Implement key functionality.
 	pass
 
 

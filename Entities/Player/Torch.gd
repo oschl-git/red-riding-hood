@@ -1,15 +1,20 @@
-# Handles the torch on player.
+# Handles the in-game torch.
 
 extends UsableItem
 
-signal swing_finished
 
+# States:
 var swinging := false
+
+# Signals:
+signal swing_finished()
+
 
 # Changes state of the item to the provided one.
 func change_state_to(state : bool) -> void:
 	if swinging: await swing_finished
 	super(state)
+
 
 # Swings the torch.
 func swing() -> void:
@@ -33,5 +38,6 @@ func mouse_input(event : InputEvent):
 	elif event.is_action_pressed('right_mouse_click'): change_state_to(false)
 
 
+# Returns action label for the item.
 func get_item_label() -> String:
 	return '[LMB] swing / [RMB] hide'

@@ -1,4 +1,4 @@
-# Handles the torch quick menu item.
+# Handles the torch quick menu UI item.
 
 extends QuickMenuItem
 

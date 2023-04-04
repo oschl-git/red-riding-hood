@@ -9,7 +9,7 @@ extends Control
 
 
 # Signals:
-signal quick_menu_activated
+signal quick_menu_activated()
 
 
 # Built-in functions:
@@ -38,7 +38,7 @@ func hide_quick_menu() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
-# Called with a signal triggered by items, updates the labels.
+# Called with a signal triggered by items, updates item labels.
 func update_labels(item_name, item_description, item_tooltip) -> void:
 	item_name_label.text = item_name
 	item_description_label.text = item_description
