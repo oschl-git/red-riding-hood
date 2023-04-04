@@ -9,5 +9,5 @@ extends Control
 
 
 # Built-in functions:
-func _ready() -> void:
+func _enter_tree() -> void:
 	Global.HUD = self

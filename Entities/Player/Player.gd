@@ -7,6 +7,8 @@ class_name Player
 # Adjustable attributes:
 const walk_speed : float = 2
 const run_speed : float = 4
+const stamina_loss_rate : float = .05
+const stamina_recovery_rate : float = .15
 var look_sensitivity : float = ProjectSettings.get_setting('player/look_sensitivity')
 var gravity : float = ProjectSettings.get_setting('physics/3d/default_gravity')
 
@@ -80,12 +82,15 @@ func camera_movement(event : InputEvent):
 
 # Triggered when the stamina timer runs out.
 func _on_run_stamina_timer_timeout() -> void:
-	if Global.movement_disabled: return
-
 	can_run = run_stamina >= 20 or run_stamina >= 1 and running
 
-	if running: run_stamina -= 1
-	elif not Input.is_action_pressed('run') or run_stamina >= 2: run_stamina += 1
+	if running: 
+		if Global.movement_disabled: return
+		run_stamina_timer.wait_time = stamina_loss_rate
+		run_stamina -= 1
+	elif not Input.is_action_pressed('run') or run_stamina >= 2: 
+		run_stamina_timer.wait_time = stamina_recovery_rate
+		run_stamina += 1
 	
 	run_stamina_changed.emit(run_stamina)
 	
