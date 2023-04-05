@@ -1,11 +1,5 @@
+res://Entities/Player/player.tscn
+res://Entities/Player/Player.gd
+res://Entities/Player/Torch.gd
 res://UI/HUD/hud.tscn
 res://UI/QuickMenu/quick_menu.tscn
-res://Entities/Player/player.tscn
-res://UI/QuickMenu/Torch.gd
-res://UI/QuickMenu/QuickMenuItem.gd
-res://UI/QuickMenu/QuickMenu.gd
-res://UI/QuickMenu/Key.gd
-res://Entities/Wolf/Wolf.gd
-res://Entities/Player/Player.gd
-res://UI/HUD/HUD.gd
-res://Entities/Player/Torch.gd

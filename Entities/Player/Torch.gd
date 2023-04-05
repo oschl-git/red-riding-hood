@@ -3,6 +3,12 @@
 extends UsableItem
 
 
+# Adjustable values:
+const required_stamina = 25
+
+# Node references:
+@onready var player : Player = get_parent().get_parent().get_parent()
+
 # States:
 var swinging := false
 
@@ -20,8 +26,10 @@ func change_state_to(state : bool) -> void:
 func swing() -> void:
 	if not activated: return
 	if animation_player.is_playing(): return
+	if player.run_stamina < required_stamina: return
 
 	swinging = true
+	player.decrease_stamina(required_stamina)
 	animation_player.play('swing')
 	await animation_player.animation_finished
 	animation_player.play('activate')

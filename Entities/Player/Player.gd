@@ -97,3 +97,10 @@ func _on_run_stamina_timer_timeout() -> void:
 	if not running and run_stamina >= 100:
 		run_stamina = 100
 		run_stamina_timer.stop()
+
+# Decreases stamina by the provided amount.
+func decrease_stamina(amount : int) -> void:
+	if amount > run_stamina: run_stamina = 0
+	else: run_stamina -= amount
+	run_stamina_changed.emit(run_stamina)
+	if run_stamina_timer.is_stopped(): run_stamina_timer.start()
