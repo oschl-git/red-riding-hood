@@ -1,18 +1,27 @@
 # Handles the quick menu.
 
 extends Control
+class_name QuickMenu
 
 # Node references:
 @onready var item_name_label : Label = $ItemNameLabel
 @onready var item_description_label : Label = $ItemDescriptionLabel
 @onready var item_tooltip_label : Label = $ItemTooltipLabel
 
+@onready var flashlight : QuickMenuItem = $Flashlight
+@onready var torch : QuickMenuItem = $Torch
+@onready var key : QuickMenuItem = $Key
+@onready var rifle : QuickMenuItem = $Rifle
 
 # Signals:
 signal quick_menu_activated()
 
 
 # Built-in functions:
+func _enter_tree() -> void:
+	Global.quick_menu = self
+
+
 func _ready() -> void:
 	update_labels('', '', '')
 

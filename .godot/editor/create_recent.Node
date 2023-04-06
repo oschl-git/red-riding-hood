@@ -1,10 +1,14 @@
+Label
+TextureRect
+Area3D
+CollisionShape3D
+RayCast3D
+Node3D
+Node
 Timer
 TextureProgressBar
-Label
-Node3D
 AnimationPlayer
 Control
-TextureRect
 Container
 NavigationAgent3D
 MeshInstance3D
@@ -12,7 +16,6 @@ NavigationRegion3D
 SpotLight3D
 OmniLight3D
 GridMap
-CollisionShape3D
 StaticBody3D
 GPUParticles3D
 DirectionalLight3D

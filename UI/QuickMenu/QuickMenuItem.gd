@@ -45,6 +45,8 @@ var item_description := 'item description.'
 @onready var availability_border : TextureRect = $AvailabilityBorder
 @onready var selection_border : TextureRect = $SelectionBorder
 
+# Changing variables:
+var mouse_hovering = false
 
 # Signals:
 signal item_hovered(name : String, description : String, tooltip : String)
@@ -60,9 +62,9 @@ func _ready() -> void:
 	quick_menu_refresh()
 
 
-func _on_gui_input(event:InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if not available: return
-	if event.is_action_pressed('left_mouse_click'):
+	if event.is_action_pressed('left_mouse_click') and mouse_hovering and quick_menu.visible:
 		item_clicked.emit()
 		execute_item_action()
 
@@ -87,11 +89,15 @@ func _on_mouse_entered() -> void:
 
 	item_hovered.emit(item_name, item_description, get_item_tooltip())
 
+	mouse_hovering = true
+
 
 # Reacts to mouse exiting.
 func _on_mouse_exited() -> void:
 	hide_selection_border()
 	item_hovered.emit('', '', '')
+
+	mouse_hovering = false
 
 
 # Updates the texture according to the current state.

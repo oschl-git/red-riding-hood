@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg3nmwij4eoms"]
+
+[ext_resource type="PackedScene" uid="uid://df5a8ne8gksdv" path="res://Models/flashlight.glb" id="1_ik66y"]
+[ext_resource type="Script" path="res://PickableItems/Flashlight.gd" id="1_ljlec"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_osacp"]
+points = PackedVector3Array(0.00384009, 0.141641, -0.0785778, 0.00938694, 0.152778, 0.0769778, 0.0205078, 0.152778, 0.07142, 0.00384009, -0.202778, 0.0547468, -0.0683778, 0.152778, 0.0436162, -0.0405891, -0.202778, -0.0341312, 0.0482829, -0.202778, -0.0285734, 0.0705111, 0.152778, 0.0436162, -0.0683778, 0.152778, -0.0396889, 0.0705111, 0.152778, -0.0396889, -0.043045, -0.191088, 0.0251472, 0.0427225, -0.202778, 0.0325311, 0.00938694, -0.202778, -0.0507739, -0.0128141, 0.147209, 0.0769778, -0.0350423, -0.202778, 0.0380889, -0.00725362, 0.152778, -0.0785778, -0.0128141, -0.202778, -0.0507739, 0.0482829, 0.147209, -0.0563469, -0.0572569, 0.147209, -0.0507739, -0.0683778, 0.141641, -0.0396889, 0.0260547, -0.202778, 0.0436162, 0.00938694, 0.147209, -0.0785778, 0.0316151, -0.202778, -0.0396889, 0.0705111, 0.147209, 0.0436162, -0.0294818, 0.147209, -0.0674623, -0.0683778, 0.147209, 0.0436162, 0.0316151, 0.147209, 0.0658623, 0.0649507, 0.141641, -0.0452162, 0.00938694, 0.141641, 0.0769778, 0.0705111, 0.147209, -0.0396889, -0.0683778, 0.141641, 0.0380889, -0.00725362, 0.141641, -0.0785778)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_253w6"]
+radius = 2.0
+
+[node name="Flashlight" type="Area3D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_ljlec")
+
+[node name="Model" parent="." instance=ExtResource("1_ik66y")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_osacp")
+
+[node name="CrosshairArea" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrosshairArea"]
+shape = SubResource("SphereShape3D_253w6")

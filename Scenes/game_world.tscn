@@ -1,7 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://lqv3euoyuewm"]
+[gd_scene load_steps=20 format=3 uid="uid://lqv3euoyuewm"]
 
-[ext_resource type="PackedScene" uid="uid://blhe0xx4rupr7" path="res://UI/HUD/hud.tscn" id="1_0y16m"]
-[ext_resource type="PackedScene" uid="uid://04160jmxo70r" path="res://UI/QuickMenu/quick_menu.tscn" id="1_cy5gg"]
+[ext_resource type="PackedScene" uid="uid://rsp5mvqu514g" path="res://UI/HUD/hud.tscn" id="1_0y16m"]
+[ext_resource type="PackedScene" uid="uid://cw2i2tu8rmj2m" path="res://UI/QuickMenu/quick_menu.tscn" id="1_cy5gg"]
 [ext_resource type="PackedScene" uid="uid://bf2m1pftf5jxj" path="res://Entities/Player/player.tscn" id="1_gep06"]
 [ext_resource type="Texture2D" uid="uid://bneupdsg5xw2b" path="res://Textures/sky.png" id="1_i7k0u"]
 [ext_resource type="Texture2D" uid="uid://dub581gropl07" path="res://Textures/ground.png" id="2_1q6yo"]
@@ -10,6 +10,8 @@
 [ext_resource type="MeshLibrary" uid="uid://daeug42mptpsb" path="res://Objects/foliage_mesh.tres" id="5_8kchm"]
 [ext_resource type="PackedScene" uid="uid://cjqokns8aphdi" path="res://Objects/campfire.tscn" id="6_kttwf"]
 [ext_resource type="PackedScene" uid="uid://d4dpe1qoksphl" path="res://Entities/Wolf/wolf.tscn" id="8_hpugj"]
+[ext_resource type="PackedScene" uid="uid://dg3nmwij4eoms" path="res://PickableItems/flashlight.tscn" id="11_1sntb"]
+[ext_resource type="PackedScene" uid="uid://dho377ev1l84a" path="res://PickableItems/torch.tscn" id="12_imf7m"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_o7m8q"]
 panorama = ExtResource("1_i7k0u")
@@ -105,3 +107,11 @@ data = {
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_wwae2")
+
+[node name="PickableItems" type="Node3D" parent="."]
+
+[node name="Flashlight" parent="PickableItems" instance=ExtResource("11_1sntb")]
+transform = Transform3D(1, 0, 0, 0, 0.990798, 0.135352, 0, -0.135352, 0.990798, 0.168, 0.0570128, 1.157)
+
+[node name="Torch" parent="PickableItems" instance=ExtResource("12_imf7m")]
+transform = Transform3D(0.91706, 0.221012, 0.331895, 0, -0.832341, 0.554264, 0.398749, -0.508293, -0.763307, -0.129051, 0.201799, 0.263151)

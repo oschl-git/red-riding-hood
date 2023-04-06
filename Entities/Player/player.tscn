@@ -1,12 +1,14 @@
-[gd_scene load_steps=27 format=3 uid="uid://bf2m1pftf5jxj"]
+[gd_scene load_steps=29 format=3 uid="uid://bf2m1pftf5jxj"]
 
 [ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_6hg71"]
 [ext_resource type="Script" path="res://Entities/Player/UsableItems.gd" id="2_a8sc3"]
 [ext_resource type="PackedScene" uid="uid://ceml2a1jrcik5" path="res://Objects/flashlight.tscn" id="2_di7o5"]
+[ext_resource type="Script" path="res://Entities/Player/CrosshairArea.gd" id="2_ulgmm"]
 [ext_resource type="Script" path="res://Entities/Player/Flashlight.gd" id="3_eemii"]
 [ext_resource type="PackedScene" uid="uid://du1jdc5v0sqw8" path="res://Objects/torch.tscn" id="4_bf0wq"]
 [ext_resource type="Texture2D" uid="uid://rsb6aj0ihw0v" path="res://Textures/fire.png" id="5_3ii6g"]
 [ext_resource type="Script" path="res://Entities/Player/Torch.gd" id="5_45in4"]
+[ext_resource type="Script" path="res://Entities/Player/PickableItemCollider.gd" id="8_60pus"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8xu4"]
 albedo_color = Color(0.811765, 0, 0.160784, 1)
@@ -388,6 +390,15 @@ mesh = SubResource("CapsuleMesh_4lfpi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 shape = SubResource("CapsuleShape3D_yusd2")
 
+[node name="CrosshairArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("2_ulgmm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrosshairArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("CapsuleShape3D_yusd2")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98414, 0)
 
@@ -434,6 +445,13 @@ draw_pass_1 = SubResource("QuadMesh_55lua")
 libraries = {
 "": SubResource("AnimationLibrary_6rntl")
 }
+
+[node name="PickableItemCollider" type="RayCast3D" parent="Camera3D"]
+target_position = Vector3(0, 0, -2)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource("8_60pus")
 
 [node name="RunStaminaTimer" type="Timer" parent="."]
 wait_time = 0.05

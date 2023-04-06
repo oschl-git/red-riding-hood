@@ -98,6 +98,7 @@ func _on_run_stamina_timer_timeout() -> void:
 		run_stamina = 100
 		run_stamina_timer.stop()
 
+
 # Decreases stamina by the provided amount.
 func decrease_stamina(amount : int) -> void:
 	if amount > run_stamina: run_stamina = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://rsp5mvqu514g"]
+[gd_scene load_steps=11 format=3 uid="uid://rsp5mvqu514g"]
 
 [ext_resource type="Script" path="res://UI/HUD/HUD.gd" id="1_lk52p"]
 [ext_resource type="FontFile" uid="uid://3r5i3edjcxtf" path="res://UI/Fonts/quan.ttf" id="2_ukw64"]
@@ -6,11 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://d1ad15bs0hln5" path="res://UI/HUD/Textures/stamina_bar_empty.png" id="4_q416b"]
 [ext_resource type="Texture2D" uid="uid://dttux364pmiby" path="res://UI/HUD/Textures/stamina_bar_full.png" id="5_s6ics"]
 [ext_resource type="Script" path="res://UI/HUD/StaminaBar.gd" id="6_fdc3g"]
+[ext_resource type="Texture2D" uid="uid://v3gae320ief" path="res://UI/HUD/Textures/crosshair.png" id="7_2lqn0"]
+[ext_resource type="Script" path="res://UI/HUD/Crosshair.gd" id="8_sg8yo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aidin"]
 font = ExtResource("2_ukw64")
 font_size = 8
 font_color = Color(0.470588, 0.470588, 0.470588, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4hogl"]
+font = ExtResource("2_ukw64")
+font_size = 8
 shadow_size = 0
 shadow_color = Color(0, 0, 0, 1)
 
@@ -53,5 +61,39 @@ script = ExtResource("3_dmmjk")
 
 [node name="Timer" type="Timer" parent="ItemActionLabel"]
 one_shot = true
+
+[node name="Crosshair" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -0.5
+offset_right = 0.5
+offset_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_2lqn0")
+stretch_mode = 2
+script = ExtResource("8_sg8yo")
+
+[node name="Label" type="Label" parent="Crosshair"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = -11.0
+offset_right = 159.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Item name"
+label_settings = SubResource("LabelSettings_4hogl")
+horizontal_alignment = 1
 
 [connection signal="timeout" from="ItemActionLabel/Timer" to="ItemActionLabel" method="_on_timer_timeout"]
