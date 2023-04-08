@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://lqv3euoyuewm"]
+[gd_scene load_steps=21 format=3 uid="uid://lqv3euoyuewm"]
 
 [ext_resource type="PackedScene" uid="uid://rsp5mvqu514g" path="res://UI/HUD/hud.tscn" id="1_0y16m"]
 [ext_resource type="PackedScene" uid="uid://cw2i2tu8rmj2m" path="res://UI/QuickMenu/quick_menu.tscn" id="1_cy5gg"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d4dpe1qoksphl" path="res://Entities/Wolf/wolf.tscn" id="8_hpugj"]
 [ext_resource type="PackedScene" uid="uid://dg3nmwij4eoms" path="res://PickableItems/flashlight.tscn" id="11_1sntb"]
 [ext_resource type="PackedScene" uid="uid://dho377ev1l84a" path="res://PickableItems/torch.tscn" id="12_imf7m"]
+[ext_resource type="PackedScene" uid="uid://dybuw4wgtstwa" path="res://PickableItems/match_box.tscn" id="13_wrfyr"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_o7m8q"]
 panorama = ExtResource("1_i7k0u")
@@ -115,3 +116,9 @@ transform = Transform3D(1, 0, 0, 0, 0.990798, 0.135352, 0, -0.135352, 0.990798, 
 
 [node name="Torch" parent="PickableItems" instance=ExtResource("12_imf7m")]
 transform = Transform3D(0.91706, 0.221012, 0.331895, 0, -0.832341, 0.554264, 0.398749, -0.508293, -0.763307, -0.129051, 0.201799, 0.263151)
+
+[node name="Match box" parent="PickableItems" instance=ExtResource("13_wrfyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.67099, 5.96046e-08, 3.52674)
+
+[node name="Match box2" parent="PickableItems" instance=ExtResource("13_wrfyr")]
+transform = Transform3D(0.493942, -0.869495, 0, 0.869495, 0.493942, 0, 0, 0, 1, 0.104645, 0.0423552, 1.07975)

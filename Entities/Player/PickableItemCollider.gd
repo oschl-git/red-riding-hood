@@ -16,6 +16,6 @@ func _physics_process(_delta: float) -> void:
 func _input(event):
 	if is_colliding() and event.is_action_pressed('left_mouse_click'):
 		if Global.quick_menu.visible: return
-			
+
 		get_collider().collect_item()
 		get_collider().free()

@@ -74,6 +74,7 @@ func quick_menu_refresh() -> void:
 	update_availability_border()
 	update_texture()
 	hide_selection_border()
+	mouse_hovering = false
 
 
 # Reacts to mouse entering.

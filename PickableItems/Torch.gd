@@ -11,5 +11,6 @@ func _ready() -> void:
 
 # Handles being collected.
 func collect_item() -> void:
+	Global.player.usable_items.torch.once_obtained = true
 	Global.HUD.item_action_label.display_label('Torch obtained.')
 	Global.quick_menu.torch.available = true

@@ -1,5 +1,5 @@
-res://PlacableItems
 res://UI/HUD
+res://PickableItems
 res://Entities/Player
 res://Objects
 res://UI/QuickMenu

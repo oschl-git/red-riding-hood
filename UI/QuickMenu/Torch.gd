@@ -24,8 +24,14 @@ func execute_item_action() -> void:
 
 # Returns the correct item tooltip.
 func get_item_tooltip() -> String:
-	if not available: return 'you do not have this item.'
-	elif not active: return 'click to light. 2 matches remaining.'
+	if not available: 
+		var once_obtained = Global.player.usable_items.torch.once_obtained
+		return 'you do not have this item.' if not once_obtained else 'your torch burned out.'
+	elif not active: 
+		var matches : int = Global.player.usable_items.torch.matches
+		if matches <= 0: return 'you have no matches.'
+		elif matches == 1: return 'last match.'
+		else: return 'your have ' + str(matches) + ' matches remaining.'
 	else: return 'click to extinguish.'
 
 
