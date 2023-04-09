@@ -11,6 +11,9 @@ func _ready() -> void:
 
 # Handles being collected.
 func collect_item() -> void:
-	var amount := randi_range(2,3)
+	var amount := randi_range(1,3)
 	Global.player.usable_items.torch.matches += amount
-	Global.HUD.item_action_label.display_label('Obtained ' + str(amount) + ' matches.')
+	if amount == 1: 
+		Global.HUD.item_action_label.display_label('Obtained ' + str(amount) + ' match.')
+	else: 
+		Global.HUD.item_action_label.display_label('Obtained ' + str(amount) + ' matches.')

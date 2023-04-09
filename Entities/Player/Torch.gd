@@ -94,4 +94,4 @@ func mouse_input(event : InputEvent):
 
 # Returns action label for the item.
 func get_item_label() -> String:
-	return '[LMB] swing / [RMB] hide'
+	return '[LMB] swing / [RMB] extinguish'

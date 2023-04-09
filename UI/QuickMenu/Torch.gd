@@ -31,7 +31,7 @@ func get_item_tooltip() -> String:
 		var matches : int = Global.player.usable_items.torch.matches
 		if matches <= 0: return 'you have no matches.'
 		elif matches == 1: return 'last match.'
-		else: return 'your have ' + str(matches) + ' matches remaining.'
+		else: return str(matches) + ' matches.'
 	else: return 'click to extinguish.'
 
 

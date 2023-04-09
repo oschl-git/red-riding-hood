@@ -20,11 +20,6 @@ func change_state_to(state : bool) -> void:
 # Toggles the flashlight.
 func toggle_flashlight() -> void:
 	spotlight3d.visible = not spotlight3d.visible
-	
-	if spotlight3d.visible:
-		Global.HUD.item_action_label.display_label('[LMB] turn off / [RMB] hide', false)
-	else:
-		Global.HUD.item_action_label.display_label('[LMB] turn on / [RMB] hide', false)
 
 
 # Reacts to mouse events.
@@ -38,4 +33,4 @@ func mouse_input(event : InputEvent):
 
 # Returns action label for the item.
 func get_item_label() -> String:
-	return '[LMB] turn off / [RMB] hide'
+	return '[LMB] toggle / [RMB] hide'
