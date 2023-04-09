@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cd4wejpil27k4"]
+[gd_scene load_steps=13 format=3 uid="uid://cd4wejpil27k4"]
 
 [ext_resource type="Texture2D" uid="uid://c7ljtt45iuj8d" path="res://UI/Logos/red_riding_hood.png" id="1_jhuqf"]
 [ext_resource type="PackedScene" uid="uid://cjqokns8aphdi" path="res://Objects/campfire.tscn" id="1_v70ry"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://cudo7s2c2570a" path="res://UI/MainMenu/button_theme.tres" id="3_gihyp"]
 [ext_resource type="Texture2D" uid="uid://bneupdsg5xw2b" path="res://Textures/sky.png" id="4_46e8d"]
 [ext_resource type="Script" path="res://UI/MainMenu/MenuButtons.gd" id="4_b132q"]
+[ext_resource type="AudioStream" uid="uid://de844ndp48ljq" path="res://Audio/Music/main_menu_theme.ogg" id="7_wocrv"]
 
 [sub_resource type="Theme" id="Theme_78340"]
 VBoxContainer/constants/separation = -5
@@ -40,6 +41,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
@@ -107,6 +110,11 @@ fov = 60.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_45s6r")
+
+[node name="MainMenuThemePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wocrv")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="UI/MenuButtons/PlayButton" to="UI/MenuButtons" method="_on_play_button_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/OptionsButton" to="UI/MenuButtons" method="_on_options_button_pressed"]
