@@ -15,7 +15,6 @@ func _input(event: InputEvent) -> void:
 
 # Sets up stuff at the start of the game.
 func initial_setup():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 
 

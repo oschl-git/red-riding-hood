@@ -31,4 +31,4 @@ func get_item_tooltip() -> String:
 
 # Updates activity.
 func update_activity() -> void:
-	active = Global.player.usable_items.get_item('flashlight').activated
+	active = Global.player.usable_items.flashlight.activated

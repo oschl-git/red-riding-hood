@@ -1,0 +1,114 @@
+[gd_scene load_steps=12 format=3 uid="uid://cd4wejpil27k4"]
+
+[ext_resource type="Texture2D" uid="uid://c7ljtt45iuj8d" path="res://UI/Logos/red_riding_hood.png" id="1_jhuqf"]
+[ext_resource type="PackedScene" uid="uid://cjqokns8aphdi" path="res://Objects/campfire.tscn" id="1_v70ry"]
+[ext_resource type="FontFile" uid="uid://3r5i3edjcxtf" path="res://UI/Fonts/quan.ttf" id="2_undsf"]
+[ext_resource type="Theme" uid="uid://cudo7s2c2570a" path="res://UI/MainMenu/button_theme.tres" id="3_gihyp"]
+[ext_resource type="Texture2D" uid="uid://bneupdsg5xw2b" path="res://Textures/sky.png" id="4_46e8d"]
+[ext_resource type="Script" path="res://UI/MainMenu/MenuButtons.gd" id="4_b132q"]
+
+[sub_resource type="Theme" id="Theme_78340"]
+VBoxContainer/constants/separation = -5
+
+[sub_resource type="LabelSettings" id="LabelSettings_wqxrp"]
+font = ExtResource("2_undsf")
+font_size = 8
+font_color = Color(0.317647, 0.317647, 0.317647, 1)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_y6obo"]
+panorama = ExtResource("4_46e8d")
+
+[sub_resource type="Sky" id="Sky_0k00l"]
+sky_material = SubResource("PanoramaSkyMaterial_y6obo")
+
+[sub_resource type="Environment" id="Environment_45s6r"]
+background_mode = 2
+sky = SubResource("Sky_0k00l")
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_sky_affect = 0.7
+volumetric_fog_enabled = true
+volumetric_fog_sky_affect = 0.8
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Logo" type="TextureRect" parent="UI"]
+layout_mode = 0
+anchor_left = 0.025
+anchor_top = 0.0444444
+anchor_right = 0.215625
+anchor_bottom = 0.372222
+texture = ExtResource("1_jhuqf")
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuButtons" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0125
+anchor_top = 0.577778
+anchor_right = 0.134375
+anchor_bottom = 0.977778
+theme = SubResource("Theme_78340")
+alignment = 2
+script = ExtResource("4_b132q")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayButton" type="Button" parent="UI/MenuButtons"]
+layout_mode = 2
+theme = ExtResource("3_gihyp")
+text = "play"
+alignment = 0
+
+[node name="OptionsButton" type="Button" parent="UI/MenuButtons"]
+layout_mode = 2
+theme = ExtResource("3_gihyp")
+text = "options"
+alignment = 0
+
+[node name="CreditsButton" type="Button" parent="UI/MenuButtons"]
+layout_mode = 2
+theme = ExtResource("3_gihyp")
+text = "credits"
+alignment = 0
+
+[node name="ExitButton" type="Button" parent="UI/MenuButtons"]
+layout_mode = 2
+theme = ExtResource("3_gihyp")
+text = "quit"
+alignment = 0
+
+[node name="Copyright" type="Label" parent="UI"]
+layout_mode = 0
+anchor_left = 0.8
+anchor_top = 0.916667
+anchor_right = 0.978125
+anchor_bottom = 0.983333
+text = "© 2023 oschl"
+label_settings = SubResource("LabelSettings_wqxrp")
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.992, 0.416)
+fov = 60.0
+
+[node name="Campfire" parent="." instance=ExtResource("1_v70ry")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_45s6r")
+
+[connection signal="pressed" from="UI/MenuButtons/PlayButton" to="UI/MenuButtons" method="_on_play_button_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/OptionsButton" to="UI/MenuButtons" method="_on_options_button_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/CreditsButton" to="UI/MenuButtons" method="_on_credits_button_pressed"]
+[connection signal="pressed" from="UI/MenuButtons/ExitButton" to="UI/MenuButtons" method="_on_exit_button_pressed"]

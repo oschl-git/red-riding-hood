@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://byecqi5d8hd0p"]
+
+[ext_resource type="PackedScene" uid="uid://430cvcxo2srr" path="res://Objects/bush.tscn" id="1_owbol"]
+[ext_resource type="PackedScene" uid="uid://d1isbjcebqfs4" path="res://Objects/pine_tree.tscn" id="2_5do2x"]
+
+[node name="Flora" type="Node3D"]
+
+[node name="Bush" parent="." instance=ExtResource("1_owbol")]
+
+[node name="PineTree" parent="." instance=ExtResource("2_5do2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)

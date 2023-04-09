@@ -1,7 +1,9 @@
+res://UI/MainMenu
+res://Objects/MeshLibraries
+res://Objects
 res://UI/HUD
 res://PickableItems
 res://Entities/Player
-res://Objects
 res://UI/QuickMenu
 res://Entities/Wolf
 res://Scenes
