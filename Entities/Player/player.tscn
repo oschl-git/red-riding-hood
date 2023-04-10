@@ -485,7 +485,6 @@ libraries = {
 [node name="SpotLight3D" type="SpotLight3D" parent="Camera3D/UsableItems/Flashlight"]
 transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -1, -2.98023e-08, 0, 0.157288)
 light_color = Color(1, 1, 0.733333, 1)
-light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 spot_range = 18.0
 spot_angle = 40.0
@@ -497,6 +496,7 @@ script = ExtResource("5_45in4")
 [node name="OmniLight3D" type="OmniLight3D" parent="Camera3D/UsableItems/Torch"]
 transform = Transform3D(1, 1.43514e-07, 2.98023e-08, 5.10474e-08, 1, -2.51532e-08, 0, -2.86553e-08, 1, -0.30147, 0.038, 0.0838614)
 light_color = Color(0.835294, 0.294118, 0, 1)
+light_energy = 4.0
 light_volumetric_fog_energy = 0.0
 omni_range = 8.0
 

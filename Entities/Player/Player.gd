@@ -25,6 +25,7 @@ var run_stamina : int = 100
 
 # Signals:
 signal run_stamina_changed(value : int)
+signal torch_swung()
 
 
 # Built-in functions:

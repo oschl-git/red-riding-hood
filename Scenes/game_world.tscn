@@ -127,7 +127,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 [node name="Entities" type="Node3D" parent="."]
 
 [node name="Player" parent="Entities" instance=ExtResource("1_gep06")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.433)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.433)
 
 [node name="Wolf" parent="Entities" instance=ExtResource("8_hpugj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.236, 0, -1.207)

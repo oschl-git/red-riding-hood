@@ -17,7 +17,7 @@ var once_obtained := false
 
 # Changing variables:
 var burn_time_left := 100
-var matches := 0
+var matches := 10
 
 # Signals:
 signal swing_finished()
@@ -57,6 +57,7 @@ func swing() -> void:
 	player.decrease_stamina(required_stamina)
 	animation_player.play('swing')
 	await animation_player.animation_finished
+	player.torch_swung.emit()
 	animation_player.play('activate')
 	swing_finished.emit()
 	swinging = false

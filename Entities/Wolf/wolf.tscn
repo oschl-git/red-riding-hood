@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4dpe1qoksphl"]
+[gd_scene load_steps=9 format=3 uid="uid://d4dpe1qoksphl"]
 
 [ext_resource type="PackedScene" uid="uid://bwomnhdbvd42h" path="res://Models/wolf.glb" id="1_lcqtm"]
 [ext_resource type="Texture2D" uid="uid://c02mkn645s2ns" path="res://Models/wolf_Wolf_Fur_3.png" id="2_b466p"]
 [ext_resource type="Script" path="res://Entities/Wolf/Wolf.gd" id="2_uat0r"]
+[ext_resource type="Script" path="res://Entities/Wolf/AnimationPlayer.gd" id="4_c3edr"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fm1ok"]
 load_path = "res://.godot/imported/wolf_Wolf_Body.png-2ed22592eef05970bab6c8b85ee2a19d.s3tc.ctex"
@@ -34,16 +35,55 @@ script = ExtResource("2_uat0r")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Wolf_Skeleton" index="0"]
+bones/1/position = Vector3(2.72476e-08, 1.50263, -0.311679)
+bones/1/rotation = Quaternion(0.888263, -1.17508e-08, 2.118e-08, 0.459335)
+bones/2/position = Vector3(7.52423e-14, 0.30518, -0.108126)
+bones/2/rotation = Quaternion(-0.283618, 4.42882e-09, 1.68818e-08, 0.958937)
+bones/3/position = Vector3(-9.97999e-16, 0.159764, 0.0732835)
+bones/3/rotation = Quaternion(-0.110855, 3.39539e-10, 8.72005e-09, 0.993837)
+bones/4/position = Vector3(3.32986e-16, 0.333101, 0.191587)
+bones/4/rotation = Quaternion(-0.312218, -7.08315e-09, -6.9999e-08, 0.950011)
+bones/5/position = Vector3(-2.66454e-14, 0.379486, 0.22598)
+bones/5/rotation = Quaternion(-0.0739464, 2.72264e-08, -4.50174e-09, 0.997262)
+bones/6/position = Vector3(-9e-06, 0.525776, 0.0795526)
+bones/6/rotation = Quaternion(0.991614, 2.9561e-05, 6.04567e-05, 0.129232)
+bones/7/position = Vector3(-1.27557e-10, 0.3111, -0.0153568)
+bones/7/rotation = Quaternion(-0.805537, 0.00057402, -0.000570011, 0.592544)
 bones/12/rotation = Quaternion(-0.21292, 0.964486, 0.150233, -0.0431441)
 bones/16/rotation = Quaternion(-0.484574, 0.770198, 0.119712, -0.397054)
 bones/18/rotation = Quaternion(-0.500213, 0.847175, 0.131704, -0.121389)
 bones/20/rotation = Quaternion(-0.51614, 0.802546, 0.124731, -0.271959)
+bones/23/rotation = Quaternion(-0.445854, 0.143859, -0.160096, 0.868843)
+bones/24/rotation = Quaternion(0.373609, -0.215705, 0.158477, 0.888129)
+bones/25/rotation = Quaternion(-0.144976, -0.00640157, -0.0140615, 0.989314)
+bones/26/rotation = Quaternion(-0.491402, -0.0152714, -0.0026085, 0.870795)
+bones/27/rotation = Quaternion(-0.680332, -0.137941, 0.25719, 0.67229)
+bones/28/rotation = Quaternion(0.587449, 0.166699, -0.255753, 0.74947)
+bones/29/rotation = Quaternion(-0.502471, 0.00585411, 0.0107915, 0.864507)
+bones/30/rotation = Quaternion(-0.12804, 0.167274, -0.0527706, 0.976135)
+bones/31/position = Vector3(-1.52598e-14, -0.0288728, 0.0167513)
+bones/31/rotation = Quaternion(0.987898, -0.0133465, -0.00376522, 0.154484)
+bones/32/rotation = Quaternion(-0.236645, 0.00390976, -0.00286663, 0.971584)
+bones/33/rotation = Quaternion(-0.246059, 0.00786285, -0.00484282, 0.969211)
+bones/35/position = Vector3(0.175032, -0.110516, 0.187628)
+bones/35/rotation = Quaternion(0.635174, 0.0628542, -0.00624421, 0.769782)
+bones/36/rotation = Quaternion(0.368542, -0.0483174, 0.133337, 0.918729)
+bones/37/rotation = Quaternion(-0.17665, 0.0307334, -0.0462367, 0.982707)
+bones/38/rotation = Quaternion(0.0377505, 0.00301039, -0.0347045, 0.99868)
+bones/39/position = Vector3(-0.17511, -0.0819086, 0.208002)
+bones/39/rotation = Quaternion(0.587063, -0.0661155, 0.00605975, 0.806814)
+bones/40/rotation = Quaternion(0.760062, -0.0298992, -0.150228, 0.631541)
+bones/41/rotation = Quaternion(-0.574356, -0.0518094, 0.0336088, 0.816273)
+bones/42/rotation = Quaternion(-0.0126319, -0.276683, -0.956904, 0.0872999)
 
 [node name="Wolf_obj_body004" parent="Wolf_Skeleton/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_mym2c")
 
 [node name="Wolf_obj_body" parent="Wolf_Skeleton/Skeleton3D" index="4"]
 surface_material_override/0 = SubResource("StandardMaterial3D_7fboq")
+
+[node name="AnimationPlayer" parent="." index="1"]
+script = ExtResource("4_c3edr")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="2"]
 
