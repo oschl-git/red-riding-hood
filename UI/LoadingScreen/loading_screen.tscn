@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://mrxjy5l5j1vj"]
+
+[ext_resource type="Script" path="res://UI/LoadingScreen/LoadingScreen.gd" id="1_pnwh6"]
+[ext_resource type="FontFile" uid="uid://dyeoabstt03hc" path="res://UI/Fonts/serif_pixel-7.ttf" id="1_tc1jc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m2qoe"]
+font = ExtResource("1_tc1jc")
+font_size = 10
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pnwh6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 162.0
+offset_right = 313.0
+offset_bottom = 176.0
+text = "loading..."
+label_settings = SubResource("LabelSettings_m2qoe")

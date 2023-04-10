@@ -1,12 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://cd4wejpil27k4"]
+[gd_scene load_steps=16 format=3 uid="uid://cd4wejpil27k4"]
 
 [ext_resource type="Texture2D" uid="uid://c7ljtt45iuj8d" path="res://UI/Logos/red_riding_hood.png" id="1_jhuqf"]
 [ext_resource type="PackedScene" uid="uid://cjqokns8aphdi" path="res://Objects/campfire.tscn" id="1_v70ry"]
+[ext_resource type="Script" path="res://UI/MainMenu/MainMenu.gd" id="1_vqno1"]
 [ext_resource type="FontFile" uid="uid://3r5i3edjcxtf" path="res://UI/Fonts/quan.ttf" id="2_undsf"]
 [ext_resource type="Theme" uid="uid://cudo7s2c2570a" path="res://UI/MainMenu/button_theme.tres" id="3_gihyp"]
 [ext_resource type="Texture2D" uid="uid://bneupdsg5xw2b" path="res://Textures/sky.png" id="4_46e8d"]
 [ext_resource type="Script" path="res://UI/MainMenu/MenuButtons.gd" id="4_b132q"]
-[ext_resource type="AudioStream" uid="uid://de844ndp48ljq" path="res://Audio/Music/main_menu_theme.ogg" id="7_wocrv"]
 
 [sub_resource type="Theme" id="Theme_78340"]
 VBoxContainer/constants/separation = -5
@@ -34,7 +34,93 @@ fog_sky_affect = 0.7
 volumetric_fog_enabled = true
 volumetric_fog_sky_affect = 0.8
 
+[sub_resource type="Animation" id="Animation_53s6x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Campfire:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_67axm"]
+resource_name = "enter_animation"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Campfire:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v8loc"]
+_data = {
+"RESET": SubResource("Animation_53s6x"),
+"enter_animation": SubResource("Animation_67axm")
+}
+
 [node name="MainMenu" type="Node3D"]
+script = ExtResource("1_vqno1")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -97,24 +183,31 @@ anchor_left = 0.8
 anchor_top = 0.916667
 anchor_right = 0.978125
 anchor_bottom = 0.983333
-text = "© 2023 oschl"
+text = "© oschl 2023"
 label_settings = SubResource("LabelSettings_wqxrp")
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="ColorRect" type="ColorRect" parent="UI"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 1)
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.992, 0.416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.992, 0.762007)
 fov = 60.0
 
 [node name="Campfire" parent="." instance=ExtResource("1_v70ry")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_45s6r")
 
-[node name="MainMenuThemePlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_wocrv")
-autoplay = true
-bus = &"Music"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v8loc")
+}
 
 [connection signal="pressed" from="UI/MenuButtons/PlayButton" to="UI/MenuButtons" method="_on_play_button_pressed"]
 [connection signal="pressed" from="UI/MenuButtons/OptionsButton" to="UI/MenuButtons" method="_on_options_button_pressed"]

@@ -3,12 +3,9 @@
 extends Control
 
 
-var game_world : PackedScene = preload('res://Scenes/game_world.tscn')
-
-
 # Button signals:
 func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_packed(game_world)
+	get_tree().change_scene_to_file('res://UI/LoadingScreen/loading_screen.tscn')
 
 
 func _on_options_button_pressed() -> void:

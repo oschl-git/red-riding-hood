@@ -1,3 +1,6 @@
+res://UI/LoadingScreen
+res://UI/PauseMenu
+res://Singletons
 res://UI/OpeningSplash
 res://UI/MainMenu
 res://Objects/MeshLibraries
@@ -8,5 +11,4 @@ res://Entities/Player
 res://UI/QuickMenu
 res://Entities/Wolf
 res://Scenes
-res://Singletons
 res://Entities

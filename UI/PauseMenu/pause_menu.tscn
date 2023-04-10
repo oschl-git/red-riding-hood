@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://415ysgqf85k5"]
+
+[ext_resource type="FontFile" uid="uid://dyeoabstt03hc" path="res://UI/Fonts/serif_pixel-7.ttf" id="1_75utq"]
+[ext_resource type="Script" path="res://UI/PauseMenu/PauseMenu.gd" id="1_b6cg1"]
+[ext_resource type="Script" path="res://UI/PauseMenu/MenuButtons.gd" id="2_22bki"]
+[ext_resource type="Theme" uid="uid://cudo7s2c2570a" path="res://UI/MainMenu/button_theme.tres" id="3_5lra5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_puq4j"]
+font = ExtResource("1_75utq")
+font_size = 10
+
+[sub_resource type="Theme" id="Theme_gvx0v"]
+VBoxContainer/constants/separation = -5
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b6cg1")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 221.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.593154, 0.842672)
+color = Color(0, 0, 0, 0.501961)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -164.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.593154, 0.842672)
+color = Color(0, 0, 0, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 128.0
+offset_right = 86.0
+offset_bottom = 142.0
+text = "GAME PAUSED"
+label_settings = SubResource("LabelSettings_puq4j")
+
+[node name="MenuButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0125
+anchor_top = 0.766667
+anchor_right = 0.134375
+anchor_bottom = 0.977778
+theme = SubResource("Theme_gvx0v")
+alignment = 2
+script = ExtResource("2_22bki")
+metadata/_edit_use_anchors_ = true
+
+[node name="ResumeButton" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme = ExtResource("3_5lra5")
+text = "resume"
+alignment = 0
+
+[node name="OptionsButton" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme = ExtResource("3_5lra5")
+text = "options"
+alignment = 0
+
+[node name="MainMenuButton" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme = ExtResource("3_5lra5")
+text = "quit to main menu"
+alignment = 0
+
+[connection signal="pressed" from="MenuButtons/ResumeButton" to="MenuButtons" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MenuButtons/OptionsButton" to="MenuButtons" method="_on_options_button_pressed"]
+[connection signal="pressed" from="MenuButtons/MainMenuButton" to="MenuButtons" method="_on_main_menu_button_pressed"]

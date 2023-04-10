@@ -52,6 +52,7 @@ script = ExtResource("6_fdc3g")
 metadata/_edit_use_anchors_ = true
 
 [node name="BurntimeBar" type="TextureProgressBar" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.003125

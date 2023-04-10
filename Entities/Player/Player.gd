@@ -32,6 +32,10 @@ func _enter_tree() -> void:
 	Global.player = self
 
 
+func _ready() -> void:
+	$MeshInstance3D.visible = false
+
+
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
 
