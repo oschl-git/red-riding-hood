@@ -66,7 +66,6 @@ anchor_bottom = 0.977778
 theme = SubResource("Theme_gvx0v")
 alignment = 2
 script = ExtResource("2_22bki")
-metadata/_edit_use_anchors_ = true
 
 [node name="ResumeButton" type="Button" parent="MenuButtons"]
 layout_mode = 2

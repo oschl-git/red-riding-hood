@@ -1,9 +1,10 @@
+Label
+ColorRect
+Timer
 SpotLight3D
 CollisionShape3D
 StaticBody3D
 Camera3D
-Label
-ColorRect
 TextureRect
 AnimationPlayer
 GridMap
@@ -15,7 +16,6 @@ VBoxContainer
 Button
 TextureButton
 HFlowContainer
-Timer
 Area3D
 RayCast3D
 Node

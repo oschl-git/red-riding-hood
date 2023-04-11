@@ -10,17 +10,18 @@ class_name Wolf
 
 # Adjustable values:
 const run_speed : float = 5
-const creep_speed : float = .5
+const creep_speed : float = 1
 var gravity : float = ProjectSettings.get_setting('physics/3d/default_gravity')
 
 # States:
 enum states {
 	DEACTIVATED,
+	SPAWNING,
 	PURSUING_PLAYER,
 	FLEEING,
 	KILLING_PLAYER
 }
-var current_state := states.PURSUING_PLAYER
+var current_state := states.DEACTIVATED
 
 # Actions:
 enum actions {
@@ -33,10 +34,12 @@ var current_action := actions.NOTHING
 
 # Changing variables:
 var velocity_y : float = 0
+var times_swung := 0
 
 # Signals:
 signal state_changed(new_state: states)
 signal action_changed(new_action: actions)
+
 
 # Built-in functions:
 func _ready() -> void:
@@ -47,10 +50,9 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	print('state: ' + str(current_state) + ', action: ' + str(current_action))
-
 	match current_state:
 		states.DEACTIVATED: deactivate()
+		states.SPAWNING: spawn()
 		states.PURSUING_PLAYER: pursue_player()
 		states.FLEEING: flee()
 		states.KILLING_PLAYER: kill_player()
@@ -67,13 +69,22 @@ func _physics_process(delta: float) -> void:
 
 # State functions:
 func deactivate() -> void:
-	pass
+	visible = false
+	change_action(actions.NOTHING)
+	position = Vector3(0, 10, 0)
+
+
+func spawn() -> void:
+	position = Global.player.global_position + Vector3(20, 0, 20)
+	visible = true
+	change_state(states.PURSUING_PLAYER)
 
 
 func pursue_player() -> void:
 	var distance := get_distance_from_player()
-	if distance > 8: change_action(actions.RUNNING_AT_PLAYER)
-	elif distance > 4: change_action(actions.CREEPING_TOWARDS_PLAYER)
+	if distance > 5 and current_action == actions.RUNNING_AT_PLAYER or distance > 8:
+		change_action(actions.RUNNING_AT_PLAYER)
+	elif distance > 3: change_action(actions.CREEPING_TOWARDS_PLAYER)
 	else: change_state(states.KILLING_PLAYER)
 
 
@@ -82,39 +93,57 @@ func flee() -> void:
 
 
 func kill_player() -> void:
-	pass
+	change_action(actions.RUNNING_AT_PLAYER)
 
 
 
 # Action functions:
 func run_at_player(delta: float) -> void:
-	go_toward_player(delta, run_speed)
+	navigate_toward_player(delta, run_speed)
 
 
 func creep_towards_player(delta: float) -> void:
-	go_toward_player(delta, creep_speed)
+	navigate_toward_player(delta, creep_speed)
 
 
 func run_away(delta: float) -> void:
-	go_towards_position(Vector3(-200, 0, -200), delta, run_speed)
+	if abs(global_position.x) < 1 and abs(global_position.z) < 1: 
+		$SpawnTimer.start()
+		change_state(states.DEACTIVATED)
+	navigate_towards_position(Vector3(0, 0, 0), delta, run_speed)
 
 
 ###
 func on_action_changed(new_action: actions) -> void:
+	return
 	match new_action:
-		actions.RUNNING_AT_PLAYER: flee_attack_or_ignore(5, 5)
+		actions.RUNNING_AT_PLAYER: 
+			flee_chance(10)
+			attack_chance(10)
 
 
 func on_player_swung_torch() -> void:
-	flee_attack_or_ignore(5, 100)
+	if not (Global.player.camera.is_position_in_frustum(global_position)
+		and get_distance_from_player() < 5): return
+
+	var result : bool
+
+	if times_swung <= 0: pass
+	elif times_swung <= 3: result = flee_chance(20)
+	elif times_swung <= 5: result = flee_chance(50)
+	elif times_swung <= 8: result = flee_chance(70)
+	else: result = flee_chance(100)
+	
+	if result: times_swung = 0
+	else: times_swung += 1
 
 
-func go_toward_player(delta: float, speed: float) -> void:
-	go_towards_position(Global.player.global_position, delta, speed)
+func navigate_toward_player(delta: float, speed: float) -> void:
+	navigate_towards_position(Global.player.global_position, delta, speed)
 
 
-func go_towards_position(target: Vector3, delta: float, speed: float) -> void:
-	if velocity != Vector3.ZERO: look_at(global_transform.origin + velocity)
+func navigate_towards_position(target: Vector3, delta: float, speed: float) -> void:
+	look_at_movement_direction()
 	
 	nav_agent.set_target_position(target)
 	var current_location : Vector3 = global_transform.origin
@@ -127,9 +156,20 @@ func go_towards_position(target: Vector3, delta: float, speed: float) -> void:
 	move_and_slide()
 
 
-func flee_attack_or_ignore(flee_chance: int, attack_chance: int) -> void:
-	if randi_range(1, flee_chance) == 1: change_state(states.FLEEING)
-	elif randi_range(1, attack_chance) == 1: change_state(states.KILLING_PLAYER)
+func force_go_toward_player(delta: float, speed: float) -> void:
+	pass
+
+
+func flee_chance(percent : int) -> bool:
+	if randi_range(1, 100) <= percent:
+		change_state(states.FLEEING)
+		return true
+	else: 
+		return false
+
+
+func attack_chance(percent : int) -> void:
+	if randi_range(1, 100) <= percent: change_state(states.KILLING_PLAYER)
 
 
 func get_distance_from_player() -> float:
@@ -148,3 +188,12 @@ func change_action(new_action: actions) -> void:
 	
 	current_action = new_action
 	action_changed.emit(current_action)
+
+
+func look_at_movement_direction() -> void:
+	if velocity == Vector3.ZERO: return
+	look_at(global_transform.origin + velocity)
+
+
+func _on_spawn_timer_timeout() -> void:
+	change_state(states.SPAWNING)
