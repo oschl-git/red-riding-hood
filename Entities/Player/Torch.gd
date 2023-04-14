@@ -17,7 +17,7 @@ var once_obtained := false
 
 # Changing variables:
 var burn_time_left := 100
-var matches := 0
+var matches := 10
 
 # Signals:
 signal swing_finished()

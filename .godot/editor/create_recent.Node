@@ -1,5 +1,8 @@
-Label
 ColorRect
+Control
+CanvasLayer
+CanvasModulate
+Label
 Timer
 SpotLight3D
 CollisionShape3D
@@ -10,7 +13,6 @@ AnimationPlayer
 GridMap
 Node3D
 PointLight2D
-Control
 AudioStreamPlayer
 VBoxContainer
 Button

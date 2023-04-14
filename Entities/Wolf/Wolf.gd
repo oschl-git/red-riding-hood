@@ -7,6 +7,9 @@ class_name Wolf
 # Node references:
 @onready var nav_agent : NavigationAgent3D = $NavigationAgent3D
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
+@onready var spawn_timer : Timer = $SpawnTimer
+@onready var kill_timer : Timer = $KillTimer
+@onready var hesitate_timer : Timer = $HesitateTimer
 
 # Adjustable values:
 const run_speed : float = 5
@@ -28,6 +31,7 @@ enum actions {
 	NOTHING,
 	RUNNING_AT_PLAYER,
 	CREEPING_TOWARDS_PLAYER,
+	HESITATING,
 	RUNNING_AWAY,
 }
 var current_action := actions.NOTHING
@@ -61,21 +65,26 @@ func _physics_process(delta: float) -> void:
 		actions.NOTHING: pass
 		actions.RUNNING_AT_PLAYER: run_at_player(delta)
 		actions.CREEPING_TOWARDS_PLAYER: creep_towards_player(delta)
+		actions.HESITATING: hesitate(delta)
 		actions.RUNNING_AWAY: run_away(delta)
 	
 	animation_player.handle_wolf_animation(current_action)
-
 
 
 # State functions:
 func deactivate() -> void:
 	visible = false
 	change_action(actions.NOTHING)
-	position = Vector3(0, 10, 0)
+	kill_timer.stop()
+	position = Vector3(0, 100, 0)
 
 
 func spawn() -> void:
-	position = Global.player.global_position + Vector3(20, 0, 20)
+	position = Global.player.global_position + Vector3(
+		pow(-1,randi_range(1,2)) * 20,
+		0,
+		pow(-1,randi_range(1,2)) * 20
+	)
 	visible = true
 	change_state(states.PURSUING_PLAYER)
 
@@ -84,15 +93,23 @@ func pursue_player() -> void:
 	var distance := get_distance_from_player()
 	if distance > 5 and current_action == actions.RUNNING_AT_PLAYER or distance > 8:
 		change_action(actions.RUNNING_AT_PLAYER)
-	elif distance > 3: change_action(actions.CREEPING_TOWARDS_PLAYER)
-	else: change_state(states.KILLING_PLAYER)
+	elif distance > 3: 
+		if current_action == actions.HESITATING: return
+		change_action(actions.CREEPING_TOWARDS_PLAYER)
+		if kill_timer.is_stopped(): 
+			kill_timer.wait_time = randf_range(20, 30)
+			kill_timer.start()
+	else:
+		change_state(states.KILLING_PLAYER)
 
 
 func flee() -> void:
+	kill_timer.stop()
 	change_action(actions.RUNNING_AWAY)
 
 
 func kill_player() -> void:
+	kill_timer.stop()
 	change_action(actions.RUNNING_AT_PLAYER)
 
 
@@ -106,9 +123,16 @@ func creep_towards_player(delta: float) -> void:
 	navigate_toward_player(delta, creep_speed)
 
 
+func hesitate(delta: float) -> void:
+	if hesitate_timer.is_stopped():
+		hesitate_timer.start()
+	
+	look_at(Global.player.global_position)
+
+
 func run_away(delta: float) -> void:
 	if abs(global_position.x) < 1 and abs(global_position.z) < 1: 
-		$SpawnTimer.start()
+		spawn_timer.start()
 		change_state(states.DEACTIVATED)
 	navigate_towards_position(Vector3(0, 0, 0), delta, run_speed)
 
@@ -124,7 +148,11 @@ func on_action_changed(new_action: actions) -> void:
 
 func on_player_swung_torch() -> void:
 	if not (Global.player.camera.is_position_in_frustum(global_position)
-		and get_distance_from_player() < 5): return
+		and get_distance_from_player() < 4.5): return
+	if current_action == actions.HESITATING: return
+
+	current_action = actions.HESITATING
+	hesitate_timer.start()
 
 	var result : bool
 
@@ -134,7 +162,8 @@ func on_player_swung_torch() -> void:
 	elif times_swung <= 8: result = flee_chance(70)
 	else: result = flee_chance(100)
 	
-	if result: times_swung = 0
+	if result: 
+		times_swung = 0
 	else: times_swung += 1
 
 
@@ -162,6 +191,7 @@ func force_go_toward_player(delta: float, speed: float) -> void:
 
 func flee_chance(percent : int) -> bool:
 	if randi_range(1, 100) <= percent:
+		print(kill_timer.time_left)
 		change_state(states.FLEEING)
 		return true
 	else: 
@@ -197,3 +227,11 @@ func look_at_movement_direction() -> void:
 
 func _on_spawn_timer_timeout() -> void:
 	change_state(states.SPAWNING)
+
+
+func _on_kill_timer_timeout() -> void:
+	change_state(states.KILLING_PLAYER)
+
+
+func _on_hesitate_timer_timeout() -> void:
+	change_action(actions.CREEPING_TOWARDS_PLAYER)

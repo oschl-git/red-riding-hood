@@ -62,5 +62,17 @@ shape = SubResource("BoxShape3D_nkaiu")
 process_callback = 0
 wait_time = 3.0
 one_shot = true
+autostart = true
+
+[node name="KillTimer" type="Timer" parent="." index="5"]
+process_callback = 0
+wait_time = 10.0
+one_shot = true
+
+[node name="HesitateTimer" type="Timer" parent="." index="6"]
+process_callback = 0
+one_shot = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout" flags=18]
+[connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]
+[connection signal="timeout" from="HesitateTimer" to="." method="_on_hesitate_timer_timeout"]

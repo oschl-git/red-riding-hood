@@ -8,6 +8,11 @@ extends AnimationPlayer
 
 
 func handle_wolf_animation(action : Wolf.actions) -> void:
+	if action == Wolf.actions.HESITATING:
+		pause()
+		return
+	else: play()
+	
 	match action:
 		Wolf.actions.RUNNING_AT_PLAYER: play('Wolf_Run_Cycle_')
 		Wolf.actions.CREEPING_TOWARDS_PLAYER: play('Wolf_creep')

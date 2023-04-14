@@ -1,6 +1,7 @@
-res://Scenes/game_world.tscn
+res://UI/QuickMenu/quick_menu.tscn
 res://UI/MainMenu/button_theme.tres
 res://Objects/MeshLibraries/flora.tres
+res://Scenes/game_world.tscn
 res://Entities/Player/player.tscn
 res://UI/DeathScreen/death_screen.tscn
 res://UI/PauseMenu/pause_menu.tscn
