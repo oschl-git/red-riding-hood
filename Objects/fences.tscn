@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://vk7iti0kg84u"]
+
+[ext_resource type="PackedScene" uid="uid://bgdvvq2jt8sw6" path="res://Objects/fence.tscn" id="1_3x1w8"]
+
+[node name="Fences" type="Node3D"]
+
+[node name="Fence" parent="." instance=ExtResource("1_3x1w8")]

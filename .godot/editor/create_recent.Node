@@ -1,3 +1,7 @@
+StaticBody3D
+CollisionShape3D
+GridMap
+MeshInstance3D
 ColorRect
 Control
 CanvasLayer
@@ -5,12 +9,9 @@ CanvasModulate
 Label
 Timer
 SpotLight3D
-CollisionShape3D
-StaticBody3D
 Camera3D
 TextureRect
 AnimationPlayer
-GridMap
 Node3D
 PointLight2D
 AudioStreamPlayer
@@ -24,7 +25,6 @@ Node
 TextureProgressBar
 Container
 NavigationAgent3D
-MeshInstance3D
 NavigationRegion3D
 OmniLight3D
 GPUParticles3D

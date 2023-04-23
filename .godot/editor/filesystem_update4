@@ -1,9 +1,10 @@
-res://UI/QuickMenu/quick_menu.tscn
-res://UI/MainMenu/button_theme.tres
-res://Objects/MeshLibraries/flora.tres
 res://Scenes/game_world.tscn
-res://Entities/Player/player.tscn
-res://UI/DeathScreen/death_screen.tscn
-res://UI/PauseMenu/pause_menu.tscn
-res://UI/LoadingScreen/loading_screen.tscn
+res://UI/MainMenu/button_theme.tres
+res://Shaders/chromatic_abberation.gdshader
+res://Objects/MeshLibraries/flora.tres
+res://Objects/fences.tscn
+res://Objects/MeshLibraries/fences.tres
+res://Objects/fence.tscn
+res://UI/OpeningSplash/opening_splash.tscn
 res://Entities/Wolf/wolf.tscn
+res://Objects/pine_tree.tscn

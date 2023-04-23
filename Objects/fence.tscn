@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgdvvq2jt8sw6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2d6kc"]
+load_path = "res://.godot/imported/fence_fence_pixel.png-13e194a36744ba2b007e2165559ab725.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78cfv"]
+resource_name = "Material.001"
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("CompressedTexture2D_2d6kc")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_58xeq"]
+_surfaces = [{
+"aabb": AABB(-9.43724e-08, 0, -0.75, 1.00377e-05, 2, 1.50001),
+"format": 4097,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 0, 0, 5, 0, 2, 0, 0, 0, 4, 0, 5, 0),
+"name": "Material.001",
+"primitive": 3,
+"vertex_count": 6,
+"vertex_data": PackedByteArray(30, 50, 115, 179, 0, 0, 192, 63, 0, 0, 64, 63, 30, 50, 115, 51, 0, 0, 0, 0, 0, 0, 64, 63, 30, 50, 115, 179, 0, 0, 192, 63, 0, 0, 64, 191, 30, 50, 115, 51, 0, 0, 0, 0, 0, 0, 64, 191, 195, 169, 202, 179, 0, 0, 0, 64, 0, 0, 64, 63, 195, 169, 202, 179, 0, 0, 0, 64, 0, 0, 64, 191)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4e2ur"]
+resource_name = "fence_Plane002"
+_surfaces = [{
+"aabb": AABB(-9.43724e-08, 0, -0.75, 1.00377e-05, 2, 1.50001),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 72, 213, 61, 62, 0, 0, 0, 0, 72, 213, 61, 62, 0, 0, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 72, 213, 61, 62, 0, 0, 128, 63, 72, 213, 61, 62, 1, 0, 128, 63, 255, 255, 127, 63, 0, 0, 0, 0, 0, 174, 10, 187, 0, 0, 128, 63, 0, 174, 10, 187),
+"format": 4119,
+"index_count": 12,
+"index_data": PackedByteArray(1, 0, 5, 0, 2, 0, 1, 0, 4, 0, 5, 0, 0, 0, 7, 0, 3, 0, 0, 0, 6, 0, 7, 0),
+"material": SubResource("StandardMaterial3D_78cfv"),
+"name": "Material.001",
+"primitive": 3,
+"vertex_count": 8,
+"vertex_data": PackedByteArray(30, 50, 115, 179, 0, 0, 192, 63, 0, 0, 64, 63, 254, 255, 255, 127, 255, 255, 255, 255, 30, 50, 115, 179, 0, 0, 192, 63, 0, 0, 64, 63, 254, 255, 255, 127, 255, 255, 0, 128, 30, 50, 115, 51, 0, 0, 0, 0, 0, 0, 64, 63, 254, 255, 255, 127, 255, 255, 0, 128, 30, 50, 115, 179, 0, 0, 192, 63, 0, 0, 64, 191, 254, 255, 255, 127, 255, 255, 255, 255, 30, 50, 115, 179, 0, 0, 192, 63, 0, 0, 64, 191, 254, 255, 255, 127, 255, 255, 255, 255, 30, 50, 115, 51, 0, 0, 0, 0, 0, 0, 64, 191, 254, 255, 255, 127, 255, 255, 0, 128, 195, 169, 202, 179, 0, 0, 0, 64, 0, 0, 64, 63, 254, 255, 255, 127, 255, 255, 255, 255, 195, 169, 202, 179, 0, 0, 0, 64, 0, 0, 64, 191, 254, 255, 255, 127, 255, 255, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_58xeq")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fn6vc"]
+points = PackedVector3Array(-0.015873, -0.0154753, -0.765724, 0.015873, 2.01548, 0.757787, -0.015873, 2.01548, 0.757787, 0.015873, -0.0154753, 0.757787, 0.015873, 2.01548, -0.765724, -0.015873, 2.01548, -0.765724, -0.015873, -0.0154753, 0.757787, 0.015873, -0.0154753, -0.765724)
+
+[node name="Fence" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+mesh = SubResource("ArrayMesh_4e2ur")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_fn6vc")

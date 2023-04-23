@@ -7,6 +7,7 @@ class_name Wolf
 # Node references:
 @onready var nav_agent : NavigationAgent3D = $NavigationAgent3D
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
+
 @onready var spawn_timer : Timer = $SpawnTimer
 @onready var kill_timer : Timer = $KillTimer
 @onready var hesitate_timer : Timer = $HesitateTimer
@@ -113,7 +114,6 @@ func kill_player() -> void:
 	change_action(actions.RUNNING_AT_PLAYER)
 
 
-
 # Action functions:
 func run_at_player(delta: float) -> void:
 	navigate_toward_player(delta, run_speed)
@@ -123,10 +123,8 @@ func creep_towards_player(delta: float) -> void:
 	navigate_toward_player(delta, creep_speed)
 
 
-func hesitate(delta: float) -> void:
-	if hesitate_timer.is_stopped():
-		hesitate_timer.start()
-	
+func hesitate(_delta: float) -> void:
+	if hesitate_timer.is_stopped(): hesitate_timer.start()
 	look_at(Global.player.global_position)
 
 
@@ -137,13 +135,81 @@ func run_away(delta: float) -> void:
 	navigate_towards_position(Vector3(0, 0, 0), delta, run_speed)
 
 
-###
+# Change functions:
+func change_state(new_state: states) -> void:
+	if new_state == current_state: return
+	
+	current_state = new_state
+	state_changed.emit(current_state)
+
+
+func change_action(new_action: actions) -> void:
+	if new_action == current_action: return
+	
+	current_action = new_action
+	action_changed.emit(current_action)
+
+
+# Navigates towards the provided position with the provided delta and speed.
+func navigate_towards_position(target: Vector3, delta: float, speed: float) -> void:
+	look_at_movement_direction()
+	
+	nav_agent.set_target_position(target)
+	var current_location : Vector3 = global_transform.origin
+	var next_location : Vector3 = nav_agent.get_next_path_position()
+	velocity = (next_location - current_location).normalized() * speed
+	
+	velocity_y = velocity_y - gravity * delta if not is_on_floor() else float(0)
+	velocity.y = velocity_y
+
+	move_and_slide()
+
+
+# Navigates towards the player with the provided delta and speed.
+func navigate_toward_player(delta: float, speed: float) -> void:
+	navigate_towards_position(Global.player.global_position, delta, speed)
+
+
+# Forces going towards player, ignoring the navmesh
+func force_go_toward_player(delta: float, speed: float) -> void:
+	pass
+
+
+# Uses the provided percentage as a chance to flee, returns true if fleeing, false if not
+func flee_chance(percent : int) -> bool:
+	if randi_range(1, 100) <= percent:
+		change_state(states.FLEEING)
+		return true
+	else: 
+		return false
+
+
+# Uses the provided percentage as a chance to flee, returns true if fleeing, false if not
+func attack_chance(percent : int) -> bool:
+	if randi_range(1, 100) <= percent:
+		change_state(states.KILLING_PLAYER)
+		return true
+	else: 
+		return false
+
+
+# Returns distance between wolf and player.
+func get_distance_from_player() -> float:
+	return global_position.distance_to(Global.player.global_position)
+
+
+# Rotates wolf to look in the direction its going.
+func look_at_movement_direction() -> void:
+	if velocity == Vector3.ZERO: return
+	look_at(global_transform.origin + velocity)
+
+
+# Signal responses:
 func on_action_changed(new_action: actions) -> void:
 	return
 	match new_action:
 		actions.RUNNING_AT_PLAYER: 
 			flee_chance(10)
-			attack_chance(10)
 
 
 func on_player_swung_torch() -> void:
@@ -167,64 +233,7 @@ func on_player_swung_torch() -> void:
 	else: times_swung += 1
 
 
-func navigate_toward_player(delta: float, speed: float) -> void:
-	navigate_towards_position(Global.player.global_position, delta, speed)
-
-
-func navigate_towards_position(target: Vector3, delta: float, speed: float) -> void:
-	look_at_movement_direction()
-	
-	nav_agent.set_target_position(target)
-	var current_location : Vector3 = global_transform.origin
-	var next_location : Vector3 = nav_agent.get_next_path_position()
-	velocity = (next_location - current_location).normalized() * speed
-	
-	velocity_y = velocity_y - gravity * delta if not is_on_floor() else float(0)
-	velocity.y = velocity_y
-
-	move_and_slide()
-
-
-func force_go_toward_player(delta: float, speed: float) -> void:
-	pass
-
-
-func flee_chance(percent : int) -> bool:
-	if randi_range(1, 100) <= percent:
-		print(kill_timer.time_left)
-		change_state(states.FLEEING)
-		return true
-	else: 
-		return false
-
-
-func attack_chance(percent : int) -> void:
-	if randi_range(1, 100) <= percent: change_state(states.KILLING_PLAYER)
-
-
-func get_distance_from_player() -> float:
-	return global_position.distance_to(Global.player.global_position)
-
-
-func change_state(new_state: states) -> void:
-	if new_state == current_state: return
-	
-	current_state = new_state
-	state_changed.emit(current_state)
-
-
-func change_action(new_action: actions) -> void:
-	if new_action == current_action: return
-	
-	current_action = new_action
-	action_changed.emit(current_action)
-
-
-func look_at_movement_direction() -> void:
-	if velocity == Vector3.ZERO: return
-	look_at(global_transform.origin + velocity)
-
-
+# Timer timeouts:
 func _on_spawn_timer_timeout() -> void:
 	change_state(states.SPAWNING)
 
