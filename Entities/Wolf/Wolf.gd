@@ -1,4 +1,4 @@
-# Handles the wolf (in-game).
+# Handles the wolf (in-game) and its AI.
 
 extends CharacterBody3D
 class_name Wolf

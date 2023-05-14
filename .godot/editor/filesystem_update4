@@ -1,10 +1,11 @@
-res://Scenes/game_world.tscn
+res://Entities/Wolf/wolf.tscn
 res://UI/MainMenu/button_theme.tres
 res://Shaders/chromatic_abberation.gdshader
 res://Objects/MeshLibraries/flora.tres
-res://Objects/fences.tscn
 res://Objects/MeshLibraries/fences.tres
 res://Objects/fence.tscn
-res://UI/OpeningSplash/opening_splash.tscn
-res://Entities/Wolf/wolf.tscn
+res://Objects/fences.tscn
 res://Objects/pine_tree.tscn
+res://UI/QuickMenu/quick_menu.tscn
+res://Scenes/game_world2.tscn
+res://Scenes/game_world.tscn

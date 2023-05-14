@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cjqokns8aphdi"]
+[gd_scene load_steps=16 format=3]
 
 [ext_resource type="PackedScene" uid="uid://bgqbnpn1umwx8" path="res://Models/campfire.glb" id="1_5exk0"]
-[ext_resource type="Texture2D" uid="uid://rsb6aj0ihw0v" path="res://Textures/fire.png" id="2_ldkef"]
-[ext_resource type="Texture2D" uid="uid://bb00dcfrsby3u" path="res://Textures/smoke.png" id="3_sgu40"]
+[ext_resource type="Texture2D" uid="uid://rsb6aj0ihw0v" path="res://Objects/Textures/fire.png" id="2_ldkef"]
+[ext_resource type="Texture2D" uid="uid://bb00dcfrsby3u" path="res://Objects/Textures/smoke.png" id="3_sgu40"]
 
 [sub_resource type="Gradient" id="Gradient_cp7nu"]
 colors = PackedColorArray(0.862752, 0.443653, 0, 1, 0.854261, 0, 0.230857, 0.65098)

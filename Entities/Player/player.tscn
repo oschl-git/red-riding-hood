@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bf2m1pftf5jxj"]
+[gd_scene load_steps=32 format=3]
 
 [ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_6hg71"]
 [ext_resource type="Script" path="res://Entities/Player/UsableItems.gd" id="2_a8sc3"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Entities/Player/Flashlight.gd" id="3_eemii"]
 [ext_resource type="Script" path="res://Entities/Player/WolfDetectionArea.gd" id="3_slg8q"]
 [ext_resource type="PackedScene" uid="uid://du1jdc5v0sqw8" path="res://Objects/torch.tscn" id="4_bf0wq"]
-[ext_resource type="Texture2D" uid="uid://rsb6aj0ihw0v" path="res://Textures/fire.png" id="5_3ii6g"]
+[ext_resource type="Texture2D" uid="uid://rsb6aj0ihw0v" path="res://Objects/Textures/fire.png" id="5_3ii6g"]
 [ext_resource type="Script" path="res://Entities/Player/Torch.gd" id="5_45in4"]
 [ext_resource type="Script" path="res://Entities/Player/PickableItemCollider.gd" id="8_60pus"]
 
