@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://rsp5mvqu514g"]
+[gd_scene load_steps=16 format=3 uid="uid://rsp5mvqu514g"]
 
 [ext_resource type="Script" path="res://UI/HUD/HUD.gd" id="1_lk52p"]
 [ext_resource type="FontFile" uid="uid://3r5i3edjcxtf" path="res://UI/Fonts/quan.ttf" id="2_ukw64"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://v3gae320ief" path="res://UI/HUD/Textures/crosshair.png" id="7_2lqn0"]
 [ext_resource type="Script" path="res://UI/HUD/BurntimeBar.gd" id="7_34el6"]
 [ext_resource type="Script" path="res://UI/HUD/Crosshair.gd" id="8_sg8yo"]
+[ext_resource type="Script" path="res://UI/HUD/DebugInfo.gd" id="12_7rlj4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aidin"]
 font = ExtResource("2_ukw64")
@@ -24,6 +25,10 @@ font = ExtResource("2_ukw64")
 font_size = 8
 shadow_size = 0
 shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jjc3p"]
+font = ExtResource("2_ukw64")
+font_size = 8
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -119,5 +124,20 @@ text = "Item name"
 label_settings = SubResource("LabelSettings_4hogl")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="DebugInfo" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -89.0
+offset_right = 160.0
+offset_bottom = 89.0
+grow_vertical = 2
+text = "debug info:"
+label_settings = SubResource("LabelSettings_jjc3p")
+vertical_alignment = 1
+script = ExtResource("12_7rlj4")
 
 [connection signal="timeout" from="ItemActionLabel/Timer" to="ItemActionLabel" method="_on_timer_timeout"]
