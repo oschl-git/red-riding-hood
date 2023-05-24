@@ -1,10 +1,14 @@
+HBoxContainer
+Button
+ColorRect
+MarginContainer
 Label
+VBoxContainer
 Node3D
 StaticBody3D
 CollisionShape3D
 GridMap
 MeshInstance3D
-ColorRect
 Control
 CanvasLayer
 CanvasModulate
@@ -15,8 +19,6 @@ TextureRect
 AnimationPlayer
 PointLight2D
 AudioStreamPlayer
-VBoxContainer
-Button
 TextureButton
 HFlowContainer
 Area3D
@@ -28,5 +30,3 @@ NavigationAgent3D
 NavigationRegion3D
 OmniLight3D
 GPUParticles3D
-DirectionalLight3D
-CharacterBody3D

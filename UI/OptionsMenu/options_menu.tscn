@@ -1,0 +1,259 @@
+[gd_scene load_steps=9 format=3 uid="uid://car0pwqmf44x8"]
+
+[ext_resource type="FontFile" uid="uid://dyeoabstt03hc" path="res://UI/Fonts/serif_pixel-7.ttf" id="1_jmvns"]
+[ext_resource type="Script" path="res://UI/OptionsMenu/OptionsMenu.gd" id="1_n8c2b"]
+[ext_resource type="Theme" uid="uid://cudo7s2c2570a" path="res://UI/MainMenu/button_theme.tres" id="2_oh0e4"]
+[ext_resource type="Script" path="res://UI/OptionsMenu/OptionsButton.gd" id="3_1xwca"]
+[ext_resource type="FontFile" uid="uid://3r5i3edjcxtf" path="res://UI/Fonts/quan.ttf" id="3_y5dwy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bd7xg"]
+font = ExtResource("1_jmvns")
+font_size = 10
+
+[sub_resource type="Theme" id="Theme_3sd5g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cywd2"]
+font = ExtResource("3_y5dwy")
+font_size = 8
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n8c2b")
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 87.0
+offset_top = 48.0
+offset_right = 165.0
+offset_bottom = 62.0
+text = "OPTIONS"
+label_settings = SubResource("LabelSettings_bd7xg")
+
+[node name="MenuButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -28.0
+offset_right = 74.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fullscreen" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme = ExtResource("2_oh0e4")
+script = ExtResource("3_1xwca")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons/Fullscreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="MenuButtons/Fullscreen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = SubResource("Theme_3sd5g")
+text = "fullscreen"
+label_settings = SubResource("LabelSettings_cywd2")
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="MenuButtons/Fullscreen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = SubResource("Theme_3sd5g")
+text = "on"
+label_settings = SubResource("LabelSettings_cywd2")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Volume" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme = ExtResource("2_oh0e4")
+script = ExtResource("3_1xwca")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons/Volume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="MenuButtons/Volume/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = SubResource("Theme_3sd5g")
+text = "sfx volume"
+label_settings = SubResource("LabelSettings_cywd2")
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="MenuButtons/Volume/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = SubResource("Theme_3sd5g")
+text = "100%"
+label_settings = SubResource("LabelSettings_cywd2")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Volume2" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme = ExtResource("2_oh0e4")
+script = ExtResource("3_1xwca")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons/Volume2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="MenuButtons/Volume2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = SubResource("Theme_3sd5g")
+text = "music volume"
+label_settings = SubResource("LabelSettings_cywd2")
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="MenuButtons/Volume2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = SubResource("Theme_3sd5g")
+text = "100%"
+label_settings = SubResource("LabelSettings_cywd2")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Timer" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme = ExtResource("2_oh0e4")
+script = ExtResource("3_1xwca")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons/Timer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="MenuButtons/Timer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = SubResource("Theme_3sd5g")
+text = "show timer"
+label_settings = SubResource("LabelSettings_cywd2")
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="MenuButtons/Timer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = SubResource("Theme_3sd5g")
+text = "off"
+label_settings = SubResource("LabelSettings_cywd2")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DistortionEffects" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme = ExtResource("2_oh0e4")
+script = ExtResource("3_1xwca")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons/DistortionEffects"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="MenuButtons/DistortionEffects/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = SubResource("Theme_3sd5g")
+text = "distortion effects"
+label_settings = SubResource("LabelSettings_cywd2")
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="MenuButtons/DistortionEffects/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = SubResource("Theme_3sd5g")
+text = "on"
+label_settings = SubResource("LabelSettings_cywd2")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Racism" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme = ExtResource("2_oh0e4")
+script = ExtResource("3_1xwca")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons/Racism"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="MenuButtons/Racism/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = SubResource("Theme_3sd5g")
+text = "racism"
+label_settings = SubResource("LabelSettings_cywd2")
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="MenuButtons/Racism/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = SubResource("Theme_3sd5g")
+text = "on"
+label_settings = SubResource("LabelSettings_cywd2")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="button_down" from="MenuButtons/Fullscreen" to="MenuButtons/Fullscreen" method="_on_button_down"]
+[connection signal="button_up" from="MenuButtons/Fullscreen" to="MenuButtons/Fullscreen" method="_on_button_up"]
+[connection signal="mouse_entered" from="MenuButtons/Fullscreen" to="MenuButtons/Fullscreen" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MenuButtons/Fullscreen" to="MenuButtons/Fullscreen" method="_on_mouse_exited"]
+[connection signal="pressed" from="MenuButtons/Fullscreen" to="MenuButtons/Fullscreen" method="_on_pressed"]
+[connection signal="button_down" from="MenuButtons/Volume" to="MenuButtons/Volume" method="_on_button_down"]
+[connection signal="button_up" from="MenuButtons/Volume" to="MenuButtons/Volume" method="_on_button_up"]
+[connection signal="mouse_entered" from="MenuButtons/Volume" to="MenuButtons/Volume" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MenuButtons/Volume" to="MenuButtons/Volume" method="_on_mouse_exited"]
+[connection signal="pressed" from="MenuButtons/Volume" to="MenuButtons/Volume" method="_on_pressed"]
+[connection signal="button_down" from="MenuButtons/Volume2" to="MenuButtons/Volume2" method="_on_button_down"]
+[connection signal="button_up" from="MenuButtons/Volume2" to="MenuButtons/Volume2" method="_on_button_up"]
+[connection signal="mouse_entered" from="MenuButtons/Volume2" to="MenuButtons/Volume2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MenuButtons/Volume2" to="MenuButtons/Volume2" method="_on_mouse_exited"]
+[connection signal="pressed" from="MenuButtons/Volume2" to="MenuButtons/Volume2" method="_on_pressed"]
+[connection signal="button_down" from="MenuButtons/Timer" to="MenuButtons/Timer" method="_on_button_down"]
+[connection signal="button_up" from="MenuButtons/Timer" to="MenuButtons/Timer" method="_on_button_up"]
+[connection signal="mouse_entered" from="MenuButtons/Timer" to="MenuButtons/Timer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MenuButtons/Timer" to="MenuButtons/Timer" method="_on_mouse_exited"]
+[connection signal="pressed" from="MenuButtons/Timer" to="MenuButtons/Timer" method="_on_pressed"]
+[connection signal="button_down" from="MenuButtons/DistortionEffects" to="MenuButtons/DistortionEffects" method="_on_button_down"]
+[connection signal="button_up" from="MenuButtons/DistortionEffects" to="MenuButtons/DistortionEffects" method="_on_button_up"]
+[connection signal="mouse_entered" from="MenuButtons/DistortionEffects" to="MenuButtons/DistortionEffects" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MenuButtons/DistortionEffects" to="MenuButtons/DistortionEffects" method="_on_mouse_exited"]
+[connection signal="pressed" from="MenuButtons/DistortionEffects" to="MenuButtons/DistortionEffects" method="_on_pressed"]
+[connection signal="button_down" from="MenuButtons/Racism" to="MenuButtons/Racism" method="_on_button_down"]
+[connection signal="button_up" from="MenuButtons/Racism" to="MenuButtons/Racism" method="_on_button_up"]
+[connection signal="mouse_entered" from="MenuButtons/Racism" to="MenuButtons/Racism" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MenuButtons/Racism" to="MenuButtons/Racism" method="_on_mouse_exited"]
+[connection signal="pressed" from="MenuButtons/Racism" to="MenuButtons/Racism" method="_on_pressed"]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3]
+[gd_scene load_steps=16 format=3 uid="uid://dxobcc5qh5xup"]
 
 [ext_resource type="Texture2D" uid="uid://c7ljtt45iuj8d" path="res://UI/Logos/red_riding_hood.png" id="1_jhuqf"]
-[ext_resource type="PackedScene" uid="uid://cjqokns8aphdi" path="res://Objects/campfire.tscn" id="1_v70ry"]
+[ext_resource type="PackedScene" path="res://Objects/campfire.tscn" id="1_v70ry"]
 [ext_resource type="Script" path="res://UI/MainMenu/MainMenu.gd" id="1_vqno1"]
 [ext_resource type="FontFile" uid="uid://3r5i3edjcxtf" path="res://UI/Fonts/quan.ttf" id="2_undsf"]
 [ext_resource type="Theme" uid="uid://cudo7s2c2570a" path="res://UI/MainMenu/button_theme.tres" id="3_gihyp"]
