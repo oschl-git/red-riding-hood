@@ -25,3 +25,17 @@ func resume() -> void:
 	visible = false
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func show_menu() -> void:
+	$Background.visible = true
+	$ColorRect.visible = true
+	$TitleLabel.visible = true
+	$MenuButtons.visible = true
+
+
+func hide_menu() -> void:
+	$Background.visible = false
+	$ColorRect.visible = false
+	$TitleLabel.visible = false
+	$MenuButtons.visible = false

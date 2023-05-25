@@ -3,32 +3,38 @@
 extends Node
 
 
-var audio_stream_player : AudioStreamPlayer
+var music_stream_player : AudioStreamPlayer
 var current_path : String
 var current_repeat := false
+
+var sfx_volume := 100
+var music_volume := 100
+
+@onready var sfx_bus := AudioServer.get_bus_index('SFX')
+@onready var music_bus := AudioServer.get_bus_index('Music')
 
 
 # Built-in functions:
 func _ready() -> void:
-	audio_stream_player = AudioStreamPlayer.new()
-	audio_stream_player.bus = &"Music"
-	add_child(audio_stream_player)
+	music_stream_player = AudioStreamPlayer.new()
+	music_stream_player.bus = &"Music"
+	add_child(music_stream_player)
 
-	audio_stream_player.finished.connect(on_stream_finished)
+	music_stream_player.finished.connect(on_stream_finished)
 
 
-func play_sound_from_path(path : String, repeat : bool = false):
+func play_music_from_path(path : String, repeat : bool = false):
 	current_path = path
 	current_repeat = repeat
 	var stream : AudioStream = load(path)
-	audio_stream_player.set_stream(stream)
-	audio_stream_player.play()
+	music_stream_player.set_stream(stream)
+	music_stream_player.play()
 
 
 func stop_streaming():
-	audio_stream_player.stop()
+	music_stream_player.stop()
 
 
 func on_stream_finished():
 	if current_repeat:
-		play_sound_from_path(current_path)
+		play_music_from_path(current_path)

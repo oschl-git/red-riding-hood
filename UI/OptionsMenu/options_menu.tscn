@@ -17,6 +17,7 @@ font = ExtResource("3_y5dwy")
 font_size = 8
 
 [node name="OptionsMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,13 +26,29 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n8c2b")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
 [node name="TitleLabel" type="Label" parent="."]
-offset_left = 87.0
-offset_top = 48.0
-offset_right = 165.0
-offset_bottom = 62.0
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "OPTIONS"
 label_settings = SubResource("LabelSettings_bd7xg")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="MenuButtons" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -40,10 +57,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -73.0
+offset_left = -73.5
 offset_top = -28.0
-offset_right = 74.0
-offset_bottom = 74.0
+offset_right = 73.5
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -77,12 +94,12 @@ label_settings = SubResource("LabelSettings_cywd2")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Volume" type="Button" parent="MenuButtons"]
+[node name="SfxVolume" type="Button" parent="MenuButtons"]
 layout_mode = 2
 theme = ExtResource("2_oh0e4")
 script = ExtResource("3_1xwca")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons/Volume"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons/SfxVolume"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,7 +107,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="Label" parent="MenuButtons/Volume/HBoxContainer"]
+[node name="Name" type="Label" parent="MenuButtons/SfxVolume/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 theme = SubResource("Theme_3sd5g")
@@ -98,7 +115,7 @@ text = "sfx volume"
 label_settings = SubResource("LabelSettings_cywd2")
 vertical_alignment = 1
 
-[node name="Value" type="Label" parent="MenuButtons/Volume/HBoxContainer"]
+[node name="Value" type="Label" parent="MenuButtons/SfxVolume/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = SubResource("Theme_3sd5g")
@@ -107,12 +124,12 @@ label_settings = SubResource("LabelSettings_cywd2")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Volume2" type="Button" parent="MenuButtons"]
+[node name="MusicVolume" type="Button" parent="MenuButtons"]
 layout_mode = 2
 theme = ExtResource("2_oh0e4")
 script = ExtResource("3_1xwca")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons/Volume2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons/MusicVolume"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -120,7 +137,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="Label" parent="MenuButtons/Volume2/HBoxContainer"]
+[node name="Name" type="Label" parent="MenuButtons/MusicVolume/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 theme = SubResource("Theme_3sd5g")
@@ -128,7 +145,7 @@ text = "music volume"
 label_settings = SubResource("LabelSettings_cywd2")
 vertical_alignment = 1
 
-[node name="Value" type="Label" parent="MenuButtons/Volume2/HBoxContainer"]
+[node name="Value" type="Label" parent="MenuButtons/MusicVolume/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme = SubResource("Theme_3sd5g")
@@ -197,32 +214,46 @@ label_settings = SubResource("LabelSettings_cywd2")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Racism" type="Button" parent="MenuButtons"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = 39.0
+offset_right = 72.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Return" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_oh0e4")
 script = ExtResource("3_1xwca")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons/Racism"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Return"]
+layout_mode = 2
+offset_top = -1.5
+offset_right = 40.0
+offset_bottom = 9.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="Label" parent="MenuButtons/Racism/HBoxContainer"]
+[node name="Name" type="Label" parent="VBoxContainer/Return/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 theme = SubResource("Theme_3sd5g")
-text = "racism"
+text = "<< return"
 label_settings = SubResource("LabelSettings_cywd2")
 vertical_alignment = 1
 
-[node name="Value" type="Label" parent="MenuButtons/Racism/HBoxContainer"]
+[node name="Value" type="Label" parent="VBoxContainer/Return/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 10
 theme = SubResource("Theme_3sd5g")
-text = "on"
 label_settings = SubResource("LabelSettings_cywd2")
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -232,16 +263,16 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="MenuButtons/Fullscreen" to="MenuButtons/Fullscreen" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="MenuButtons/Fullscreen" to="MenuButtons/Fullscreen" method="_on_mouse_exited"]
 [connection signal="pressed" from="MenuButtons/Fullscreen" to="MenuButtons/Fullscreen" method="_on_pressed"]
-[connection signal="button_down" from="MenuButtons/Volume" to="MenuButtons/Volume" method="_on_button_down"]
-[connection signal="button_up" from="MenuButtons/Volume" to="MenuButtons/Volume" method="_on_button_up"]
-[connection signal="mouse_entered" from="MenuButtons/Volume" to="MenuButtons/Volume" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MenuButtons/Volume" to="MenuButtons/Volume" method="_on_mouse_exited"]
-[connection signal="pressed" from="MenuButtons/Volume" to="MenuButtons/Volume" method="_on_pressed"]
-[connection signal="button_down" from="MenuButtons/Volume2" to="MenuButtons/Volume2" method="_on_button_down"]
-[connection signal="button_up" from="MenuButtons/Volume2" to="MenuButtons/Volume2" method="_on_button_up"]
-[connection signal="mouse_entered" from="MenuButtons/Volume2" to="MenuButtons/Volume2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MenuButtons/Volume2" to="MenuButtons/Volume2" method="_on_mouse_exited"]
-[connection signal="pressed" from="MenuButtons/Volume2" to="MenuButtons/Volume2" method="_on_pressed"]
+[connection signal="button_down" from="MenuButtons/SfxVolume" to="MenuButtons/SfxVolume" method="_on_button_down"]
+[connection signal="button_up" from="MenuButtons/SfxVolume" to="MenuButtons/SfxVolume" method="_on_button_up"]
+[connection signal="mouse_entered" from="MenuButtons/SfxVolume" to="MenuButtons/SfxVolume" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MenuButtons/SfxVolume" to="MenuButtons/SfxVolume" method="_on_mouse_exited"]
+[connection signal="pressed" from="MenuButtons/SfxVolume" to="MenuButtons/SfxVolume" method="_on_pressed"]
+[connection signal="button_down" from="MenuButtons/MusicVolume" to="MenuButtons/MusicVolume" method="_on_button_down"]
+[connection signal="button_up" from="MenuButtons/MusicVolume" to="MenuButtons/MusicVolume" method="_on_button_up"]
+[connection signal="mouse_entered" from="MenuButtons/MusicVolume" to="MenuButtons/MusicVolume" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MenuButtons/MusicVolume" to="MenuButtons/MusicVolume" method="_on_mouse_exited"]
+[connection signal="pressed" from="MenuButtons/MusicVolume" to="MenuButtons/MusicVolume" method="_on_pressed"]
 [connection signal="button_down" from="MenuButtons/Timer" to="MenuButtons/Timer" method="_on_button_down"]
 [connection signal="button_up" from="MenuButtons/Timer" to="MenuButtons/Timer" method="_on_button_up"]
 [connection signal="mouse_entered" from="MenuButtons/Timer" to="MenuButtons/Timer" method="_on_mouse_entered"]
@@ -252,8 +283,8 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="MenuButtons/DistortionEffects" to="MenuButtons/DistortionEffects" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="MenuButtons/DistortionEffects" to="MenuButtons/DistortionEffects" method="_on_mouse_exited"]
 [connection signal="pressed" from="MenuButtons/DistortionEffects" to="MenuButtons/DistortionEffects" method="_on_pressed"]
-[connection signal="button_down" from="MenuButtons/Racism" to="MenuButtons/Racism" method="_on_button_down"]
-[connection signal="button_up" from="MenuButtons/Racism" to="MenuButtons/Racism" method="_on_button_up"]
-[connection signal="mouse_entered" from="MenuButtons/Racism" to="MenuButtons/Racism" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MenuButtons/Racism" to="MenuButtons/Racism" method="_on_mouse_exited"]
-[connection signal="pressed" from="MenuButtons/Racism" to="MenuButtons/Racism" method="_on_pressed"]
+[connection signal="button_down" from="VBoxContainer/Return" to="VBoxContainer/Return" method="_on_button_down"]
+[connection signal="button_up" from="VBoxContainer/Return" to="VBoxContainer/Return" method="_on_button_up"]
+[connection signal="mouse_entered" from="VBoxContainer/Return" to="VBoxContainer/Return" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Return" to="VBoxContainer/Return" method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Return" to="VBoxContainer/Return" method="_on_pressed"]

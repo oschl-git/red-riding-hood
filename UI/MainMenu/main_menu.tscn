@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxobcc5qh5xup"]
+[gd_scene load_steps=17 format=3 uid="uid://dxobcc5qh5xup"]
 
 [ext_resource type="Texture2D" uid="uid://c7ljtt45iuj8d" path="res://UI/Logos/red_riding_hood.png" id="1_jhuqf"]
 [ext_resource type="PackedScene" path="res://Objects/campfire.tscn" id="1_v70ry"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://cudo7s2c2570a" path="res://UI/MainMenu/button_theme.tres" id="3_gihyp"]
 [ext_resource type="Texture2D" uid="uid://bneupdsg5xw2b" path="res://Objects/Textures/sky.png" id="4_46e8d"]
 [ext_resource type="Script" path="res://UI/MainMenu/MenuButtons.gd" id="4_b132q"]
+[ext_resource type="PackedScene" uid="uid://car0pwqmf44x8" path="res://UI/OptionsMenu/options_menu.tscn" id="6_og5x7"]
 
 [sub_resource type="Theme" id="Theme_78340"]
 VBoxContainer/constants/separation = -5
@@ -193,6 +194,9 @@ layout_mode = 0
 offset_right = 320.0
 offset_bottom = 180.0
 color = Color(0, 0, 0, 1)
+
+[node name="OptionsMenu" parent="." instance=ExtResource("6_og5x7")]
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.992, 0.762007)

@@ -5,6 +5,7 @@ extends Control
 
 # Node references:
 @onready var pause_menu : PauseMenu = get_parent()
+@onready var options_menu: OptionsMenu = pause_menu.get_node('OptionsMenu')
 
 
 # Button signals:
@@ -13,7 +14,8 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_options_button_pressed() -> void:
-	pass # Replace with function body.
+	pause_menu.hide_menu()
+	options_menu.visible = true
 
 
 func _on_main_menu_button_pressed() -> void:

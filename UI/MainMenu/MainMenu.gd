@@ -9,7 +9,15 @@ extends Node3D
 
 # Built-in functions:
 func _ready() -> void:
-	if not GlobalAudio.audio_stream_player.playing:
-		GlobalAudio.play_sound_from_path('res://Audio/Music/main_menu_theme.ogg')
+	if not GlobalAudio.music_stream_player.playing:
+		GlobalAudio.play_music_from_path('res://Audio/Music/main_menu_theme.ogg')
 
 	animation_player.play('enter_animation')
+
+
+func show_menu() -> void:
+	$UI.visible = true
+
+
+func hide_menu() -> void:
+	$UI.visible = false

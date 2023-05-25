@@ -11,7 +11,7 @@ extends Control
 
 
 func _ready() -> void:
-	GlobalAudio.play_sound_from_path('res://Audio/Music/main_menu_theme.ogg')
+	GlobalAudio.play_music_from_path('res://Audio/Music/main_menu_theme.ogg')
 
 	await get_tree().create_timer(1).timeout
 	animation_player.play('opening_splash')

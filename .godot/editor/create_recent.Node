@@ -1,9 +1,9 @@
+VBoxContainer
+ColorRect
 HBoxContainer
 Button
-ColorRect
 MarginContainer
 Label
-VBoxContainer
 Node3D
 StaticBody3D
 CollisionShape3D
