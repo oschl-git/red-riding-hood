@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 BackgroundTasks="*res://Singletons/BackgroundTasks.gd"
 Global="*res://Singletons/GlobalVar.gd"
 GlobalAudio="*res://Singletons/GlobalAudio.gd"
+GlobalTimer="*res://Singletons/Timer.gd"
 
 [display]
 

@@ -12,6 +12,10 @@ const extreme_activation_distance: float = 3
 
 # Built-in functions:
 func _physics_process(_delta: float) -> void:
+	if not Global.enable_distortion_effects:
+		material.set_shader_parameter('spread', 0)
+		return
+
 	var distance := Global.player.global_position.distance_to(Global.wolf.global_position)
 	var spread : float
 

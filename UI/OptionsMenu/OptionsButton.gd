@@ -1,3 +1,5 @@
+# This script handles the individual option buttons.
+
 extends Button
 class_name OptionsButton
 
@@ -24,9 +26,19 @@ func _ready() -> void:
 	var options_menu: OptionsMenu = get_parent().get_parent()
 	option_pressed.connect(options_menu.on_option_pressed)
 
+
 # Sets the value label text to the provided text.
 func set_option_value(value: String) -> void:
 	value_label.text = value
+
+
+# Resets the button to the default states.
+func reset() -> void:
+	currently_pressed = false
+	currently_mouse_inside = false
+	name_label.modulate = default_color
+	value_label.modulate = default_color
+
 
 # Signal responses:
 func _on_pressed() -> void:

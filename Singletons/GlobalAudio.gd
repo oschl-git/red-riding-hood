@@ -7,9 +7,6 @@ var music_stream_player : AudioStreamPlayer
 var current_path : String
 var current_repeat := false
 
-var sfx_volume := 100
-var music_volume := 100
-
 @onready var sfx_bus := AudioServer.get_bus_index('SFX')
 @onready var music_bus := AudioServer.get_bus_index('Music')
 

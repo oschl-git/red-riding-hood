@@ -1,3 +1,4 @@
+res://Singletons
 res://UI/OptionsMenu
 res://Objects/MeshLibraries
 res://Objects
@@ -5,7 +6,6 @@ res://Shaders
 res://UI/DeathScreen
 res://UI/LoadingScreen
 res://UI/PauseMenu
-res://Singletons
 res://UI/OpeningSplash
 res://UI/MainMenu
 res://UI/HUD

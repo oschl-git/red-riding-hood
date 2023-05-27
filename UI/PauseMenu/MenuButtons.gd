@@ -15,7 +15,7 @@ func _on_resume_button_pressed() -> void:
 
 func _on_options_button_pressed() -> void:
 	pause_menu.hide_menu()
-	options_menu.visible = true
+	options_menu.show_menu()
 
 
 func _on_main_menu_button_pressed() -> void:

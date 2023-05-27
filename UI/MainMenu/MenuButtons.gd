@@ -14,8 +14,8 @@ func _on_play_button_pressed() -> void:
 
 
 func _on_options_button_pressed() -> void:
-	options_menu.visible = true
 	main_menu.hide_menu()
+	options_menu.show_menu()
 	
 
 

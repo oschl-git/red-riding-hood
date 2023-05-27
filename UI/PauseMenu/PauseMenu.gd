@@ -3,6 +3,9 @@
 extends Control
 class_name PauseMenu
 
+# Node references:
+@onready var menu_buttons = $MenuButtons
+
 
 # Built-in functions:
 func _ready() -> void:
@@ -12,7 +15,10 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('ui_cancel'):
 		if not get_tree().paused: pause()
-		else: resume()
+		else: 
+			show_menu()
+			menu_buttons.options_menu.hide_menu()
+			resume()
 
 
 func pause() -> void:

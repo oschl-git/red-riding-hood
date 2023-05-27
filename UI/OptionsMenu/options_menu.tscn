@@ -64,7 +64,7 @@ offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Fullscreen" type="Button" parent="MenuButtons"]
+[node name="Fullscreen" type="Button" parent="MenuButtons" groups=["option_buttons"]]
 layout_mode = 2
 theme = ExtResource("2_oh0e4")
 script = ExtResource("3_1xwca")
@@ -94,7 +94,7 @@ label_settings = SubResource("LabelSettings_cywd2")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="SfxVolume" type="Button" parent="MenuButtons"]
+[node name="SfxVolume" type="Button" parent="MenuButtons" groups=["option_buttons"]]
 layout_mode = 2
 theme = ExtResource("2_oh0e4")
 script = ExtResource("3_1xwca")
@@ -124,7 +124,7 @@ label_settings = SubResource("LabelSettings_cywd2")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="MusicVolume" type="Button" parent="MenuButtons"]
+[node name="MusicVolume" type="Button" parent="MenuButtons" groups=["option_buttons"]]
 layout_mode = 2
 theme = ExtResource("2_oh0e4")
 script = ExtResource("3_1xwca")
@@ -154,7 +154,7 @@ label_settings = SubResource("LabelSettings_cywd2")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Timer" type="Button" parent="MenuButtons"]
+[node name="Timer" type="Button" parent="MenuButtons" groups=["option_buttons"]]
 layout_mode = 2
 theme = ExtResource("2_oh0e4")
 script = ExtResource("3_1xwca")
@@ -184,7 +184,7 @@ label_settings = SubResource("LabelSettings_cywd2")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="DistortionEffects" type="Button" parent="MenuButtons"]
+[node name="DistortionEffects" type="Button" parent="MenuButtons" groups=["option_buttons"]]
 layout_mode = 2
 theme = ExtResource("2_oh0e4")
 script = ExtResource("3_1xwca")
@@ -223,12 +223,12 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -73.0
 offset_top = 39.0
-offset_right = 72.0
+offset_right = -32.0
 offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Return" type="Button" parent="VBoxContainer"]
+[node name="Return" type="Button" parent="VBoxContainer" groups=["option_buttons"]]
 layout_mode = 2
 theme = ExtResource("2_oh0e4")
 script = ExtResource("3_1xwca")

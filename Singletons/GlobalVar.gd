@@ -14,3 +14,7 @@ var pause_menu : PauseMenu
 
 # States:
 var movement_disabled := false
+
+# Settings:
+var enable_distortion_effects := true
+var enable_timer := false
