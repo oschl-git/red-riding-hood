@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://d4dpe1qoksphl"]
+[gd_scene load_steps=10 format=3 uid="uid://d4dpe1qoksphl"]
 
 [ext_resource type="PackedScene" uid="uid://bwomnhdbvd42h" path="res://Models/wolf.glb" id="1_lcqtm"]
 [ext_resource type="Texture2D" uid="uid://c02mkn645s2ns" path="res://Models/wolf_Wolf_Fur_3.png" id="2_b466p"]
 [ext_resource type="Script" path="res://Entities/Wolf/Wolf.gd" id="2_uat0r"]
 [ext_resource type="Script" path="res://Entities/Wolf/AnimationPlayer.gd" id="4_c3edr"]
+[ext_resource type="Script" path="res://Entities/Wolf/Sounds.gd" id="5_wrs41"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fm1ok"]
 load_path = "res://.godot/imported/wolf_Wolf_Body.png-2ed22592eef05970bab6c8b85ee2a19d.s3tc.ctex"
@@ -30,7 +31,7 @@ size = Vector3(0.4, 1.4, 1.8)
 
 [node name="Wolf" instance=ExtResource("1_lcqtm")]
 collision_layer = 16
-collision_mask = 4
+collision_mask = 32
 script = ExtResource("2_uat0r")
 
 [node name="Wolf_Skeleton" parent="." index="0"]
@@ -73,6 +74,15 @@ one_shot = true
 process_callback = 0
 one_shot = true
 
+[node name="Sounds" type="Node3D" parent="." index="7"]
+script = ExtResource("5_wrs41")
+
+[node name="Growls" type="AudioStreamPlayer3D" parent="Sounds" index="0"]
+
+[node name="Timer" type="Timer" parent="Sounds/Growls" index="0"]
+one_shot = true
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout" flags=18]
 [connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]
 [connection signal="timeout" from="HesitateTimer" to="." method="_on_hesitate_timer_timeout"]
+[connection signal="timeout" from="Sounds/Growls/Timer" to="Sounds" method="_on_timer_timeout"]

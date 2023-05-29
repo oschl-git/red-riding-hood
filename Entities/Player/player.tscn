@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3]
+[gd_scene load_steps=33 format=3 uid="uid://civv8ul0uljqn"]
 
 [ext_resource type="Script" path="res://Entities/Player/Player.gd" id="1_6hg71"]
 [ext_resource type="Script" path="res://Entities/Player/UsableItems.gd" id="2_a8sc3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://rsb6aj0ihw0v" path="res://Objects/Textures/fire.png" id="5_3ii6g"]
 [ext_resource type="Script" path="res://Entities/Player/Torch.gd" id="5_45in4"]
 [ext_resource type="Script" path="res://Entities/Player/PickableItemCollider.gd" id="8_60pus"]
+[ext_resource type="Script" path="res://Entities/Player/Sounds.gd" id="11_cdqqi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8xu4"]
 albedo_color = Color(0.811765, 0, 0.160784, 1)
@@ -454,7 +455,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D"]
-collision_mask = 4
+collision_mask = 36
 script = ExtResource("1_6hg71")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -546,6 +547,12 @@ script = ExtResource("8_60pus")
 [node name="RunStaminaTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.05
+
+[node name="Sounds" type="Node" parent="."]
+script = ExtResource("11_cdqqi")
+
+[node name="WalkSounds" type="AudioStreamPlayer" parent="Sounds"]
+bus = &"SFX"
 
 [connection signal="body_entered" from="WolfDetectionArea" to="WolfDetectionArea" method="_on_body_entered"]
 [connection signal="timeout" from="Camera3D/UsableItems/Torch/BurnTimer" to="Camera3D/UsableItems/Torch" method="_on_burn_timer_timeout"]

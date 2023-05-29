@@ -95,7 +95,9 @@ func spawn() -> void:
 
 func pursue_player() -> void:
 	var distance := get_distance_from_player()
-	if distance > 5 and current_action == actions.RUNNING_AT_PLAYER or distance > 8:
+	if distance > 15: 
+		change_action(actions.FORCE_RUNNING_AT_PLAYER)
+	elif distance > 5 and current_action == actions.RUNNING_AT_PLAYER or distance > 8:
 		change_action(actions.RUNNING_AT_PLAYER)
 	elif distance > 3: 
 		if current_action == actions.HESITATING: return
@@ -137,7 +139,7 @@ func run_away(delta: float) -> void:
 		flee_position = choose_wolf_point()
 		flee_position_found = true
 
-	if are_vectors_approximately_equal(global_position, flee_position, 2): 
+	if get_distance_from_player() > 30: 
 		flee_position_found = false
 		spawn_timer.start()
 		change_state(states.DEACTIVATED)
@@ -221,8 +223,9 @@ func get_distance_from_player() -> float:
 
 # Rotates wolf to look in the direction its going.
 func look_at_movement_direction() -> void:
-	if velocity == Vector3.ZERO: return
-	look_at(global_transform.origin + velocity)
+	var target := global_transform.origin + velocity
+	if global_transform.origin.is_equal_approx(target): return
+	look_at(target)
 
 
 # Returns the position of a suitable wolf point.

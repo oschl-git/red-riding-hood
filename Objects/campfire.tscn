@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3]
+[gd_scene load_steps=16 format=3 uid="uid://cs3kgmdfvajq5"]
 
 [ext_resource type="PackedScene" uid="uid://bgqbnpn1umwx8" path="res://Models/campfire.glb" id="1_5exk0"]
 [ext_resource type="Texture2D" uid="uid://rsb6aj0ihw0v" path="res://Objects/Textures/fire.png" id="2_ldkef"]
@@ -103,5 +103,6 @@ draw_pass_1 = SubResource("QuadMesh_uuk2p")
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47573, 0)
 light_color = Color(0.835294, 0.294118, 0, 1)
+light_energy = 2.0
 light_bake_mode = 1
-omni_range = 15.0
+omni_range = 25.0

@@ -15,6 +15,7 @@ func _input(event: InputEvent) -> void:
 
 # Sets up stuff at the start of the game.
 func initial_setup():
+	return
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 
 

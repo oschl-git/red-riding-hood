@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://rsp5mvqu514g"]
+[gd_scene load_steps=18 format=3 uid="uid://rsp5mvqu514g"]
 
 [ext_resource type="Script" path="res://UI/HUD/HUD.gd" id="1_lk52p"]
 [ext_resource type="FontFile" uid="uid://3r5i3edjcxtf" path="res://UI/Fonts/quan.ttf" id="2_ukw64"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://UI/HUD/Crosshair.gd" id="8_sg8yo"]
 [ext_resource type="FontFile" uid="uid://dyeoabstt03hc" path="res://UI/Fonts/serif_pixel-7.ttf" id="12_4p3um"]
 [ext_resource type="Script" path="res://UI/HUD/Timer.gd" id="13_1vfud"]
+[ext_resource type="Script" path="res://UI/HUD/Debug.gd" id="14_18fb4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aidin"]
 font = ExtResource("2_ukw64")
@@ -141,5 +142,21 @@ text = "00:00"
 label_settings = SubResource("LabelSettings_c17bm")
 horizontal_alignment = 2
 script = ExtResource("13_1vfud")
+
+[node name="Debug" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.5
+offset_right = 93.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "wolf_position"
+label_settings = SubResource("LabelSettings_c17bm")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("14_18fb4")
 
 [connection signal="timeout" from="ItemActionLabel/Timer" to="ItemActionLabel" method="_on_timer_timeout"]
