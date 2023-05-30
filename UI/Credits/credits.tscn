@@ -1,0 +1,284 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0wwm0pyn6txx"]
+
+[ext_resource type="FontFile" uid="uid://3r5i3edjcxtf" path="res://UI/Fonts/quan.ttf" id="1_sas77"]
+[ext_resource type="Script" path="res://UI/Credits/credits.gd" id="1_v62l3"]
+[ext_resource type="FontFile" uid="uid://dyeoabstt03hc" path="res://UI/Fonts/serif_pixel-7.ttf" id="2_pmrf8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ygu1b"]
+line_spacing = 0.0
+font = ExtResource("1_sas77")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_cog37"]
+line_spacing = 0.0
+font = ExtResource("2_pmrf8")
+font_size = 10
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0k7wo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dvab1"]
+line_spacing = 2.0
+font = ExtResource("1_sas77")
+font_size = 8
+
+[node name="Credits" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v62l3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="CreditsContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -145.0
+offset_right = 145.0
+offset_bottom = 727.0
+grow_horizontal = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "a game by"
+label_settings = SubResource("LabelSettings_ygu1b")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label2" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "oschl"
+label_settings = SubResource("LabelSettings_cog37")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "game design, music, programming and most
+models have been done by me."
+label_settings = SubResource("LabelSettings_ygu1b")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CreditsContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_0k7wo")
+
+[node name="Label4" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "made in"
+label_settings = SubResource("LabelSettings_ygu1b")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label5" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "Godot Engine"
+label_settings = SubResource("LabelSettings_cog37")
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="CreditsContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_0k7wo")
+
+[node name="Label6" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "used models:"
+label_settings = SubResource("LabelSettings_ygu1b")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label11" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "Wolf Rigged and Game Ready 
+by 3dhaupt
+free3d.com/3d-model/wolf-rigged-and-game-ready-42808.html"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "Abandoned Factory Building
+by Abandoned World
+turbosquid.com/3d-models/3d-abandoned-factory-building/1116492"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "Mercedes-Benz S 500 - PS1 Low Poly
+by Wersaus33
+https://skfb.ly/oEWKv"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "Log Cabin
+by Luis Gustavo
+https://skfb.ly/oFXYA"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label10" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "LoPoly PS1 Shipping Container
+by BitHack
+https://skfb.ly/6XNFS"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="CreditsContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_0k7wo")
+
+[node name="Label12" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "used sounds:"
+label_settings = SubResource("LabelSettings_ygu1b")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label13" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "Vinyl Crackle
+from https://quicksounds.com"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label14" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "Woodland Footsteps (Mono)
+by James.Keeble
+freesound.org/people/James.Keeble/sounds/419312/"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label15" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "Footsteps on Forest Ground
+by Snudio_Records
+freesound.org/people/Snudio_Records/sounds/267492/"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label16" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "wolf-growl
+by newagesoup
+freesound.org/people/newagesoup/sounds/338674/"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label17" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "Animal Footsteps
+by IENBA
+freesound.org/people/IENBA/sounds/658429/"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label18" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "meadow in the middle of the forest - rear
+by craftcrest
+freesound.org/people/craftcrest/sounds/349044/"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator4" type="HSeparator" parent="CreditsContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_0k7wo")
+
+[node name="Label26" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "used fonts:"
+label_settings = SubResource("LabelSettings_ygu1b")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label20" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "Pixy
+https://howlettstudios.com/freebies"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label21" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "QuanPixel
+https://diaowinner.itch.io/galmuri-extended"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label22" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "SerifPixel 7
+https://www.dafont.com/serif-pixel-7.font"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="CreditsContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_0k7wo")
+
+[node name="Label19" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "special thanks:"
+label_settings = SubResource("LabelSettings_ygu1b")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label23" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "Bruno Janáćek
+Erik Vaněk"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator6" type="HSeparator" parent="CreditsContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_0k7wo")
+
+[node name="Label25" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "check out more of my stuff at oschl-git.github.io"
+label_settings = SubResource("LabelSettings_dvab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator7" type="HSeparator" parent="CreditsContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_0k7wo")
+
+[node name="Label24" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+text = "Thank you for playing!"
+label_settings = SubResource("LabelSettings_cog37")
+horizontal_alignment = 1

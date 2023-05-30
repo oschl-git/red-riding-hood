@@ -1,11 +1,13 @@
-Timer
-AudioStreamPlayer3D
-Node3D
-Node
-AudioStreamPlayer
-StaticBody3D
+HSeparator
 Label
 VBoxContainer
+Control
+AudioStreamPlayer
+AudioStreamPlayer3D
+Timer
+Node3D
+Node
+StaticBody3D
 ColorRect
 HBoxContainer
 Button
@@ -13,7 +15,6 @@ MarginContainer
 CollisionShape3D
 GridMap
 MeshInstance3D
-Control
 CanvasLayer
 CanvasModulate
 SpotLight3D

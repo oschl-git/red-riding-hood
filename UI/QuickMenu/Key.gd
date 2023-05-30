@@ -8,8 +8,10 @@ func _ready() -> void:
 	disabled_texture = load('res://UI/QuickMenu/Textures/key_unavailable.png')
 	enabled_texture = load('res://UI/QuickMenu/Textures/key_available.png')
 
-	unavailable_item_name = 'The Key'
-	unavailable_item_description = 'where is it?'
+	unavailable_item_name = 'Unavailable'
+	unavailable_item_description = 'unavailable in this version.'
+	# unavailable_item_name = 'The Key'
+	# unavailable_item_description = 'where is it?'
 	item_name = 'The Key'
 	item_description = 'what is it for?'
 
@@ -24,6 +26,7 @@ func execute_item_action() -> void:
 
 # Returns the correct item tooltip.
 func get_item_tooltip() -> String:
-	if not available: return 'step 1: find it. step 2: find what it unlocks.'
-	elif not active: return 'find what this key unlocks.'
-	else: return 'you\'ve already used this item.'
+	return ''
+	# if not available: return 'step 1: find it. step 2: find what it unlocks.'
+	# elif not active: return 'find what this key unlocks.'
+	# else: return 'you\'ve already used this item.'

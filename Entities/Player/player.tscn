@@ -552,6 +552,7 @@ wait_time = 0.05
 script = ExtResource("11_cdqqi")
 
 [node name="WalkSounds" type="AudioStreamPlayer" parent="Sounds"]
+volume_db = -5.0
 bus = &"SFX"
 
 [connection signal="body_entered" from="WolfDetectionArea" to="WolfDetectionArea" method="_on_body_entered"]

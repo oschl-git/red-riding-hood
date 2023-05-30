@@ -80,7 +80,7 @@ func _on_burn_timer_timeout() -> void:
 		Global.quick_menu.torch.available = false
 		return
 
-	burn_time_left -= 1
+	burn_time_left -= 2
 	burn_time_changed.emit(burn_time_left)
 
 

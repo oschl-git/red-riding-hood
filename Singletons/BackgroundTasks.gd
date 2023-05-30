@@ -5,6 +5,7 @@ extends Node
 
 # Built-in functions:
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	initial_setup()
 
 
@@ -15,15 +16,15 @@ func _input(event: InputEvent) -> void:
 
 # Sets up stuff at the start of the game.
 func initial_setup():
-	return
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	# DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	pass
 
 
 # Toggles fullscreen.
 func toggle_fullscreen() -> void:
 	if (DisplayServer.window_get_mode() == 
-			DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN):
+			DisplayServer.WINDOW_MODE_FULLSCREEN):
 		DisplayServer.window_set_mode(
 			DisplayServer.WINDOW_MODE_WINDOWED)
 	else: DisplayServer.window_set_mode(
-			DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+			DisplayServer.WINDOW_MODE_FULLSCREEN)

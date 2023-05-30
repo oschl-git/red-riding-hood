@@ -12,7 +12,7 @@ class_name OptionsMenu
 
 func _ready() -> void:
 	fullscreen_button.set_option_value(
-		'on' if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN 
+		'on' if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN 
 		else 'off'
 	)
 	sfx_volume_button.set_option_value(
@@ -46,7 +46,7 @@ func on_option_pressed(options_button: OptionsButton) -> void:
 func toggle_fullscreen(options_button: OptionsButton) -> void:
 	BackgroundTasks.toggle_fullscreen()
 	if (DisplayServer.window_get_mode() == 
-		DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN): options_button.set_option_value('on')
+		DisplayServer.WINDOW_MODE_FULLSCREEN): options_button.set_option_value('on')
 	else: options_button.set_option_value('off')
 
 

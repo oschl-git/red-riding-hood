@@ -249,9 +249,10 @@ func are_vectors_approximately_equal(vector1: Vector3, vector2: Vector3, epsilon
 
 # Signal responses:
 func on_action_changed(new_action: actions) -> void:
-	match new_action:
-		actions.RUNNING_AT_PLAYER: 
-			flee_chance(10)
+	pass
+	# match new_action:
+	# 	actions.RUNNING_AT_PLAYER: 
+	# 		flee_chance(10)
 
 
 func on_player_swung_torch() -> void:
