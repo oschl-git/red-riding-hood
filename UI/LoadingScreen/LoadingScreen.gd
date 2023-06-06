@@ -1,4 +1,4 @@
-# This script serves as a simple loading screen for the game world.
+## This script serves as a simple loading screen for the game world.
 
 extends Control
 

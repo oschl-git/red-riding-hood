@@ -1,4 +1,4 @@
-# This script handles the individual option buttons.
+## This script handles the individual option buttons.
 
 extends Button
 class_name OptionsButton
@@ -10,8 +10,8 @@ class_name OptionsButton
 
 # Adjustable values:
 @onready var default_color = modulate
-const hover_color := Color('#ad0015')
-const pressed_color := Color('#d4001c')
+const hover_color := Color('##ad0015')
+const pressed_color := Color('##d4001c')
 
 # Changing variables:
 var currently_mouse_inside := false
@@ -27,12 +27,12 @@ func _ready() -> void:
 	option_pressed.connect(options_menu.on_option_pressed)
 
 
-# Sets the value label text to the provided text.
+## Sets the value label text to the provided text.
 func set_option_value(value: String) -> void:
 	value_label.text = value
 
 
-# Resets the button to the default states.
+## Resets the button to the default states.
 func reset() -> void:
 	currently_pressed = false
 	currently_mouse_inside = false

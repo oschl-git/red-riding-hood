@@ -1,4 +1,4 @@
-# Singleton with global variables.
+## Singleton with global variables.
 
 extends Node
 

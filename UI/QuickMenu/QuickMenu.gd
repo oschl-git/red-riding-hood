@@ -1,4 +1,4 @@
-# Handles the quick menu.
+## Handles the quick menu.
 
 extends Control
 class_name QuickMenu
@@ -31,7 +31,7 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_released('show_quick_menu'): hide_quick_menu()
 
 
-# Shows the quick menu.
+## Shows the quick menu.
 func show_quick_menu() -> void:
 	quick_menu_activated.emit()
 	update_labels('', '', '')
@@ -40,20 +40,20 @@ func show_quick_menu() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
-# Hides the quick menu.
+## Hides the quick menu.
 func hide_quick_menu() -> void:
 	Global.movement_disabled = false
 	visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
-# Called with a signal triggered by items, updates item labels.
+## Called with a signal triggered by items, updates item labels.
 func update_labels(item_name, item_description, item_tooltip) -> void:
 	item_name_label.text = item_name
 	item_description_label.text = item_description
 	item_tooltip_label.text = item_tooltip
 
 
-# Called with a signal triggered by items, reacts to successful item clicks.
+## Called with a signal triggered by items, reacts to successful item clicks.
 func item_clicked() -> void:
 	hide_quick_menu()

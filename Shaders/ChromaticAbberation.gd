@@ -1,4 +1,4 @@
-# This script handles the chromatic abberation when close to the wolf.
+## This script handles the chromatic abberation effect when close to the wolf.
 
 extends ColorRect
 
@@ -12,6 +12,7 @@ const extreme_activation_distance: float = 3
 
 # Built-in functions:
 func _physics_process(_delta: float) -> void:
+	# Stops the effect from happening if it's disabled in the settings:
 	if not Global.enable_distortion_effects:
 		material.set_shader_parameter('spread', 0)
 		return

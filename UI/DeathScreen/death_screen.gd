@@ -1,4 +1,4 @@
-# This script handles the death screen scene.
+## This script handles the death screen scene.
 
 extends Control
 

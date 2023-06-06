@@ -1,15 +1,15 @@
-# Extends the flashlight pickable item.
+## Extends the flashlight pickable item.
 
 extends PickableItem
 
 
 # Built-in functions:
-# Changes the name to be displayed.
+## Changes the name to be displayed.
 func _ready() -> void:
 	item_name = 'torch'
 
 
-# Handles being collected.
+## Handles being collected.
 func collect_item() -> void:
 	if not Global.player.usable_items.torch.once_obtained:
 		Global.HUD.item_action_label.display_label('torch obtained.')

@@ -1,4 +1,4 @@
-# Handles the torch quick menu UI item.
+## Handles the torch quick menu UI item.
 
 extends QuickMenuItem
 
@@ -16,13 +16,13 @@ func _ready() -> void:
 	super()
 
 
-# Executes item action.
+## Executes item action.
 func execute_item_action() -> void:
 	Global.player.usable_items.toggle_item('torch')
 	update_activity()
 
 
-# Returns the correct item tooltip.
+## Returns the correct item tooltip.
 func get_item_tooltip() -> String:
 	if not available: 
 		var once_obtained = Global.player.usable_items.torch.once_obtained
@@ -35,6 +35,6 @@ func get_item_tooltip() -> String:
 	else: return 'click to extinguish.'
 
 
-# Updates activity.
+## Updates activity.
 func update_activity() -> void:
 	active = Global.player.usable_items.get_item('torch').activated

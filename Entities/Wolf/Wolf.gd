@@ -1,4 +1,4 @@
-# Handles the wolf (in-game) and its AI.
+## Handles the wolf (in-game) and its AI.
 
 extends CharacterBody3D
 class_name Wolf
@@ -165,7 +165,7 @@ func change_action(new_action: actions) -> void:
 	action_changed.emit(current_action)
 
 
-# Navigates towards the provided position with the provided delta and speed.
+## Navigates towards the provided position with the provided delta and speed.
 func navigate_towards_position(target: Vector3, delta: float, speed: float) -> void:
 	look_at_movement_direction()
 	
@@ -180,12 +180,12 @@ func navigate_towards_position(target: Vector3, delta: float, speed: float) -> v
 	move_and_slide()
 
 
-# Navigates towards the player with the provided delta and speed.
+## Navigates towards the player with the provided delta and speed.
 func navigate_toward_player(delta: float, speed: float) -> void:
 	navigate_towards_position(Global.player.global_position, delta, speed)
 
 
-# Forces going towards player, ignoring the navmesh
+## Forces going towards player, ignoring the navmesh
 func force_go_toward_player(delta: float, speed: float) -> void:
 	look_at_movement_direction()
 	
@@ -198,7 +198,7 @@ func force_go_toward_player(delta: float, speed: float) -> void:
 	move_and_slide()
 
 
-# Uses the provided percentage as a chance to flee, returns true if fleeing, false if not
+## Uses the provided percentage as a chance to flee, returns true if fleeing, false if not
 func flee_chance(percent : int) -> bool:
 	if randi_range(1, 100) <= percent:
 		change_state(states.FLEEING)
@@ -207,7 +207,7 @@ func flee_chance(percent : int) -> bool:
 		return false
 
 
-# Uses the provided percentage as a chance to flee, returns true if fleeing, false if not
+## Uses the provided percentage as a chance to flee, returns true if fleeing, false if not
 func attack_chance(percent : int) -> bool:
 	if randi_range(1, 100) <= percent:
 		change_state(states.KILLING_PLAYER)
@@ -216,19 +216,19 @@ func attack_chance(percent : int) -> bool:
 		return false
 
 
-# Returns distance between wolf and player.
+## Returns distance between wolf and player.
 func get_distance_from_player() -> float:
 	return global_position.distance_to(Global.player.global_position)
 
 
-# Rotates wolf to look in the direction its going.
+## Rotates wolf to look in the direction its going.
 func look_at_movement_direction() -> void:
 	var target := global_transform.origin + velocity
 	if global_transform.origin.is_equal_approx(target): return
 	look_at(target)
 
 
-# Returns the position of a suitable wolf point.
+## Returns the position of a suitable wolf point.
 func choose_wolf_point() -> Vector3:
 	var player_position := Global.player.global_position
 	var suitable_positions: Array[Vector3] = []
@@ -241,14 +241,14 @@ func choose_wolf_point() -> Vector3:
 	return suitable_positions[0] if not suitable_positions.is_empty() else Vector3.ZERO
 
 
-# Checks if vectors are approximately equal with provided tolerance (proximity)
+## Checks if vectors are approximately equal with provided tolerance (proximity)
 func are_vectors_approximately_equal(vector1: Vector3, vector2: Vector3, epsilon: float) -> bool:
 	var difference = vector1 - vector2
 	return abs(difference.x) < epsilon and abs(difference.y) < epsilon and abs(difference.z) < epsilon
 
 
 # Signal responses:
-func on_action_changed(new_action: actions) -> void:
+func on_action_changed(_new_action: actions) -> void:
 	pass
 	# match new_action:
 	# 	actions.RUNNING_AT_PLAYER: 

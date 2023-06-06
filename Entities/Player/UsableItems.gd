@@ -1,4 +1,4 @@
-# Handles usable items on the player.
+## Handles usable items on the player.
 
 extends Node3D
 class_name UsableItems
@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 			if i.activated: i.mouse_input(event)
 
 
-# Toggles an item (provided in string form)
+## Toggles an item (provided in string form)
 func toggle_item(item : String) -> void:
 	var item_values := items.values()
 	
@@ -41,6 +41,6 @@ func toggle_item(item : String) -> void:
 	items[item].change_state_to(true)
 
 
-# Returns usable item.
+## Returns usable item.
 func get_item(item : String) -> UsableItem:
 	return items[item]

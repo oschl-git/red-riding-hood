@@ -11,12 +11,13 @@ func _process(_delta: float) -> void:
 
 	credits_container.position.y -= .4
 
-
+## Shows the credits
 func show_credits() -> void:
 	credits_container.position.y = viewport_height + 20
 	visible = true
 
 
+## Hides the credits
 func hide_credits() -> void:
 	visible = false
 	get_parent().show_menu()

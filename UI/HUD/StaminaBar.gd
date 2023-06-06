@@ -1,4 +1,4 @@
-# Handles the stamina bar UI element.
+## Handles the stamina bar UI element.
 
 extends TextureProgressBar
 
@@ -10,7 +10,7 @@ func _ready() -> void:
 	Global.player.run_stamina_changed.connect(display_value)
 
 
-# Displays a value on the stamina meter.
+## Displays a value on the stamina meter.
 func display_value(new_value : int):
 	if new_value <= disabled_threshold and value < new_value or new_value <= 0: modulate = (
 		Color(0.34117648005486, 0.34117648005486, 0.34117648005486)

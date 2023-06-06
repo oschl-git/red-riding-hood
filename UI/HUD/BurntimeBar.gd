@@ -1,4 +1,4 @@
-# Handles the burn time bar UI element.
+## Handles the burn time bar UI element.
 
 extends TextureProgressBar
 
@@ -11,7 +11,7 @@ func _ready() -> void:
 	Global.player.usable_items.torch.burn_time_changed.connect(display_value)
 
 
-# Displays a value on the stamina meter.
+## Displays a value on the stamina meter.
 func display_value(new_value : int):
 	if new_value <= warning_threshold: modulate = (
 		Color(0.38039216399193, 0.01176470611244, 0)

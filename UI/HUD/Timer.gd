@@ -1,6 +1,8 @@
+## This class handles the timer on the HUD.
+
 extends Label
 
-
+# Built-in functions:
 func _ready() -> void:
 	GlobalTimer.set_timer()
 

@@ -1,3 +1,5 @@
+## Handles the sounds player makes.
+
 extends Node
 
 # Node references:
@@ -20,10 +22,12 @@ var running : Array[AudioStream] = [
 ]
 
 
+# Built-in functions:
 func _physics_process(_delta: float) -> void:
 	play_walk_sounds()
 
 
+## Plays the sounds of walking/running.
 func play_walk_sounds() -> void:
 	if (Global.movement_disabled or 
 			Input.get_vector(

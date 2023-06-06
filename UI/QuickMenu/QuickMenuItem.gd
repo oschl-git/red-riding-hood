@@ -1,4 +1,4 @@
-# A parent class for all quick menu items.
+## A parent class for all quick menu items.
 
 extends Control
 class_name QuickMenuItem
@@ -8,11 +8,9 @@ class_name QuickMenuItem
 @export var available := false
 @export var active := false
 
-
 # Item type:
 enum Types {FLASHLIGHT, TORCH, KEY, RIFLE}
 @export var type : Types
-
 
 # Item textures:
 var disabled_texture : CompressedTexture2D
@@ -69,7 +67,7 @@ func _input(event: InputEvent) -> void:
 		execute_item_action()
 
 
-# Refreshes the menu according to the current state of the game.
+## Refreshes the menu according to the current state of the game.
 func quick_menu_refresh() -> void:
 	update_availability_border()
 	update_texture()
@@ -77,7 +75,7 @@ func quick_menu_refresh() -> void:
 	mouse_hovering = false
 
 
-# Reacts to mouse entering.
+## Reacts to mouse entering.
 func _on_mouse_entered() -> void:
 	update_activity()
 
@@ -93,7 +91,7 @@ func _on_mouse_entered() -> void:
 	mouse_hovering = true
 
 
-# Reacts to mouse exiting.
+## Reacts to mouse exiting.
 func _on_mouse_exited() -> void:
 	hide_selection_border()
 	item_hovered.emit('', '', '')
@@ -101,38 +99,38 @@ func _on_mouse_exited() -> void:
 	mouse_hovering = false
 
 
-# Updates the texture according to the current state.
+## Updates the texture according to the current state.
 func update_texture() -> void:
 	texture.texture = enabled_texture if available else disabled_texture
 
 
-# Shows a selection border of the provided border texture.
+## Shows a selection border of the provided border texture.
 func show_selection_border(border_texture : Resource) -> void:
 	selection_border.texture = border_texture
 	selection_border.visible = true
 
 
-# Hides the selection border.
+## Hides the selection border.
 func hide_selection_border() -> void:
 	selection_border.visible = false
 
 
-# Updates the availability border according to the current state.
+## Updates the availability border according to the current state.
 func update_availability_border() -> void:
 	availability_border.texture = availability_available_border if available \
 		else availability_unavailable_border
 
 
-# Executes item action, should be overriden.
+## Executes item action, should be overriden.
 func execute_item_action() -> void:
 	pass
 
 
-# Returns correct item tooltip, should be overriden.
+## Returns correct item tooltip, should be overriden.
 func get_item_tooltip() -> String:
 	return 'item tooltip.'
 
 
-# Updates activity, should be overriden.
+## Updates activity, should be overriden.
 func update_activity() -> void:
 	pass

@@ -1,30 +1,30 @@
-# Handles the player.
+## Handles the player.
 
 extends CharacterBody3D
 class_name Player
 
 
 # Adjustable attributes:
-const walk_speed : float = 2
-const run_speed : float = 4
-const stamina_loss_rate : float = .05
-const stamina_recovery_rate : float = .15
-var look_sensitivity : float = ProjectSettings.get_setting('player/look_sensitivity')
-var gravity : float = ProjectSettings.get_setting('physics/3d/default_gravity')
+const walk_speed: float = 2
+const run_speed: float = 4
+const stamina_loss_rate: float = .05
+const stamina_recovery_rate: float = .15
+var look_sensitivity: float = ProjectSettings.get_setting('player/look_sensitivity')
+var gravity: float = ProjectSettings.get_setting('physics/3d/default_gravity')
 
 # Node references:
-@onready var camera : Camera3D = $Camera3D
-@onready var usable_items : UsableItems = $Camera3D/UsableItems
-@onready var run_stamina_timer : Timer = $RunStaminaTimer
+@onready var camera: Camera3D = $Camera3D
+@onready var usable_items: UsableItems = $Camera3D/UsableItems
+@onready var run_stamina_timer: Timer = $RunStaminaTimer
 
 # Changing variables:
-var velocity_y : float = 0
+var velocity_y: float = 0
 var can_run := true
 var running := false
-var run_stamina : int = 100
+var run_stamina := 100
 
 # Signals:
-signal run_stamina_changed(value : int)
+signal run_stamina_changed(value: int)
 signal torch_swung()
 
 
@@ -45,11 +45,11 @@ func _input(event: InputEvent) -> void:
 	camera_movement(event)
 
 
-# Handles physical player movement.
-func player_movement(delta : float):
+## Handles physical player movement.
+func player_movement(delta: float) -> void:
 	if Global.movement_disabled: return
 
-	var horizontal_velocity : Vector2 = (
+	var horizontal_velocity: Vector2 = (
 		Input.get_vector(
 			'move_left', 'move_right', 'move_forward', 'move_backward'
 		).normalized()
@@ -74,8 +74,8 @@ func player_movement(delta : float):
 	move_and_slide()
 
 
-# Handles camera movement.
-func camera_movement(event : InputEvent):
+## Handles camera movement.
+func camera_movement(event: InputEvent) -> void:
 	if Global.movement_disabled: return
 
 	if event is InputEventMouseMotion: 
@@ -85,7 +85,7 @@ func camera_movement(event : InputEvent):
 	camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 
 
-# Triggered when the stamina timer runs out.
+## Triggered when the stamina timer runs out.
 func _on_run_stamina_timer_timeout() -> void:
 	can_run = run_stamina >= 20 or run_stamina >= 1 and running
 
@@ -104,8 +104,8 @@ func _on_run_stamina_timer_timeout() -> void:
 		run_stamina_timer.stop()
 
 
-# Decreases stamina by the provided amount.
-func decrease_stamina(amount : int) -> void:
+## Decreases stamina by the provided amount.
+func decrease_stamina(amount: int) -> void:
 	if amount > run_stamina: run_stamina = 0
 	else: run_stamina -= amount
 	run_stamina_changed.emit(run_stamina)

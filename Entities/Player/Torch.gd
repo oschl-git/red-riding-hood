@@ -1,4 +1,4 @@
-# Handles the in-game torch.
+## Handles the in-game torch.
 
 extends UsableItem
 
@@ -32,7 +32,7 @@ func _ready() -> void:
 	super()
 
 
-# Changes state of the item to the provided one.
+## Changes state of the item to the provided one.
 func change_state_to(state : bool) -> void:
 	if state == true:
 		if matches <= 0:
@@ -47,7 +47,7 @@ func change_state_to(state : bool) -> void:
 	super(state)
 
 
-# Swings the torch.
+## Swings the torch.
 func swing() -> void:
 	if not activated: return
 	if animation_player.is_playing(): return
@@ -63,12 +63,12 @@ func swing() -> void:
 	swinging = false
 
 
-# Sets burn timer paused to the provided value.
+## Sets burn timer paused to the provided value.
 func set_burn_timer_paused(value : bool) -> void:
 	burn_timer.paused = value
 
 
-# Reacts to burn timer timeout.
+## Reacts to burn timer timeout.
 func _on_burn_timer_timeout() -> void:
 	if burn_time_left <= 0:
 		burning_out = true 
@@ -84,7 +84,7 @@ func _on_burn_timer_timeout() -> void:
 	burn_time_changed.emit(burn_time_left)
 
 
-# Reacts to mouse events.
+## Reacts to mouse events.
 func mouse_input(event : InputEvent):
 	if Global.movement_disabled: return
 	if animation_player.is_playing(): return
@@ -93,6 +93,6 @@ func mouse_input(event : InputEvent):
 	elif event.is_action_pressed('right_mouse_click'): change_state_to(false)
 
 
-# Returns action label for the item.
+## Returns action label for the item.
 func get_item_label() -> String:
 	return '[LMB] swing / [RMB] extinguish'

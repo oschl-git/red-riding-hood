@@ -1,9 +1,9 @@
-# Handles the rifle quick menu UI item.
+## Handles the rifle quick menu UI item.
 
 extends QuickMenuItem
 
 
-# Built-in functions:
+## Built-in functions:
 func _ready() -> void:
 	disabled_texture = load('res://UI/QuickMenu/Textures/questionmark.png')
 	enabled_texture = load('res://UI/QuickMenu/Textures/questionmark.png')
@@ -18,13 +18,13 @@ func _ready() -> void:
 	super()
 
 
-# Executes item action.
+## Executes item action.
 func execute_item_action() -> void:
 	# TODO: implement rifle functionality.
 	pass
 
 
-# Returns the correct item tooltip.
+## Returns the correct item tooltip.
 func get_item_tooltip() -> String:
 	return ''
 	# if not available: return '???'

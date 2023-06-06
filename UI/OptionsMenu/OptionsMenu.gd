@@ -1,3 +1,5 @@
+## This script handles the options menu.
+
 extends Control
 class_name OptionsMenu
 
@@ -23,12 +25,14 @@ func _ready() -> void:
 	distortion_effects_button.set_option_value('on' if Global.enable_distortion_effects else 'off')
 
 
+## Shows the options menu.
 func show_menu() -> void:
 	for button in get_tree().get_nodes_in_group('option_buttons'):
 		button.reset()
 	visible = true
 
 
+## Hides the options menu.
 func hide_menu() -> void:
 	visible = false
 

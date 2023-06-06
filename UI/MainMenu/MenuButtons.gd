@@ -1,4 +1,4 @@
-# A script managing all main menu buttons.
+## A script managing all main menu buttons.
 
 extends Control
 

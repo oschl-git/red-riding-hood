@@ -1,4 +1,4 @@
-# Singleton running in the background, handling various things.
+## Singleton running in the background, handling various things.
 
 extends Node
 
@@ -14,17 +14,14 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed('debug_restart'): get_tree().reload_current_scene()
 
 
-# Sets up stuff at the start of the game.
+## Sets up stuff at the start of the game.
 func initial_setup():
 	# DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	pass
 
 
-# Toggles fullscreen.
+## Toggles fullscreen.
 func toggle_fullscreen() -> void:
-	if (DisplayServer.window_get_mode() == 
-			DisplayServer.WINDOW_MODE_FULLSCREEN):
-		DisplayServer.window_set_mode(
-			DisplayServer.WINDOW_MODE_WINDOWED)
-	else: DisplayServer.window_set_mode(
-			DisplayServer.WINDOW_MODE_FULLSCREEN)
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	else: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

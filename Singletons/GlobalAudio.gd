@@ -1,4 +1,4 @@
-# A singleton that plays audio in the background.
+## A singleton that plays audio in the background.
 
 extends Node
 
@@ -20,6 +20,8 @@ func _ready() -> void:
 	music_stream_player.finished.connect(on_stream_finished)
 
 
+## Plays a music file from the provided path.
+## Optionally, provide a boolean value if sound should repeat.
 func play_music_from_path(path : String, repeat : bool = false):
 	current_path = path
 	current_repeat = repeat
@@ -28,6 +30,7 @@ func play_music_from_path(path : String, repeat : bool = false):
 	music_stream_player.play()
 
 
+## Stops any sounds from playing.
 func stop_streaming():
 	music_stream_player.stop()
 

@@ -1,4 +1,4 @@
-# Handles animating the wolf.
+## Handles animating the wolf.
 
 extends AnimationPlayer
 
@@ -7,6 +7,7 @@ extends AnimationPlayer
 @onready var wolf : Wolf = get_parent()
 
 
+## Handles wolf animation depending on the current action.
 func handle_wolf_animation(action : Wolf.actions) -> void:
 	if action == Wolf.actions.HESITATING:
 		pause()
@@ -20,5 +21,6 @@ func handle_wolf_animation(action : Wolf.actions) -> void:
 		Wolf.actions.FORCE_RUNNING_AT_PLAYER: play('Wolf_Run_Cycle_')
 
 
+## Plays an animation.
 func play_animation(animation_name: String) -> void:
 	play(animation_name)

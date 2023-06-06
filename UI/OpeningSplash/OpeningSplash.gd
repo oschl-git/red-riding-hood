@@ -1,4 +1,4 @@
-# This script handles the opening splash screen.
+## This script handles the opening splash screen.
 
 extends Control
 

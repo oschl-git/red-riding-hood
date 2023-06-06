@@ -1,4 +1,4 @@
-# A script managing all death screen buttons.
+## A script managing all death screen buttons.
 
 extends VBoxContainer
 

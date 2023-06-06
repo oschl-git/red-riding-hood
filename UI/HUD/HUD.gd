@@ -1,4 +1,4 @@
-# Handles the HUD.
+## Handles the HUD.
 
 extends Control
 class_name HUD

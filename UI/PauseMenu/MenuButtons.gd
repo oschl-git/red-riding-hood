@@ -1,4 +1,4 @@
-# A script managing all pause menu buttons.
+## A script managing all pause menu buttons.
 
 extends Control
 

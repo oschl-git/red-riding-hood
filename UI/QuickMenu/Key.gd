@@ -1,4 +1,4 @@
-# Handles the key quick menu item.
+## Handles the key quick menu item.
 
 extends QuickMenuItem
 
@@ -18,13 +18,13 @@ func _ready() -> void:
 	super()
 
 
-# Executes item action.
+## Executes item action.
 func execute_item_action() -> void:
 	# TODO: Implement key functionality.
 	pass
 
 
-# Returns the correct item tooltip.
+## Returns the correct item tooltip.
 func get_item_tooltip() -> String:
 	return ''
 	# if not available: return 'step 1: find it. step 2: find what it unlocks.'
