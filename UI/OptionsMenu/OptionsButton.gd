@@ -10,8 +10,8 @@ class_name OptionsButton
 
 # Adjustable values:
 @onready var default_color = modulate
-const hover_color := Color('##ad0015')
-const pressed_color := Color('##d4001c')
+const hover_color := Color('#ad0015')
+const pressed_color := Color('#d4001c')
 
 # Changing variables:
 var currently_mouse_inside := false
