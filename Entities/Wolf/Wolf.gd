@@ -55,7 +55,7 @@ signal action_changed(new_action: actions)
 # Built-in functions:
 func _ready() -> void:
 	Global.wolf = self
-	$AnimationPlayer.play('Wolf_Run_Cycle_')
+	$AnimationPlayer.play('Wolf_Run_')
 	action_changed.connect(on_action_changed)
 	Global.player.torch_swung.connect(on_player_swung_torch)
 
@@ -115,7 +115,7 @@ func flee() -> void:
 
 
 func kill_player() -> void:
-	$Wolf_Skeleton/Skeleton3D/Wolf_obj_body004.visible = false
+	$Wolf_Skeleton/Skeleton3D/Wolf_obj_body_004.visible = false
 	kill_timer.stop()
 	change_action(actions.FORCE_RUNNING_AT_PLAYER)
 

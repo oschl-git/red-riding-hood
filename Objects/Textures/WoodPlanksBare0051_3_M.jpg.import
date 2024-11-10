@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmlj4m5op7px4"
 path.s3tc="res://.godot/imported/WoodPlanksBare0051_3_M.jpg-d97e4668204957f6b26f4a4418654cb2.s3tc.ctex"
+path.etc2="res://.godot/imported/WoodPlanksBare0051_3_M.jpg-d97e4668204957f6b26f4a4418654cb2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Objects/Textures/WoodPlanksBare0051_3_M.jpg"
-dest_files=["res://.godot/imported/WoodPlanksBare0051_3_M.jpg-d97e4668204957f6b26f4a4418654cb2.s3tc.ctex"]
+dest_files=["res://.godot/imported/WoodPlanksBare0051_3_M.jpg-d97e4668204957f6b26f4a4418654cb2.s3tc.ctex", "res://.godot/imported/WoodPlanksBare0051_3_M.jpg-d97e4668204957f6b26f4a4418654cb2.etc2.ctex"]
 
 [params]
 

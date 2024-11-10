@@ -1,14 +1,20 @@
-[gd_scene load_steps=18 format=3 uid="uid://dxobcc5qh5xup"]
+[gd_scene load_steps=20 format=3 uid="uid://dxobcc5qh5xup"]
 
 [ext_resource type="Texture2D" uid="uid://c7ljtt45iuj8d" path="res://UI/Logos/red_riding_hood.png" id="1_jhuqf"]
 [ext_resource type="PackedScene" uid="uid://cs3kgmdfvajq5" path="res://Objects/campfire.tscn" id="1_v70ry"]
 [ext_resource type="Script" path="res://UI/MainMenu/MainMenu.gd" id="1_vqno1"]
+[ext_resource type="Shader" path="res://Shaders/chromatic_abberation.gdshader" id="2_t5vo4"]
 [ext_resource type="FontFile" uid="uid://3r5i3edjcxtf" path="res://UI/Fonts/quan.ttf" id="2_undsf"]
 [ext_resource type="Theme" uid="uid://cudo7s2c2570a" path="res://UI/MainMenu/button_theme.tres" id="3_gihyp"]
 [ext_resource type="Texture2D" uid="uid://bneupdsg5xw2b" path="res://Objects/Textures/sky.png" id="4_46e8d"]
 [ext_resource type="Script" path="res://UI/MainMenu/MenuButtons.gd" id="4_b132q"]
 [ext_resource type="PackedScene" uid="uid://car0pwqmf44x8" path="res://UI/OptionsMenu/options_menu.tscn" id="6_og5x7"]
 [ext_resource type="PackedScene" uid="uid://d0wwm0pyn6txx" path="res://UI/Credits/credits.tscn" id="7_dqepe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ei5x8"]
+shader = ExtResource("2_t5vo4")
+shader_parameter/levels = 3
+shader_parameter/spread = -0.1
 
 [sub_resource type="Theme" id="Theme_78340"]
 VBoxContainer/constants/separation = -5
@@ -124,6 +130,16 @@ _data = {
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_vqno1")
 
+[node name="ChromaticAbberation" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ei5x8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -180,12 +196,14 @@ text = "quit"
 alignment = 0
 
 [node name="Copyright" type="Label" parent="UI"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.8
-anchor_top = 0.916667
+anchor_top = 0.872222
 anchor_right = 0.978125
-anchor_bottom = 0.983333
-text = "© oschl 2023"
+anchor_bottom = 0.977778
+text = "v0.1.1
+© oschl 2024"
 label_settings = SubResource("LabelSettings_wqxrp")
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true

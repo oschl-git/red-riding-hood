@@ -18,16 +18,16 @@ point_count = 3
 curve = SubResource("Curve_n0ms3")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i2p5a"]
+angle_max = 360.0
 direction = Vector3(0, 1, 0)
 spread = 5.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 1.0
 initial_velocity_max = 1.0
 angular_velocity_min = -50.0
 angular_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
 linear_accel_min = 1.0
 linear_accel_max = 1.0
-angle_max = 360.0
 scale_min = 2.0
 scale_max = 2.0
 scale_curve = SubResource("CurveTexture_j07p2")
@@ -55,16 +55,16 @@ gradient = SubResource("Gradient_tqk11")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ycvrg"]
 lifetime_randomness = 1.0
+angle_max = 360.0
 direction = Vector3(0, 1, 0)
 spread = 5.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 1.0
 initial_velocity_max = 1.0
 angular_velocity_min = -50.0
 angular_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
 linear_accel_min = 1.0
 linear_accel_max = 1.0
-angle_max = 360.0
 color_ramp = SubResource("GradientTexture1D_rxsgd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pqadm"]

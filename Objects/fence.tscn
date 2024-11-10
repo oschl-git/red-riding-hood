@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgdvvq2jt8sw6"]
+[gd_scene load_steps=6 format=4 uid="uid://bgdvvq2jt8sw6"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2d6kc"]
 load_path = "res://.godot/imported/fence_fence_pixel.png-13e194a36744ba2b007e2165559ab725.s3tc.ctex"
@@ -15,13 +15,14 @@ texture_filter = 2
 [sub_resource type="ArrayMesh" id="ArrayMesh_58xeq"]
 _surfaces = [{
 "aabb": AABB(-9.43724e-08, 0, -0.75, 1.00377e-05, 2, 1.50001),
-"format": 4097,
+"format": 34359742465,
 "index_count": 12,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 0, 0, 5, 0, 2, 0, 0, 0, 4, 0, 5, 0),
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAAAFAAIAAAAEAAUA"),
 "name": "Material.001",
 "primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 6,
-"vertex_data": PackedByteArray(30, 50, 115, 179, 0, 0, 192, 63, 0, 0, 64, 63, 30, 50, 115, 51, 0, 0, 0, 0, 0, 0, 64, 63, 30, 50, 115, 179, 0, 0, 192, 63, 0, 0, 64, 191, 30, 50, 115, 51, 0, 0, 0, 0, 0, 0, 64, 191, 195, 169, 202, 179, 0, 0, 0, 64, 0, 0, 64, 63, 195, 169, 202, 179, 0, 0, 0, 64, 0, 0, 64, 191)
+"vertex_data": PackedByteArray("HjJzswAAwD8AAEA/HjJzMwAAAAAAAEA/HjJzswAAwD8AAEC/HjJzMwAAAAAAAEC/w6nKswAAAEAAAEA/w6nKswAAAEAAAEC/")
 }]
 blend_shape_mode = 0
 
@@ -29,15 +30,16 @@ blend_shape_mode = 0
 resource_name = "fence_Plane002"
 _surfaces = [{
 "aabb": AABB(-9.43724e-08, 0, -0.75, 1.00377e-05, 2, 1.50001),
-"attribute_data": PackedByteArray(0, 0, 0, 0, 72, 213, 61, 62, 0, 0, 0, 0, 72, 213, 61, 62, 0, 0, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 72, 213, 61, 62, 0, 0, 128, 63, 72, 213, 61, 62, 1, 0, 128, 63, 255, 255, 127, 63, 0, 0, 0, 0, 0, 174, 10, 187, 0, 0, 128, 63, 0, 174, 10, 187),
-"format": 4119,
+"attribute_data": PackedByteArray("AAAAAEjVPT4AAAAASNU9PgAAADQAAIA/AACAP0jVPT4AAIA/SNU9PgEAgD///38/AAAAAACuCrsAAIA/AK4Kuw=="),
+"format": 34359742487,
 "index_count": 12,
-"index_data": PackedByteArray(1, 0, 5, 0, 2, 0, 1, 0, 4, 0, 5, 0, 0, 0, 7, 0, 3, 0, 0, 0, 6, 0, 7, 0),
+"index_data": PackedByteArray("AQAFAAIAAQAEAAUAAAAHAAMAAAAGAAcA"),
 "material": SubResource("StandardMaterial3D_78cfv"),
 "name": "Material.001",
 "primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
-"vertex_data": PackedByteArray(30, 50, 115, 179, 0, 0, 192, 63, 0, 0, 64, 63, 254, 255, 255, 127, 255, 255, 255, 255, 30, 50, 115, 179, 0, 0, 192, 63, 0, 0, 64, 63, 254, 255, 255, 127, 255, 255, 0, 128, 30, 50, 115, 51, 0, 0, 0, 0, 0, 0, 64, 63, 254, 255, 255, 127, 255, 255, 0, 128, 30, 50, 115, 179, 0, 0, 192, 63, 0, 0, 64, 191, 254, 255, 255, 127, 255, 255, 255, 255, 30, 50, 115, 179, 0, 0, 192, 63, 0, 0, 64, 191, 254, 255, 255, 127, 255, 255, 255, 255, 30, 50, 115, 51, 0, 0, 0, 0, 0, 0, 64, 191, 254, 255, 255, 127, 255, 255, 0, 128, 195, 169, 202, 179, 0, 0, 0, 64, 0, 0, 64, 63, 254, 255, 255, 127, 255, 255, 255, 255, 195, 169, 202, 179, 0, 0, 0, 64, 0, 0, 64, 191, 254, 255, 255, 127, 255, 255, 255, 255)
+"vertex_data": PackedByteArray("HjJzswAAwD8AAEA/HjJzswAAwD8AAEA/HjJzMwAAAAAAAEA/HjJzswAAwD8AAEC/HjJzswAAwD8AAEC/HjJzMwAAAAAAAEC/w6nKswAAAEAAAEA/w6nKswAAAEAAAEC//v//f//////+//9///8AgP7//3///wCA/v//f//////+//9///////7//3///wCA/v//f//////+//9//////w==")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_58xeq")

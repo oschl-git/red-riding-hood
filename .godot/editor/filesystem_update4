@@ -1,5 +1,2 @@
-res://Scenes/game_world.tscn
+res://Shaders/chromatic_abberation.gdshader
 res://UI/MainMenu/button_theme.tres
-res://Objects/MeshLibraries/flora.tres
-res://Objects/MeshLibraries/fences.tres
-res://UI/OptionsMenu/OptionsButton.gd

@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://die2m1j4cdu61"
+path.s3tc="res://.godot/imported/log_cabin_8.jpg-b0f449cf1ee18dda0c5486f3f468b0ad.s3tc.ctex"
+path.etc2="res://.godot/imported/log_cabin_8.jpg-b0f449cf1ee18dda0c5486f3f468b0ad.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "5474e791d87e73d135195ccad438b94a"
+}
+
+[deps]
+
+source_file="res://Models/log_cabin_8.jpg"
+dest_files=["res://.godot/imported/log_cabin_8.jpg-b0f449cf1ee18dda0c5486f3f468b0ad.s3tc.ctex", "res://.godot/imported/log_cabin_8.jpg-b0f449cf1ee18dda0c5486f3f468b0ad.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -1,21 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d4dpe1qoksphl"]
+[gd_scene load_steps=8 format=3 uid="uid://d4dpe1qoksphl"]
 
 [ext_resource type="PackedScene" uid="uid://bwomnhdbvd42h" path="res://Models/wolf.glb" id="1_lcqtm"]
 [ext_resource type="Texture2D" uid="uid://c02mkn645s2ns" path="res://Models/wolf_Wolf_Fur_3.png" id="2_b466p"]
 [ext_resource type="Script" path="res://Entities/Wolf/Wolf.gd" id="2_uat0r"]
 [ext_resource type="Script" path="res://Entities/Wolf/AnimationPlayer.gd" id="4_c3edr"]
 [ext_resource type="Script" path="res://Entities/Wolf/Sounds.gd" id="5_wrs41"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fm1ok"]
-load_path = "res://.godot/imported/wolf_Wolf_Body.png-2ed22592eef05970bab6c8b85ee2a19d.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mym2c"]
-resource_name = "Wolf_Body"
-cull_mode = 2
-vertex_color_use_as_albedo = true
-albedo_texture = SubResource("CompressedTexture2D_fm1ok")
-roughness = 0.8
-texture_filter = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7fboq"]
 resource_name = "Wolf_Fur"
@@ -38,13 +27,72 @@ script = ExtResource("2_uat0r")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Wolf_Skeleton" index="0"]
+bones/1/position = Vector3(6.47361e-08, 1.42003, -0.740495)
+bones/1/rotation = Quaternion(0.77068, -2.78537e-08, 3.36878e-08, 0.637223)
+bones/2/position = Vector3(8.78245e-14, 0.329146, -0.124568)
+bones/2/rotation = Quaternion(-0.109781, -3.31165e-13, -5.1003e-14, 0.993956)
+bones/3/position = Vector3(1.07293e-23, 0.378665, -1.16626e-07)
+bones/3/rotation = Quaternion(-0.0205885, 8.14874e-18, 1.89459e-19, 0.999788)
+bones/4/position = Vector3(-1.9109e-22, 0.374442, -4.5288e-08)
+bones/4/rotation = Quaternion(-0.134024, -2.10366e-19, -2.81304e-20, 0.990978)
+bones/5/position = Vector3(2.66352e-22, 0.440308, 0.212786)
+bones/5/rotation = Quaternion(-0.397767, 9.30889e-22, 4.74265e-22, 0.917487)
+bones/6/position = Vector3(-2.31611e-23, 0.554056, 2.39329e-09)
+bones/6/rotation = Quaternion(0.987575, -2.19127e-23, -9.90216e-23, 0.157148)
+bones/7/position = Vector3(1.65261e-10, 0.355522, -1.26158e-07)
+bones/7/rotation = Quaternion(-0.834982, 0.000543911, -0.000598807, 0.550277)
+bones/8/position = Vector3(-0.00159611, 0.222966, 0.142123)
+bones/8/rotation = Quaternion(0.562216, 0.023793, 0.00417072, 0.826638)
+bones/9/position = Vector3(-0.00270266, 0.104938, 0.0422271)
+bones/9/rotation = Quaternion(0.495967, -0.0142003, 0.0203566, 0.867986)
+bones/10/position = Vector3(0.00270268, 0.0291152, -0.042227)
+bones/11/position = Vector3(-0.000144591, 0.318553, 0.140126)
+bones/11/rotation = Quaternion(0.248496, -0.000805206, 7.78826e-05, 0.968633)
+bones/12/position = Vector3(0.126647, 0.235569, 0.131298)
 bones/12/rotation = Quaternion(-0.21292, 0.964486, 0.150233, -0.0431441)
+bones/13/position = Vector3(-0.126949, 0.235632, 0.130893)
+bones/13/rotation = Quaternion(0.212933, 0.96436, 0.150562, 0.0447152)
+bones/14/position = Vector3(0.128104, 0.224272, -0.241265)
+bones/14/rotation = Quaternion(-0.457678, -0.130332, -0.0206991, 0.87927)
+bones/15/position = Vector3(-0.12722, 0.224336, -0.241673)
+bones/15/rotation = Quaternion(-0.457678, 0.12904, 0.0197484, 0.879483)
+bones/16/position = Vector3(0.129714, 0.343065, -0.115237)
 bones/16/rotation = Quaternion(-0.484574, 0.770198, 0.119712, -0.397054)
+bones/17/position = Vector3(-0.129174, 0.34313, -0.115651)
+bones/17/rotation = Quaternion(0.484574, 0.769441, 0.120388, 0.398314)
+bones/18/position = Vector3(0.114501, 0.36361, -0.0562827)
 bones/18/rotation = Quaternion(-0.500213, 0.847175, 0.131704, -0.121389)
+bones/19/position = Vector3(-0.11414, 0.363667, -0.056648)
+bones/19/rotation = Quaternion(0.500213, 0.846855, 0.132473, 0.122776)
+bones/20/position = Vector3(0.115951, 0.357671, -0.0468426)
 bones/20/rotation = Quaternion(-0.51614, 0.802546, 0.124731, -0.271959)
-
-[node name="Wolf_obj_body004" parent="Wolf_Skeleton/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_mym2c")
+bones/21/position = Vector3(-0.115622, 0.357729, -0.0472128)
+bones/21/rotation = Quaternion(0.51614, 0.801982, 0.125488, 0.273273)
+bones/22/position = Vector3(-5.55866e-22, 0.446903, -0.212786)
+bones/23/position = Vector3(0.133728, 0.312399, 8.47354e-09)
+bones/23/rotation = Quaternion(-0.543911, 0.126393, -0.21094, 0.802303)
+bones/24/rotation = Quaternion(0.55067, -0.116671, 0.208311, 0.799848)
+bones/25/rotation = Quaternion(-0.333577, -0.000891642, -0.00441909, 0.942712)
+bones/26/rotation = Quaternion(-0.643886, -0.0118576, -3.68893e-06, 0.76503)
+bones/27/position = Vector3(-0.133728, 0.312399, 2.78745e-08)
+bones/27/rotation = Quaternion(-0.543911, -0.126393, 0.21094, 0.802303)
+bones/28/rotation = Quaternion(0.55067, 0.116671, -0.208311, 0.799848)
+bones/29/rotation = Quaternion(-0.333578, 0.00089161, 0.00441916, 0.942712)
+bones/30/rotation = Quaternion(-0.643476, 0.039104, -0.0229489, 0.764122)
+bones/31/position = Vector3(-3.4651e-14, -0.00978236, 0.0438455)
+bones/31/rotation = Quaternion(0.963152, -1.03847e-13, 3.18563e-13, 0.268957)
+bones/32/rotation = Quaternion(0.0661437, 8.55203e-20, -2.7292e-20, 0.99781)
+bones/33/rotation = Quaternion(0.120275, 8.20778e-23, 4.15697e-23, 0.992741)
+bones/34/rotation = Quaternion(0.101087, -5.63381e-23, -9.05355e-23, 0.994878)
+bones/35/position = Vector3(0.204295, 0.19005, 0.040361)
+bones/35/rotation = Quaternion(0.60755, 0.0647747, -0.00614006, 0.791612)
+bones/36/rotation = Quaternion(0.322017, -0.0385189, 0.064492, 0.943749)
+bones/37/rotation = Quaternion(-0.28411, 0.0332888, -0.0556054, 0.956599)
+bones/39/position = Vector3(-0.204295, 0.19005, 0.040361)
+bones/39/rotation = Quaternion(0.60755, -0.0647743, 0.00614005, 0.791612)
+bones/40/rotation = Quaternion(0.322016, 0.0385187, -0.0644916, 0.943749)
+bones/41/rotation = Quaternion(-0.284105, -0.0332886, 0.0556052, 0.9566)
+bones/42/rotation = Quaternion(1.21275e-05, -0.703224, 0.708867, 0.0546259)
 
 [node name="Wolf_obj_body" parent="Wolf_Skeleton/Skeleton3D" index="4"]
 surface_material_override/0 = SubResource("StandardMaterial3D_7fboq")
@@ -87,7 +135,7 @@ one_shot = true
 max_distance = 15.0
 bus = &"SFX"
 
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout" flags=18]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]
 [connection signal="timeout" from="HesitateTimer" to="." method="_on_hesitate_timer_timeout"]
 [connection signal="timeout" from="Sounds/Growls/Timer" to="Sounds" method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://430cvcxo2srr"]
+[gd_scene load_steps=9 format=4 uid="uid://430cvcxo2srr"]
 
 [ext_resource type="PackedScene" uid="uid://dssifrb15emay" path="res://Models/bush.glb" id="1_w0fsv"]
 [ext_resource type="Texture2D" uid="uid://3s8txt7chynu" path="res://Models/bush_basic_foliage.png" id="2_db5nv"]
@@ -77,7 +77,7 @@ shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/alpha_scissor_threshold = 0.5
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = Plane(1, 0, 0, 0)
+shader_parameter/metallic_texture_channel = null
 shader_parameter/specular = 0.5
 shader_parameter/metallic = 0.0
 shader_parameter/uv1_scale = Vector3(1, 1, 1)
@@ -92,31 +92,34 @@ shader_parameter/noise_tex = SubResource("NoiseTexture2D_ajaao")
 [sub_resource type="ArrayMesh" id="ArrayMesh_epdhn"]
 _surfaces = [{
 "aabb": AABB(-0.249824, 9.55343e-16, -0.433114, 0.499649, 1, 0.866238),
-"format": 4097,
+"format": 34359742465,
 "index_count": 6,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
 "name": "folliage.003",
 "primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray(250, 209, 127, 190, 238, 173, 137, 38, 31, 193, 221, 62, 248, 209, 127, 62, 238, 173, 137, 38, 31, 193, 221, 190, 247, 209, 127, 190, 0, 0, 128, 63, 32, 193, 221, 62, 251, 209, 127, 62, 0, 0, 128, 63, 30, 193, 221, 190)
+"vertex_data": PackedByteArray("+tF/vu6tiSYfwd0++NF/Pu6tiSYfwd2+99F/vgAAgD8gwd0++9F/PgAAgD8ewd2+")
 }, {
 "aabb": AABB(-0.5, 1.08703e-08, -2.98023e-08, 1, 1, 1e-05),
-"format": 4097,
+"format": 34359742465,
 "index_count": 6,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
 "name": "folliage",
 "primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 0, 191, 242, 159, 162, 50, 0, 0, 0, 179, 255, 255, 255, 62, 32, 192, 58, 50, 0, 0, 0, 179, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 128, 50, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 128, 50)
+"vertex_data": PackedByteArray("AAAAv/KfojIAAACz////PiDAOjIAAACzAAAAvwAAgD8AAIAyAAAAPwAAgD8AAIAy")
 }, {
 "aabb": AABB(-0.25, 1.08792e-08, -0.433013, 0.50001, 1, 0.866035),
-"format": 4097,
+"format": 34359742465,
 "index_count": 6,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
 "name": "folliage.004",
 "primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 128, 62, 22, 231, 58, 50, 215, 179, 221, 62, 3, 0, 128, 190, 118, 140, 162, 50, 214, 179, 221, 190, 2, 0, 128, 62, 0, 0, 128, 63, 214, 179, 221, 62, 0, 0, 128, 190, 0, 0, 128, 63, 216, 179, 221, 190)
+"vertex_data": PackedByteArray("AACAPhbnOjLXs90+AwCAvnaMojLWs92+AgCAPgAAgD/Ws90+AACAvgAAgD/Ys92+")
 }]
 blend_shape_mode = 0
 
@@ -124,37 +127,40 @@ blend_shape_mode = 0
 resource_name = "bush_Plane003"
 _surfaces = [{
 "aabb": AABB(-0.249824, 9.55343e-16, -0.433114, 0.499649, 1, 0.866238),
-"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0),
-"format": 4119,
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAACAPwAAAAA="),
+"format": 34359742487,
 "index_count": 6,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
 "material": SubResource("ShaderMaterial_e1lt6"),
 "name": "folliage",
 "primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray(250, 209, 127, 190, 238, 173, 137, 38, 31, 193, 221, 62, 44, 209, 255, 127, 255, 255, 149, 232, 248, 209, 127, 62, 238, 173, 137, 38, 31, 193, 221, 190, 44, 209, 255, 127, 255, 255, 149, 232, 247, 209, 127, 190, 0, 0, 128, 63, 32, 193, 221, 62, 44, 209, 255, 127, 255, 255, 149, 232, 251, 209, 127, 62, 0, 0, 128, 63, 30, 193, 221, 190, 44, 209, 255, 127, 255, 255, 149, 232)
+"vertex_data": PackedByteArray("+tF/vu6tiSYfwd0++NF/Pu6tiSYfwd2+99F/vgAAgD8gwd0++9F/PgAAgD8ewd2+LNH/f///legs0f9///+V6CzR/3///5XoLNH/f///leg=")
 }, {
 "aabb": AABB(-0.5, 1.08703e-08, -2.98023e-08, 1, 1, 1e-05),
-"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0),
-"format": 4119,
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAACAPwAAAAA="),
+"format": 34359742487,
 "index_count": 6,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
 "material": SubResource("ShaderMaterial_e1lt6"),
 "name": "folliage.002",
 "primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 0, 191, 242, 159, 162, 50, 0, 0, 0, 179, 255, 127, 255, 127, 255, 255, 255, 191, 255, 255, 255, 62, 32, 192, 58, 50, 0, 0, 0, 179, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 128, 50, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 128, 50, 255, 127, 255, 127, 255, 255, 255, 191)
+"vertex_data": PackedByteArray("AAAAv/KfojIAAACz////PiDAOjIAAACzAAAAvwAAgD8AAIAyAAAAPwAAgD8AAIAy/3//f////7//f/9/////v/9//3////+//3//f////78=")
 }, {
 "aabb": AABB(-0.25, 1.08792e-08, -0.433013, 0.50001, 1, 0.866035),
-"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0),
-"format": 4119,
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAACAPwAAAAA="),
+"format": 34359742487,
 "index_count": 6,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"index_data": PackedByteArray("AAADAAEAAAACAAMA"),
 "material": SubResource("ShaderMaterial_e1lt6"),
 "name": "folliage.003",
 "primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 128, 62, 22, 231, 58, 50, 215, 179, 221, 62, 255, 255, 37, 81, 0, 0, 146, 232, 3, 0, 128, 190, 118, 140, 162, 50, 214, 179, 221, 190, 255, 255, 37, 81, 0, 0, 146, 232, 2, 0, 128, 62, 0, 0, 128, 63, 214, 179, 221, 62, 255, 255, 37, 81, 0, 0, 146, 232, 0, 0, 128, 190, 0, 0, 128, 63, 216, 179, 221, 190, 255, 255, 37, 81, 0, 0, 146, 232)
+"vertex_data": PackedByteArray("AACAPhbnOjLXs90+AwCAvnaMojLWs92+AgCAPgAAgD/Ws90+AACAvgAAgD/Ys92+//8lUQAAkuj//yVRAACS6P//JVEAAJLo//8lUQAAkug=")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_epdhn")

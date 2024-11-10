@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://sb3nah1duv21"
 path.s3tc="res://.godot/imported/wolf_Wolf_Body.png-2ed22592eef05970bab6c8b85ee2a19d.s3tc.ctex"
+path.etc2="res://.godot/imported/wolf_Wolf_Body.png-2ed22592eef05970bab6c8b85ee2a19d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/wolf_Wolf_Body.png"
-dest_files=["res://.godot/imported/wolf_Wolf_Body.png-2ed22592eef05970bab6c8b85ee2a19d.s3tc.ctex"]
+dest_files=["res://.godot/imported/wolf_Wolf_Body.png-2ed22592eef05970bab6c8b85ee2a19d.s3tc.ctex", "res://.godot/imported/wolf_Wolf_Body.png-2ed22592eef05970bab6c8b85ee2a19d.etc2.ctex"]
 
 [params]
 

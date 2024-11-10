@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://3s8txt7chynu"
 path.s3tc="res://.godot/imported/bush_basic_foliage.png-65be5a625d7f674b33d4593a43a4da5b.s3tc.ctex"
+path.etc2="res://.godot/imported/bush_basic_foliage.png-65be5a625d7f674b33d4593a43a4da5b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/bush_basic_foliage.png"
-dest_files=["res://.godot/imported/bush_basic_foliage.png-65be5a625d7f674b33d4593a43a4da5b.s3tc.ctex"]
+dest_files=["res://.godot/imported/bush_basic_foliage.png-65be5a625d7f674b33d4593a43a4da5b.s3tc.ctex", "res://.godot/imported/bush_basic_foliage.png-65be5a625d7f674b33d4593a43a4da5b.etc2.ctex"]
 
 [params]
 

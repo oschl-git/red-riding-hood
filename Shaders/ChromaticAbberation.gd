@@ -15,6 +15,7 @@ func _physics_process(_delta: float) -> void:
 	# Stops the effect from happening if it's disabled in the settings:
 	if not Global.enable_distortion_effects:
 		material.set_shader_parameter('spread', 0)
+		visible = false
 		return
 
 	var distance := Global.player.global_position.distance_to(Global.wolf.global_position)
@@ -26,5 +27,7 @@ func _physics_process(_delta: float) -> void:
 	elif distance < activation_distance:
 		var spread_percent : float = 100 - (distance / activation_distance * 100)
 		spread = (max_spread / float(100)) * spread_percent if spread_percent > 0 else float(0)
+
+	visible = distance < activation_distance
 
 	material.set_shader_parameter('spread', spread)
